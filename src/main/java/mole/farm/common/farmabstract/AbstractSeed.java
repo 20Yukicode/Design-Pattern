@@ -1,12 +1,15 @@
 package mole.farm.common.farmabstract;
 
+import mole.farm.common.farmabstract.useless.IMole;
 import mole.farm.common.farmenum.Color;
 import mole.farm.common.farmenum.Size;
+
+import java.util.List;
 
 /**
  * 抽象农场种子
  */
-public abstract class AbstractSeed implements ISeed {
+public abstract class AbstractSeed implements IMole {
     /**
     颜色
      */
@@ -19,5 +22,11 @@ public abstract class AbstractSeed implements ISeed {
      * 生长周期
      */
     private String growthCycle;
+
+    /**
+     * 播种种子
+     * @param seedList
+     */
+    void sowSeeds(List<AbstractSeed> seedList);
 
 }

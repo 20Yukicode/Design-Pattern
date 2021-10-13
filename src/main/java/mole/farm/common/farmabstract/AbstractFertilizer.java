@@ -1,8 +1,10 @@
 package mole.farm.common.farmabstract;
 
+import mole.farm.common.farmabstract.useless.IMole;
+
 /**
  * 抽象农场肥料
  */
-public abstract class AbstractFertilizer implements IFertilizer {
+public abstract class AbstractFertilizer implements IMole {
     private String name;
 }

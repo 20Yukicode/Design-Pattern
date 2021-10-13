@@ -14,7 +14,6 @@ public interface IFarm extends IMole {
      * @param seedList
      */
     void plantSeed(List<AbstractSeed>seedList);
-
     /**
      * 收获作物
      */

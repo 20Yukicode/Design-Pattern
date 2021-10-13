@@ -1,5 +1,7 @@
 package mole.farm.common.farmabstract;
 
-public abstract class AbstractCrops implements ICrops{
+import mole.farm.common.farmabstract.useless.IMole;
+
+public abstract class AbstractCrops implements IMole {
     private String name;
 }
