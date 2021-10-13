@@ -27,6 +27,5 @@ public abstract class AbstractSeed implements IMole {
      * 播种种子
      * @param seedList
      */
-    void sowSeeds(List<AbstractSeed> seedList);
-
+    public abstract void sowSeeds(List<AbstractSeed> seedList);
 }

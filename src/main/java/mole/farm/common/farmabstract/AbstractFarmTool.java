@@ -10,5 +10,5 @@ public abstract class AbstractFarmTool implements IMole {
     /**
      * 工具的处理行为
      */
-    abstract void ToolBehavior();
+    public abstract void ToolBehavior();
 }
