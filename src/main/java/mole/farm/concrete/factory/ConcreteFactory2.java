@@ -1,11 +1,11 @@
 package mole.farm.concrete.factory;
 
-import mole.farm.common.factory.IFarmFactory;
+import mole.farm.common.factory.IFactory;
 import mole.farm.common.farmabstract.AbstractFarmTool;
 import mole.farm.common.farmabstract.AbstractFertilizer;
 import mole.farm.common.farmabstract.AbstractSeed;
 
-public class ConcreteFactory2 implements IFarmFactory {
+public class ConcreteFactory2 implements IFactory {
     @Override
     public AbstractSeed newSeed() {
         return null;
