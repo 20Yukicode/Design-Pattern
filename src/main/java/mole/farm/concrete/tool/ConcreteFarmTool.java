@@ -1,4 +1,10 @@
 package mole.farm.concrete.tool;
 
-public class ConcreteFarmTool {
+import mole.farm.common.farmabstract.AbstractFarmTool;
+
+public class ConcreteFarmTool extends AbstractFarmTool {
+    @Override
+    public void ToolBehavior() {
+
+    }
 }

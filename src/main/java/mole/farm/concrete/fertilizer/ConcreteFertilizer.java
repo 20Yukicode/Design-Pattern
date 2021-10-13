@@ -1,4 +1,6 @@
 package mole.farm.concrete.fertilizer;
 
-public class ConcreteFertilizer {
+import mole.farm.common.farmabstract.AbstractFertilizer;
+
+public class ConcreteFertilizer extends AbstractFertilizer {
 }
