@@ -7,9 +7,8 @@ import mole.farm.common.farmabstract.useless.IMole;
  */
 public abstract class AbstractFarmTool implements IMole {
     private String name;
-
     /**
      * 工具的处理行为
      */
-    void ToolBehavior();
+    abstract void ToolBehavior();
 }
