@@ -1,10 +1,12 @@
 package mole.farm.common.farmenum;
 
 public enum Shape {
-    SQUARE("圆形"),CIRCULAR("方形");
+    SQUARE("圆形"),
+    CIRCULAR("方形");
     private String shape;
-    Shape(String shape){
-        this.shape=shape;
+
+    Shape(String shape) {
+        this.shape = shape;
     }
 
     public String getShape() {
