@@ -4,11 +4,16 @@ package mole.farm.common.farmenum;
  *颜色
  */
 public enum Color {
-    RED(0,"红色"),YELLOW(1,"黄色"),BLACK(2,"黑色"),BROWN(3,"棕色");
-    int number;
+    RED("红色"),YELLOW("黄色"),BLACK("黑色"),BROWN("棕色");
     String color;
-     Color(int number,String color){
-        this.number=number;
+     Color(String color){
         this.color=color;
+    }
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
