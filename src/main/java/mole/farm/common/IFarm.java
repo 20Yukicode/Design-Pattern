@@ -18,11 +18,25 @@ public interface IFarm extends IMole {
      */
     void harvestCrops();
     /**
-     * 打理农田
-     *
+     * 除草
+     * @return
      */
-    void TakeCareForm();
-
+    boolean weed();
+    /**
+     * 浇水
+     * @return
+     */
+    boolean watering();
+    /**
+     * 施肥
+     * @return
+     */
+    boolean applyFertilizer();
+    /**
+     * 除虫
+     * @return
+     */
+    boolean disinsection();
     /**
      * 调用获取天气接口，判断是否能加水
      * @return

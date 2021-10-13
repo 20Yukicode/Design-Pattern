@@ -15,18 +15,24 @@ public interface IFarmWareHouse {
      * @param seedList
      * @return
      */
-    boolean importSeed(List<AbstractSeed> seedList);
+    boolean importSeedFromShop(List<AbstractSeed> seedList);
     /**
      * 出口作物到商店
      * @param cropsList
      * @return
      */
-    boolean exportCrops(List<AbstractCrops> cropsList);
+    boolean exportCropsToShop(List<AbstractCrops> cropsList);
     /**
      * 给摩尔提供需要的东西
      * @param objectList
      * 这里肯定要修改，比较怪异
      * @return
      */
-    boolean provideItem(List<IMole> objectList);
+    boolean provideItemToMole(List<IMole> objectList);
+    /**
+     * 存作物到仓库
+     * @param cropsList
+     * @return
+     */
+    boolean storeToRepository(List<AbstractCrops> cropsList);
 }
