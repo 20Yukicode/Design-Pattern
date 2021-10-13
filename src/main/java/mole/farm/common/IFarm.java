@@ -4,7 +4,6 @@ import mole.farm.common.farmabstract.AbstractSeed;
 import mole.farm.common.farmabstract.useless.IMole;
 
 import java.util.List;
-
 /**
  * 定义农场行为
  */
@@ -18,7 +17,6 @@ public interface IFarm extends IMole {
      * 收获作物
      */
     void harvestCrops();
-
     /**
      * 打理农田
      *
