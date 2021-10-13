@@ -1,4 +1,4 @@
-package mole.farm.concrete.factory;
+package mole.farm.concrete;
 
 import mole.farm.common.factory.IFactory;
 import mole.farm.common.farmabstract.AbstractCrops;
