@@ -11,11 +11,32 @@ import java.lang.reflect.InvocationTargetException;
  * 抽象农场工厂
  */
 public interface IFarmFactory {
+    /**
+     * 产生种子
+     * @return
+     */
     AbstractSeed newSeed();
+
+    /**
+     * 产生肥料
+     * @return
+     */
     AbstractFertilizer newFertilier();
+
+    /**
+     * 生产工具
+     * @return
+     */
     AbstractFarmTool newFarmTool();
-    default IFarmFactory newFarmFactoryByName(String name) throws ClassNotFoundException {
-        Class<IFarmFactory> aClass = (Class<IFarmFactory>) Class.forName(name);
+
+    /**
+     *根据工厂名字生成对应具体工厂
+     * @param factoryName
+     * @return
+     * @throws ClassNotFoundException
+     */
+    default IFarmFactory newFarmFactoryByName(String factoryName) throws ClassNotFoundException {
+        Class<IFarmFactory> aClass = (Class<IFarmFactory>) Class.forName(factoryName);
         IFarmFactory iFarmFactory=null;
         try {
            iFarmFactory = aClass.getConstructor().newInstance();
