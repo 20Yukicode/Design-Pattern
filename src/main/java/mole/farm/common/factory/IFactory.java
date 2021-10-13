@@ -37,7 +37,7 @@ public interface IFactory {
      * @return
      * @throws ClassNotFoundException
      */
-    default IFactory newFactoryByName(String factoryName) throws ClassNotFoundException {
+    static IFactory newFactoryByName(String factoryName) throws ClassNotFoundException {
         Class<IFactory> aClass = (Class<IFactory>) Class.forName(factoryName);
         IFactory iFactory =null;
         try {
