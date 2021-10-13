@@ -10,20 +10,24 @@ import mole.farm.common.farmabstract.AbstractSeed;
  * 具体生产种子，肥料，农具的工厂
  */
 public class ConcreteFactory1 implements IFactory {
+
     @Override
-    public AbstractCrops newCrops() {
+    public AbstractCrops createCrops() {
         return null;
     }
+
     @Override
-    public AbstractSeed newSeed() {
+    public AbstractSeed createSeed() {
         return null;
     }
+
     @Override
-    public AbstractFertilizer newFertilier() {
+    public AbstractFertilizer createFertilier() {
         return null;
     }
+
     @Override
-    public AbstractFarmTool newFarmTool() {
+    public AbstractFarmTool createFarmTool() {
         return null;
     }
 }

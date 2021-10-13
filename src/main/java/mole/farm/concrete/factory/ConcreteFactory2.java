@@ -7,23 +7,24 @@ import mole.farm.common.farmabstract.AbstractFertilizer;
 import mole.farm.common.farmabstract.AbstractSeed;
 
 public class ConcreteFactory2 implements IFactory {
+
     @Override
-    public AbstractCrops newCrops() {
+    public AbstractCrops createCrops() {
         return null;
     }
 
     @Override
-    public AbstractSeed newSeed() {
+    public AbstractSeed createSeed() {
         return null;
     }
 
     @Override
-    public AbstractFertilizer newFertilier() {
+    public AbstractFertilizer createFertilier() {
         return null;
     }
 
     @Override
-    public AbstractFarmTool newFarmTool() {
+    public AbstractFarmTool createFarmTool() {
         return null;
     }
 }

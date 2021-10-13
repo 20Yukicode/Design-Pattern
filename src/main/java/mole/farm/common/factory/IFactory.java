@@ -15,22 +15,22 @@ public interface IFactory {
      * 生产作物
      * @return
      */
-    AbstractCrops newCrops();
+    AbstractCrops createCrops();
     /**
      * 产生种子
      * @return
      */
-    AbstractSeed newSeed();
+    AbstractSeed createSeed();
     /**
      * 产生肥料
      * @return
      */
-    AbstractFertilizer newFertilier();
+    AbstractFertilizer createFertilier();
     /**
      * 生产工具
      * @return
      */
-    AbstractFarmTool newFarmTool();
+    AbstractFarmTool createFarmTool();
     /**
      *根据工厂名字生成对应具体工厂
      * @param factoryName
