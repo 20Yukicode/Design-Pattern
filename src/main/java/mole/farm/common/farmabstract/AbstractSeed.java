@@ -11,19 +11,23 @@ import java.util.List;
  */
 public abstract class AbstractSeed implements IMole {
     /**
+     * 名字
+     */
+    protected  String name;
+    /**
     颜色
      */
-    private Color color;
+    protected Color color;
     /**
      * 大小
      */
-    private Size size;
+    protected Size size;
     /**
      * 生长周期
      */
-    private String growthCycle;
+    protected String growthCycle;
     /**
      * 价格
      */
-    private Double price;
+    protected Double price;
 }

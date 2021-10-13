@@ -6,5 +6,5 @@ import mole.farm.common.farmabstract.useless.IMole;
  * 抽象农场肥料
  */
 public abstract class AbstractFertilizer implements IMole {
-    private String name;
+    protected String name;
 }
