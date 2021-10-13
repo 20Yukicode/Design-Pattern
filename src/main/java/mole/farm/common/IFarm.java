@@ -1,5 +1,6 @@
-package mole.farm.common.farmabstract;
+package mole.farm.common;
 
+import mole.farm.common.farmabstract.AbstractSeed;
 import mole.farm.common.farmabstract.useless.IMole;
 import java.util.List;
 
@@ -23,4 +24,10 @@ public interface IFarm extends IMole {
      *
      */
     void TakeCareForm();
+
+    /**
+     * 调用获取天气接口，判断是否能加水
+     * @return
+     */
+    boolean getWeather();
 }

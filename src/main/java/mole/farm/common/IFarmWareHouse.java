@@ -1,7 +1,8 @@
-package mole.farm.common.farmabstract;
+package mole.farm.common;
 
+import mole.farm.common.farmabstract.AbstractCrops;
+import mole.farm.common.farmabstract.AbstractSeed;
 import mole.farm.common.farmabstract.useless.IMole;
-import sun.security.ec.ECDSAOperations;
 
 import java.util.List;
 
