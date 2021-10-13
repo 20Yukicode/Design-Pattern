@@ -2,7 +2,7 @@ package mole.farm.common;
 
 import mole.farm.common.farmabstract.AbstractCrops;
 import mole.farm.common.farmabstract.AbstractSeed;
-import mole.farm.common.farmabstract.useless.IFarm;
+import mole.farm.common.farmabstract.useless.IMole;
 
 import java.util.List;
 
@@ -28,5 +28,5 @@ public interface IFarmWareHouse {
      * 这里肯定要修改，比较怪异
      * @return
      */
-    boolean provideItem(List<IFarm> objectList);
+    boolean provideItem(List<IMole> objectList);
 }
