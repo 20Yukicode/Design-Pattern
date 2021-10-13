@@ -1,5 +1,6 @@
 package mole.farm.common.factory;
 
+import mole.farm.common.farmabstract.AbstractCrops;
 import mole.farm.common.farmabstract.AbstractFarmTool;
 import mole.farm.common.farmabstract.AbstractFertilizer;
 import mole.farm.common.farmabstract.AbstractSeed;
@@ -10,6 +11,11 @@ import java.lang.reflect.InvocationTargetException;
  * 抽象农场工厂
  */
 public interface IFactory {
+    /**
+     * 生产作物
+     * @return
+     */
+    AbstractCrops newCrops();
     /**
      * 产生种子
      * @return
