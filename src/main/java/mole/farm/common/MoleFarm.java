@@ -1,6 +1,6 @@
 package mole.farm.common;
 
-import mole.farm.common.farmabstract.IFarm;
+import mole.farm.common.farmabstract.AbstractSeed;
 import mole.farm.common.farmenum.FarmStatus;
 
 import java.util.List;
@@ -8,7 +8,12 @@ import java.util.List;
 /**
  * 摩尔个人农场
  */
-public class MoleFarm implements IFarm {
+//imple Ifarm
+public class MoleFarm  {
+    /**
+     * 形状
+     */
+    private String shape;
     /**
      * 面积
      */
@@ -18,6 +23,10 @@ public class MoleFarm implements IFarm {
      */
     private List<FarmStatus> farmStatus;
     /**
-     *
+     *农田存放的种子
      */
+    private List<AbstractSeed> seedList;
+
+
+
 }
