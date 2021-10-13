@@ -1,4 +1,7 @@
 package mole.farm.common.farmabstract;
 
-public interface ICrops {
+import mole.farm.common.farmabstract.useless.IMole;
+
+public interface ICrops extends IMole {
+
 }

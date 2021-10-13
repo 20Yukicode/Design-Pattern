@@ -2,9 +2,15 @@ package mole.farm.common.farmabstract;
 
 import mole.farm.common.farmabstract.useless.IMole;
 
+import java.util.List;
+
 /**
  * 定义种子行为
  */
 public interface ISeed extends IMole {
-
+    /**
+     * 播种种子
+     * @param seedList
+     */
+    void sowSeeds(List<AbstractSeed>seedList);
 }

@@ -1,4 +1,4 @@
 package mole.farm.common.farmabstract;
 
-public class AbstractCrops implements ICrops{
+public class AbstractCrops{
 }
