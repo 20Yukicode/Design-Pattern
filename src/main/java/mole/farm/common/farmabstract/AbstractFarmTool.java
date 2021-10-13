@@ -6,5 +6,5 @@ import mole.farm.common.factory.IFarmFactory;
  * 抽象农场工具
  */
 public abstract class AbstractFarmTool implements IFarmTool {
-    String name;
+    private String name;
 }

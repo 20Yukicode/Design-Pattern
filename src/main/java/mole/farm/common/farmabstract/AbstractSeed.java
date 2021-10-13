@@ -10,17 +10,14 @@ public abstract class AbstractSeed implements ISeed {
     /**
     颜色
      */
-    Color color;
+    private Color color;
     /**
      * 大小
      */
-    Size size;
+    private Size size;
     /**
      * 生长周期
      */
-    String growthCycle;
-    /**
-    是否耐旱
-     */
-    Boolean isDroughtTolerance;
+    private String growthCycle;
+
 }
