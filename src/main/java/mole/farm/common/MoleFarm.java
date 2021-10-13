@@ -1,7 +1,7 @@
 package mole.farm.common;
 
 import mole.farm.common.farmabstract.AbstractSeed;
-import mole.farm.common.farmenum.FarmStatus;
+import mole.farm.common.farmenum.FarmBlockStatus;
 
 import java.util.List;
 
@@ -10,6 +10,10 @@ import java.util.List;
  * implements IFarm
  */
 public class MoleFarm {
+    /**
+     * 农田块数量
+     */
+    private Integer farmBlockCount;
     /**
      * 形状
      */
@@ -21,7 +25,7 @@ public class MoleFarm {
     /**
      * 状态
      */
-    private List<FarmStatus> farmStatus;
+    private List<FarmBlockStatus> farmBlockStatuses;
     /**
      *农田存放的种子
      */
