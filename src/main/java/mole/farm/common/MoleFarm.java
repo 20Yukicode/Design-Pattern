@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 摩尔个人农场
  */
-//implements Ifarm
+//implements IFarm
 public class MoleFarm {
     /**
      * 形状

@@ -8,6 +8,7 @@ import java.util.Map;
 
 /**
  * 摩尔个人仓库
+ * implements IFarmWareHouse
  */
 public class MoleFarmWarehouse {
     /**

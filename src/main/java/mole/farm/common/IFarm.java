@@ -1,13 +1,13 @@
 package mole.farm.common;
 
 import mole.farm.common.farmabstract.AbstractSeed;
-import mole.farm.common.farmabstract.useless.IMole;
+
 import java.util.List;
 
 /**
  * 定义农场行为
  */
-public interface IFarm extends IMole {
+public interface IFarm extends mole.farm.common.farmabstract.useless.IFarm {
     /**
      * 种植种子
      * @param seedList
