@@ -5,5 +5,4 @@ package mole.farm.common.farmabstract;
  */
 public abstract class AbstractFertilizer implements IFertilizer {
     String name;
-
 }
