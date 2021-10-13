@@ -1,7 +1,7 @@
 package mole.farm.common.farmenum;
 
 /**
- *
+ *颜色
  */
 public enum Color {
     RED(0),YELLOW(1),BLACK(2),BROWN(3);
