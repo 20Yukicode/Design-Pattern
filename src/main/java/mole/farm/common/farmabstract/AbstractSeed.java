@@ -23,9 +23,5 @@ public abstract class AbstractSeed implements IMole {
      */
     private String growthCycle;
 
-    /**
-     * 播种种子
-     * @param seedList
-     */
-    public abstract void sowSeeds(List<AbstractSeed> seedList);
+
 }

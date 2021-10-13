@@ -28,4 +28,5 @@ public interface IFarm extends IMole {
      * @return
      */
     boolean getWeather();
+
 }
