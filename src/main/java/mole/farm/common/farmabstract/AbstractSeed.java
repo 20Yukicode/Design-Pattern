@@ -22,6 +22,8 @@ public abstract class AbstractSeed implements IMole {
      * 生长周期
      */
     private String growthCycle;
-
-
+    /**
+     * 价格
+     */
+    private Double price;
 }
