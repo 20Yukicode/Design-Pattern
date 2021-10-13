@@ -8,8 +8,8 @@ import java.util.List;
 /**
  * 摩尔个人农场
  */
-//imple Ifarm
-public class MoleFarm  {
+//implements Ifarm
+public class MoleFarm {
     /**
      * 形状
      */
