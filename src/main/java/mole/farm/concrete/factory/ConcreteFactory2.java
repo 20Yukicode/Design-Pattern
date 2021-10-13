@@ -12,7 +12,6 @@ public class ConcreteFactory2 implements IFactory {
     public AbstractCrops createCrops() {
         return null;
     }
-
     @Override
     public AbstractSeed createSeed() {
         return null;
