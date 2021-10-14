@@ -11,19 +11,19 @@ public class Cabbage extends AbstractCrops {
     /**
      * 名字
      */
-    private String name = "白菜";
+    private final String name = "白菜";
     /**
      颜色
      */
-    private Color color = Color.GREEN;
+    private final Color color = Color.GREEN;
     /**
      * 大小
      */
-    private Size size = Size.MEDIUM;
+    private final Size size = Size.MEDIUM;
     /**
      * 价格
      */
-   private Double price = 10.0;
+   private final Double price = 10.0;
 
     public String getName() {
         return name;
