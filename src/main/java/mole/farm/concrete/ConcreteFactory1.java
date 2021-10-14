@@ -5,6 +5,8 @@ import mole.farm.common.farmabstract.AbstractCrops;
 import mole.farm.common.farmabstract.AbstractFarmTool;
 import mole.farm.common.farmabstract.AbstractFertilizer;
 import mole.farm.common.farmabstract.AbstractSeed;
+import mole.farm.concrete.crops.Cabbage;
+import mole.farm.concrete.seed.RiceSeed;
 
 /**
  * 具体生产种子，肥料，农具的工厂
