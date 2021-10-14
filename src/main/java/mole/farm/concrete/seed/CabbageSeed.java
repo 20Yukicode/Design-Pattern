@@ -8,25 +8,30 @@ import mole.farm.common.farmenum.Size;
  * 白菜种子
  */
 public class CabbageSeed extends AbstractSeed implements Cloneable{
-    private CabbageSeed(Double price){
-        this.price=price;
+    public CabbageSeed(String name, Color color, Size size, String growthCycle, Double price) {
+        this.name = name;
+        this.color = color;
+        this.size = size;
+        this.growthCycle = growthCycle;
+        this.price = price;
     }
+
     /**
      * 名字
      */
-    private final String name = "白菜";
+    private String name = "白菜";
     /**
      颜色
      */
-    private final Color color = Color.BLACK;
+    private  Color color = Color.BLACK;
     /**
      * 大小
      */
-    private final Size size = Size.MEDIUM;
+    private Size size = Size.MEDIUM;
     /**
      * 生长周期
      */
-    private final String growthCycle = "90天";
+    private  String growthCycle = "90天";
     /**
      * 价格
      */
@@ -63,22 +68,8 @@ public class CabbageSeed extends AbstractSeed implements Cloneable{
      */
     @Override
     public Object clone() throws CloneNotSupportedException {
-        CabbageSeed cabbageSeed = new CabbageSeed(this.price);
+        CabbageSeed cabbageSeed = new CabbageSeed(this.name, this.color, this.size, this.growthCycle, this.price);
         return cabbageSeed;
     }
-
-     //下面是我的想法，调用的是super.clone()
-    /**
-    @Override
-    public Object clone() {
-        CabbageSeed cabbageSeed = null;
-        try {
-            cabbageSeed = (CabbageSeed) super.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
-        return cabbageSeed;
-    }
-    */
 
 }
