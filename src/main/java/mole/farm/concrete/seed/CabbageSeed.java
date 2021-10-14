@@ -64,12 +64,10 @@ public class CabbageSeed extends AbstractSeed implements Cloneable{
     /**
      * 原型模式，重写clone方法
      * @return
-     * @throws CloneNotSupportedException
      */
     @Override
-    public Object clone() throws CloneNotSupportedException {
+    public Object clone() {
         CabbageSeed cabbageSeed = new CabbageSeed(this.name, this.color, this.size, this.growthCycle, this.price);
         return cabbageSeed;
     }
-
 }
