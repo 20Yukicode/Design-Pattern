@@ -8,7 +8,6 @@ import mole.farm.common.farmenum.Size;
  * 白菜种子
  */
 public class CabbageSeed extends AbstractSeed implements Cloneable{
-    private CabbageSeed(){}
     private CabbageSeed(Double price){
         this.price=price;
     }
@@ -67,4 +66,19 @@ public class CabbageSeed extends AbstractSeed implements Cloneable{
         CabbageSeed cabbageSeed = new CabbageSeed(this.price);
         return cabbageSeed;
     }
+
+     //下面是我的想法，调用的是super.clone()
+    /**
+    @Override
+    public Object clone() {
+        CabbageSeed cabbageSeed = null;
+        try {
+            cabbageSeed = (CabbageSeed) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return cabbageSeed;
+    }
+    */
+
 }
