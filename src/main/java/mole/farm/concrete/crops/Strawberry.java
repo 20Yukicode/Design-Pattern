@@ -11,17 +11,33 @@ public class Strawberry extends AbstractCrops {
     /**
      * 名字
      */
-    protected  String name = "草莓";
+    private  final String name = "草莓";
     /**
      颜色
      */
-    protected Color color = Color.RED;
+    private final Color color = Color.RED;
     /**
      * 大小
      */
-    protected Size size = Size.MEDIUM;
+    private final Size size = Size.MEDIUM;
     /**
      * 价格
      */
-    protected Double price = 30.0;
+    private final Double price = 30.0;
+
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
 }

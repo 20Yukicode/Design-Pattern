@@ -11,21 +11,41 @@ public class StrawberrySeed extends AbstractSeed {
     /**
      * 名字
      */
-    protected  String name = "草莓";
+    private  final String name = "草莓";
     /**
      颜色
      */
-    protected Color color = Color.BLACK;
+    private final Color color = Color.BLACK;
     /**
      * 大小
      */
-    protected Size size = Size.BIG;
+    private final Size size = Size.BIG;
     /**
      * 生长周期
      */
-    protected String growthCycle = "90天";
+    private final String growthCycle = "90天";
     /**
      * 价格
      */
-    protected Double price = 6.0;
+    private final Double price = 6.0;
+
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public String getGrowthCycle() {
+        return growthCycle;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
 }

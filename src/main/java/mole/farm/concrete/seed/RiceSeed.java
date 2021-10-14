@@ -11,21 +11,41 @@ public class RiceSeed extends AbstractSeed {
     /**
      * 名字
      */
-    protected  String name = "水稻";
+    private final String name = "水稻";
     /**
      颜色
      */
-    protected Color color = Color.BROWN;
+    private final Color color = Color.BROWN;
     /**
      * 大小
      */
-    protected Size size = Size.SMALL;
+    private final Size size = Size.SMALL;
     /**
      * 生长周期
      */
-    protected String growthCycle = "80天";
+    private final String growthCycle = "80天";
     /**
      * 价格
      */
-    protected Double price = 2.0;
+    private final Double price = 2.0;
+
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public String getGrowthCycle() {
+        return growthCycle;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
 }

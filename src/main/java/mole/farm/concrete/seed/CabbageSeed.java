@@ -8,34 +8,54 @@ import mole.farm.common.farmenum.Size;
  * 白菜种子
  */
 public class CabbageSeed extends AbstractSeed implements Cloneable{
-    public CabbageSeed(String name, Color color, Size size, String growthCycle, Double price) {
-        this.name = name;
-        this.color = color;
-        this.size = size;
-        this.growthCycle = growthCycle;
-        this.price = price;
+    private CabbageSeed(){}
+    private CabbageSeed(Double price){
+        this.price=price;
     }
-
     /**
      * 名字
      */
-    protected  String name = "白菜";
+    private final String name = "白菜";
     /**
      颜色
      */
-    protected Color color = Color.BLACK;
+    private final Color color = Color.BLACK;
     /**
      * 大小
      */
-    protected Size size = Size.MEDIUM;
+    private final Size size = Size.MEDIUM;
     /**
      * 生长周期
      */
-    protected String growthCycle = "90天";
+    private final String growthCycle = "90天";
     /**
      * 价格
      */
-    protected Double price = 3.0;
+    private Double price = 3.0;
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public String getGrowthCycle() {
+        return growthCycle;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
 
     /**
      * 原型模式，重写clone方法
@@ -44,7 +64,7 @@ public class CabbageSeed extends AbstractSeed implements Cloneable{
      */
     @Override
     public Object clone() throws CloneNotSupportedException {
-        CabbageSeed cabbageSeed = new CabbageSeed(this.name,this.color,this.size,this.growthCycle,this.price);
+        CabbageSeed cabbageSeed = new CabbageSeed(this.price);
         return cabbageSeed;
     }
 }

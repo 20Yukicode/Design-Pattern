@@ -11,17 +11,33 @@ public class Eggplant extends AbstractCrops {
     /**
      * 名字
      */
-    protected  String name = "茄子";
+    private final String name = "茄子";
     /**
      颜色
      */
-    protected Color color = Color.PURPLE;
+    private final Color color = Color.PURPLE;
     /**
      * 大小
      */
-    protected Size size = Size.MEDIUM;
+    private final Size size = Size.MEDIUM;
     /**
      * 价格
      */
-    protected Double price = 20.0;
+    private final Double price = 20.0;
+
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
 }

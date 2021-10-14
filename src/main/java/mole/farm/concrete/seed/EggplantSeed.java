@@ -11,21 +11,41 @@ public class EggplantSeed extends AbstractSeed {
     /**
      * 名字
      */
-    protected  String name = "茄子";
+    private  final String name = "茄子";
     /**
      颜色
      */
-    protected Color color = Color.BROWN;
+    private final Color color = Color.BROWN;
     /**
      * 大小
      */
-    protected Size size = Size.MEDIUM;
+    private final Size size = Size.MEDIUM;
     /**
      * 生长周期
      */
-    protected String growthCycle = "100天";
+    private final String growthCycle = "100天";
     /**
      * 价格
      */
-    protected Double price = 5.0;
+    private final Double price = 5.0;
+
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public String getGrowthCycle() {
+        return growthCycle;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
 }

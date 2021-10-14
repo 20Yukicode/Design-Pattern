@@ -11,17 +11,33 @@ public class Rice extends AbstractCrops {
     /**
      * 名字
      */
-    protected  String name = "水稻";
+    private final String name = "水稻";
     /**
      颜色
      */
-    protected Color color = Color.BROWN;
+    private final Color color = Color.BROWN;
     /**
      * 大小
      */
-    protected Size size = Size.SMALL;
+    private final Size size = Size.SMALL;
     /**
      * 价格
      */
-    protected Double price = 4.0;
+    private final Double price = 4.0;
+
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
 }
