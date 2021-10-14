@@ -7,7 +7,9 @@ public enum Color {
     RED("红色"),
     YELLOW("黄色"),
     BLACK("黑色"),
-    BROWN("棕色");
+    BROWN("棕色"),
+    GREEN("绿色"),
+    PURPLE("紫色");
     String color;
 
     Color(String color) {
