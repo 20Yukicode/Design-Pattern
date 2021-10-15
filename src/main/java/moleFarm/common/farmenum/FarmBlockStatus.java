@@ -1,5 +1,8 @@
 package moleFarm.common.farmenum;
 
+/**
+ * 农田块的状态
+ */
 public enum FarmBlockStatus {
     WEEDS("杂草"),
     INSECT_DISASTER("虫灾"),

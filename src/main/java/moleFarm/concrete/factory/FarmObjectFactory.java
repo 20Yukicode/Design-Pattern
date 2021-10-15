@@ -1,7 +1,7 @@
 package moleFarm.concrete.factory;
 
-import moleFarm.common.myjson.FarmType;
-import moleFarm.common.myjson.JsonOp;
+import moleFarm.common.farmenum.FarmType;
+import moleFarm.common.JsonOp;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;

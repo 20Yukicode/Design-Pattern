@@ -1,5 +1,8 @@
 package moleFarm.common.farmenum;
 
+/**
+ * 农田块的形状
+ */
 public enum Shape {
     SQUARE("圆形"),
     CIRCULAR("方形");
