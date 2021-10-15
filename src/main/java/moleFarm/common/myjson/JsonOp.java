@@ -1,9 +1,7 @@
-package moleFarm.myjson;
+package moleFarm.common.myjson;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONReader;
-import moleFarm.common.farmabstract.useless.IMole;
-import moleFarm.concrete.factory.FarmObjectFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;

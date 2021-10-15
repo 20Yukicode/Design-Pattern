@@ -6,7 +6,6 @@ import moleFarm.common.farmabstract.useless.IMole;
 import java.lang.reflect.InvocationTargetException;
 
 public interface Factory {
-   default Factory newInstance(){return null;}
    static<T extends IMole> T create(String message, String name) throws MyException {
       T abstractobj = null;
       try {

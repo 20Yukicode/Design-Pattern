@@ -1,13 +1,14 @@
 package moleFarm.concrete.factory;
 
-import moleFarm.myjson.FarmType;
-import moleFarm.myjson.JsonOp;
+import moleFarm.common.myjson.FarmType;
+import moleFarm.common.myjson.JsonOp;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-public  abstract class  FarmObjectFactory {
-    final static String finalPath = "moleFarm.concrete.";
+public  class  FarmObjectFactory {
+    final static AbstractCropsFactory FACTORY= AbstractCropsFactory.newInstance();
+    final static String FINAL_PATH = "moleFarm.concrete.";
     static <T> T createFarmObject(FarmType farmType, String name) throws ClassNotFoundException {
         T farmAbstractObj = newObject(farmType.getText(), name);
         List<String> list = JsonOp.searchJson(farmType);
@@ -15,14 +16,13 @@ public  abstract class  FarmObjectFactory {
     }
     /**
      * 根据类的名字生成对应的
-     *
      * @param name
      * @param <T>
      * @return
      * @throws ClassNotFoundException
      */
     static <T> T newObject(String text, String name) throws ClassNotFoundException {
-        String path = finalPath + text + "." + name;
+        String path =FINAL_PATH + text + "." + name;
         T abstractObject = null;
         try {
             Class<T> aClass = (Class<T>) Class.forName(path);

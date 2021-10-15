@@ -1,4 +1,4 @@
-package moleFarm.myjson;
+package moleFarm.common.myjson;
 
 public enum FarmType {
     CROPS("crops"), SEED("seed"), FARM_TOOL("farmTool");
