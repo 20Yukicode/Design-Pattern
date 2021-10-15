@@ -1,0 +1,25 @@
+{
+  "farm": {
+    "crops": [
+      "Cabbage",
+      "Eggplant",
+      "Rice",
+      "Strawberry",
+      "Watermelon",
+      "Wheat"
+    ],
+    "seed": [
+      "CabbageSeed",
+      "EggplantSeed",
+      "RiceSeed",
+      "StrawberrySeed",
+      "WatermelonSeed",
+      "WheatSeed"
+    ],
+    "farmTool": [
+      "铲子",
+      "锄头",
+      "水壶"
+    ]
+  }
+}
