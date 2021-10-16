@@ -3,10 +3,10 @@ package moleFarm.common.farmenum;
 /**
  *农田物品的种类
  */
-public enum FarmType {
-    CROPS("crops"), SEED("seed"), FARM_TOOL("farmTool");
+public enum ProductType {
+    CROPS("crops"), SEED("seed"), FARM_TOOL("farmTool"),FERTILIZER("fertilizer");
     String text;
-    FarmType(String text) {
+    ProductType(String text) {
         this.text = text;
     }
     public String getText() {

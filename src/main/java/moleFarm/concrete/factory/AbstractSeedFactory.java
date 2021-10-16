@@ -27,7 +27,7 @@ public class AbstractSeedFactory implements Factory {
      * @throws MyException
      */
     public AbstractSeed create(String name) throws MyException {
-        return Factory.create(PATH, MSG + name);
+        return Factory.create(MSG, PATH+name);
     }
 }
 

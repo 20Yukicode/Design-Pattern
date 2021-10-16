@@ -17,6 +17,6 @@ public class AbstractFarmToolFactory implements Factory {
     }
     @Override
     public AbstractFarmTool create(String name) throws MyException {
-        return Factory.create(MSG,PATH);
+        return Factory.create(MSG,PATH+name);
     }
 }

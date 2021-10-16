@@ -17,7 +17,7 @@ public class AbstractFertilizerFactory implements Factory{
     }
     @Override
     public AbstractFertilizer create(String name) throws MyException {
-        return Factory.create(MSG,PATH);
+        return Factory.create(MSG,PATH+name);
     }
 
 }

@@ -2,7 +2,7 @@ package moleFarm.common.other;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONReader;
-import moleFarm.common.farmenum.FarmType;
+import moleFarm.common.farmenum.ProductType;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,8 +10,8 @@ import java.io.FileReader;
 import java.util.List;
 
 public class JsonOp {
-    public static List<String> searchJson(FarmType farmType) {
-        String text = farmType.getText();
+    public static List<String> searchJson(ProductType productType) {
+        String text = productType.getText();
         String jsonPath = "src/main/resources/farm.json";
         File file = new File(jsonPath);
         String path = file.getPath();
@@ -25,9 +25,5 @@ public class JsonOp {
             e.printStackTrace();
         }
         return list;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(searchJson(FarmType.CROPS));
     }
 }
