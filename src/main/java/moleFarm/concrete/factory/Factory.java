@@ -6,6 +6,13 @@ import moleFarm.common.farmabstract.useless.IMole;
 import java.lang.reflect.InvocationTargetException;
 
 public interface Factory {
+   /**
+    * 所有抽象工厂要继承这个接口，并且重写这个方法
+    * @param name
+    * @return
+    * @throws MyException
+    */
+   IMole create(String name) throws MyException;
    static<T extends IMole> T create(String message, String name) throws MyException {
       T abstractobj = null;
       try {
