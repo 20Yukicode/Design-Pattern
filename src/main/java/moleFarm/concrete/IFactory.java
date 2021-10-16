@@ -44,7 +44,6 @@ public interface IFactory {
 
     /**
      * 根据工厂名字生成对应具体工厂，这里具体工厂一定要和concreteFactory放在一个包下面
-     *
      * @param factoryName
      * @param <T>
      * @return
