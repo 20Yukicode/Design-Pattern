@@ -7,6 +7,7 @@ import moleFarm.common.product.AbstractSeed;
 
 /**
  * 具体生产种子，肥料，农具的工厂
+ * 此类生产产品去moleFarm.factory下的对应工厂调用方法
  */
 public class ConcreteFactory1 implements IFactory {
 
