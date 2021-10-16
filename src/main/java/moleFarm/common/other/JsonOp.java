@@ -1,4 +1,4 @@
-package moleFarm.common;
+package moleFarm.common.other;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONReader;

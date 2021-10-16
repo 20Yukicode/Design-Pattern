@@ -1,6 +1,6 @@
 package moleFarm.concrete.factory;
 
-import moleFarm.common.exception.MyException;
+import moleFarm.common.other.MyException;
 import moleFarm.common.farmabstract.AbstractCrops;
 
 /**
@@ -27,7 +27,7 @@ public class AbstractCropsFactory implements Factory{
      * @return
      * @throws MyException
      */
-    public static AbstractCrops create(String name) throws MyException {
+    public AbstractCrops create(String name) throws MyException {
         AbstractCrops abstractCrops = Factory.create(MSG, PATH+name);
         return abstractCrops;
     }

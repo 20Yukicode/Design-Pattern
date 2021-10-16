@@ -1,6 +1,6 @@
 package moleFarm.concrete.factory;
 
-import moleFarm.common.exception.MyException;
+import moleFarm.common.other.MyException;
 import moleFarm.common.farmabstract.AbstractSeed;
 
 public class AbstractSeedFactory implements Factory{
@@ -8,6 +8,11 @@ public class AbstractSeedFactory implements Factory{
     final static String MSG="没有该种子销售噢";
     private  static AbstractSeedFactory abstractSeedFactory;
     private AbstractSeedFactory(){};
+
+    /**
+     * 单例模式
+     * @return
+     */
     public static AbstractSeedFactory newInstance() {
         if(abstractSeedFactory ==null) {
             abstractSeedFactory = new AbstractSeedFactory();
@@ -20,7 +25,7 @@ public class AbstractSeedFactory implements Factory{
      * @return
      * @throws MyException
      */
-    public static AbstractSeed create(String name) throws MyException {
+    public AbstractSeed create(String name) throws MyException {
         AbstractSeed abstractSeed =
                 Factory.create(PATH, MSG+name);
         return abstractSeed;

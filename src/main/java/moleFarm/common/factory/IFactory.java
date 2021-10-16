@@ -1,6 +1,6 @@
 package moleFarm.common.factory;
 
-import moleFarm.common.exception.MyException;
+import moleFarm.common.other.MyException;
 import moleFarm.common.farmabstract.AbstractCrops;
 import moleFarm.common.farmabstract.AbstractFarmTool;
 import moleFarm.common.farmabstract.AbstractFertilizer;
@@ -49,7 +49,7 @@ public interface IFactory {
      * @param <T>
      * @return
      */
-    static <T extends IFactory> T newFactoryByName(String factoryName) throws MyException {
+    static <T extends IFactory> T newConcreteFactory(String factoryName) throws MyException {
         T iFactory = null;
         try {
             Class<T> aClass = (Class<T>) Class.forName(path + factoryName);
