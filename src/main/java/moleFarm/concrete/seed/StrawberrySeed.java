@@ -1,8 +1,8 @@
 package moleFarm.concrete.seed;
 
-import moleFarm.common.farmabstract.AbstractSeed;
-import moleFarm.common.farmenum.Color;
-import moleFarm.common.farmenum.Size;
+import moleFarm.common.product.AbstractSeed;
+import moleFarm.common.status.Color;
+import moleFarm.common.status.Size;
 
 /**
  * 草莓种子

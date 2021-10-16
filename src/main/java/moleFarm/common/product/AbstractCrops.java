@@ -1,8 +1,8 @@
-package moleFarm.common.farmabstract;
+package moleFarm.common.product;
 
-import moleFarm.common.farmabstract.useless.IMole;
-import moleFarm.common.farmenum.Color;
-import moleFarm.common.farmenum.Size;
+import moleFarm.common.product.useless.IMole;
+import moleFarm.common.status.Color;
+import moleFarm.common.status.Size;
 
 public abstract class AbstractCrops implements IMole {
     /**

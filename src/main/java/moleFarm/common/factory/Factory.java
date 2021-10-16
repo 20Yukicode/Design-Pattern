@@ -1,7 +1,7 @@
-package moleFarm.concrete.factory;
+package moleFarm.common.factory;
 
 import moleFarm.common.other.MyException;
-import moleFarm.common.farmabstract.useless.IMole;
+import moleFarm.common.product.useless.IMole;
 
 import java.lang.reflect.InvocationTargetException;
 

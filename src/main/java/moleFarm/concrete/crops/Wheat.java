@@ -1,8 +1,8 @@
 package moleFarm.concrete.crops;
 
-import moleFarm.common.farmabstract.AbstractCrops;
-import moleFarm.common.farmenum.Color;
-import moleFarm.common.farmenum.Size;
+import moleFarm.common.product.AbstractCrops;
+import moleFarm.common.status.Color;
+import moleFarm.common.status.Size;
 
 /**
  * 小麦

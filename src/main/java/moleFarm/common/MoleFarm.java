@@ -1,7 +1,7 @@
 package moleFarm.common;
 
-import moleFarm.common.farmabstract.AbstractSeed;
-import moleFarm.common.farmenum.FarmBlockStatus;
+import moleFarm.common.product.AbstractSeed;
+import moleFarm.common.status.FarmBlockStatus;
 
 import java.util.List;
 

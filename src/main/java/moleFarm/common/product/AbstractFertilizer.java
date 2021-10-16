@@ -1,7 +1,7 @@
-package moleFarm.common.farmabstract;
+package moleFarm.common.product;
 
-import moleFarm.common.farmabstract.useless.IMole;
-import moleFarm.common.farmenum.Level;
+import moleFarm.common.product.useless.IMole;
+import moleFarm.common.status.Level;
 
 /**
  * 抽象农场肥料

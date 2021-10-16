@@ -1,7 +1,6 @@
-package moleFarm.concrete.factory;
+package moleFarm.common.factory;
 
-import moleFarm.common.farmabstract.AbstractFertilizer;
-import moleFarm.common.farmabstract.useless.IMole;
+import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.other.MyException;
 
 public class AbstractFertilizerFactory implements Factory{

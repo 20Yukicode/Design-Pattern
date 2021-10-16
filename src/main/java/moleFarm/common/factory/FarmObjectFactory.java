@@ -1,11 +1,8 @@
-package moleFarm.concrete.factory;
+package moleFarm.common.factory;
 
-import moleFarm.common.farmabstract.AbstractFarmTool;
-import moleFarm.common.farmenum.ProductType;
+import moleFarm.common.status.ProductType;
 import moleFarm.common.other.JsonOp;
 import moleFarm.common.other.MyException;
-import moleFarm.concrete.crops.Cabbage;
-import moleFarm.concrete.seed.RiceSeed;
 
 import java.util.List;
 

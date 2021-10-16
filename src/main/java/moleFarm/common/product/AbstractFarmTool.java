@@ -1,6 +1,6 @@
-package moleFarm.common.farmabstract;
+package moleFarm.common.product;
 
-import moleFarm.common.farmabstract.useless.IMole;
+import moleFarm.common.product.useless.IMole;
 
 /**
  * 抽象农场工具

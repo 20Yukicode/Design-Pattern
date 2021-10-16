@@ -1,8 +1,8 @@
 package moleFarm.common;
 
-import moleFarm.common.farmabstract.AbstractFarmTool;
-import moleFarm.common.farmabstract.AbstractFertilizer;
-import moleFarm.common.farmabstract.AbstractSeed;
+import moleFarm.common.product.AbstractFarmTool;
+import moleFarm.common.product.AbstractFertilizer;
+import moleFarm.common.product.AbstractSeed;
 
 import java.util.Map;
 

@@ -1,8 +1,8 @@
 package moleFarm.common;
 
-import moleFarm.common.farmabstract.AbstractCrops;
-import moleFarm.common.farmabstract.AbstractSeed;
-import moleFarm.common.farmabstract.useless.IMole;
+import moleFarm.common.product.AbstractCrops;
+import moleFarm.common.product.AbstractSeed;
+import moleFarm.common.product.useless.IMole;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package moleFarm.concrete.factory;
+package moleFarm.common.factory;
 
 import moleFarm.common.other.MyException;
-import moleFarm.common.farmabstract.AbstractCrops;
+import moleFarm.common.product.AbstractCrops;
 
 /**
  * 作物的抽象工厂类，此处不再写具体工厂类，如CabbageFactory；因为抽象工厂类利用

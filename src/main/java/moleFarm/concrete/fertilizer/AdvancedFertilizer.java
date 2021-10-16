@@ -1,6 +1,6 @@
 package moleFarm.concrete.fertilizer;
 
-import moleFarm.common.farmabstract.AbstractFertilizer;
+import moleFarm.common.product.AbstractFertilizer;
 
 /**
  * 高级化肥

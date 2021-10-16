@@ -2,7 +2,7 @@ package moleFarm.common.other;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONReader;
-import moleFarm.common.farmenum.ProductType;
+import moleFarm.common.status.ProductType;
 
 import java.io.File;
 import java.io.FileNotFoundException;

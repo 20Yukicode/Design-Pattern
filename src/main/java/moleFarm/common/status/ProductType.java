@@ -1,4 +1,4 @@
-package moleFarm.common.farmenum;
+package moleFarm.common.status;
 
 /**
  *农田物品的种类

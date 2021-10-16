@@ -1,4 +1,4 @@
-package moleFarm.common.farmenum;
+package moleFarm.common.status;
 
 /**
  *颜色

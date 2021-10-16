@@ -1,9 +1,9 @@
 package moleFarm.concrete;
 
-import moleFarm.common.farmabstract.AbstractCrops;
-import moleFarm.common.farmabstract.AbstractFarmTool;
-import moleFarm.common.farmabstract.AbstractFertilizer;
-import moleFarm.common.farmabstract.AbstractSeed;
+import moleFarm.common.product.AbstractCrops;
+import moleFarm.common.product.AbstractFarmTool;
+import moleFarm.common.product.AbstractFertilizer;
+import moleFarm.common.product.AbstractSeed;
 
 public class ConcreteFactory2 implements IFactory {
 

@@ -1,7 +1,7 @@
-package moleFarm.concrete.factory;
+package moleFarm.common.factory;
 
 import moleFarm.common.other.MyException;
-import moleFarm.common.farmabstract.AbstractSeed;
+import moleFarm.common.product.AbstractSeed;
 
 public class AbstractSeedFactory implements Factory {
     final static String PATH = "moleFarm.concrete.seed.";

@@ -1,4 +1,4 @@
-package moleFarm.common.farmenum;
+package moleFarm.common.status;
 
 /**
  * 农田块的状态

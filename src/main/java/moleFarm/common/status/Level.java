@@ -1,4 +1,4 @@
-package moleFarm.common.farmenum;
+package moleFarm.common.status;
 
 /**
  * 肥料分为初级，中级，高级肥料
