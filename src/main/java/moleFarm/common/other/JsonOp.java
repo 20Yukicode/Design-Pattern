@@ -13,7 +13,7 @@ public class JsonOp {
     public static List<String> searchJson(FarmType farmType){
         String text = farmType.getText();
         //这里绝对路径还要修改成相对路径
-        File file=new File("E:\\Code\\Design-Pattern\\src\\main\\java\\farm.json");
+            File file=new File("E:\\Code\\Design-Pattern\\src\\main\\resources\\farm.json");
         String path = file.getPath();
         List<String> list=null;
         try {
