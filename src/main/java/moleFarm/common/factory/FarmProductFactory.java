@@ -6,7 +6,7 @@ import moleFarm.common.other.MyException;
 
 import java.util.List;
 
-public  class  FarmObjectFactory {
+public  class FarmProductFactory {
     final static String message="对应的产品尚未加入摩尔庄园,敬请期待......";
     /**
      *
