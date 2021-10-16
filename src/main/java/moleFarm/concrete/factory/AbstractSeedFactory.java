@@ -8,7 +8,6 @@ public class AbstractSeedFactory implements Factory{
     final static String MSG="没有该种子销售噢";
     private  static AbstractSeedFactory abstractSeedFactory;
     private AbstractSeedFactory(){};
-
     /**
      * 单例模式
      * @return
