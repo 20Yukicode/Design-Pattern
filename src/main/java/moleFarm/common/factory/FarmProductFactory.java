@@ -37,7 +37,7 @@ public  class FarmProductFactory {
 
     /**
      * 尽量不要用此方法，反射不是初衷，关键要使用工厂模式
-     * 其他人在调接口的时候，可能只想传入name
+     * 其他人在调接口的时候，可能只想传入name(虽然上面的方法有点多此一举就是了)
      * @param tClass
      * @param <T>
      * @return
