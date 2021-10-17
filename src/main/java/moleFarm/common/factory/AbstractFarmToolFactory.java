@@ -3,6 +3,9 @@ package moleFarm.common.factory;
 import moleFarm.common.product.AbstractFarmTool;
 import moleFarm.common.other.MyException;
 
+/**
+ * 工具的抽象工厂类，此处不再写具体的，如ConcreteFarmToolFactory
+ */
 public class AbstractFarmToolFactory implements Factory {
     final static String PATH = "moleFarm.concrete.tool.";
     final static String MSG = "没有该工具销售噢";

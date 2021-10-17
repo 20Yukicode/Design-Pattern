@@ -3,6 +3,9 @@ package moleFarm.common.factory;
 import moleFarm.common.other.MyException;
 import moleFarm.common.product.AbstractSeed;
 
+/**
+ * 种子抽象工厂类，此处不再写具体的，如CabbageSeedFactory
+ */
 public class AbstractSeedFactory implements Factory {
     final static String PATH = "moleFarm.concrete.seed.";
     final static String MSG = "没有该种子销售噢";

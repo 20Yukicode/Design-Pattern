@@ -4,8 +4,8 @@ import moleFarm.common.other.MyException;
 import moleFarm.common.product.AbstractCrops;
 
 /**
- * 作物的抽象工厂类，此处不再写具体工厂类，如CabbageFactory；因为抽象工厂类利用
- * 反射机制，可以根据name来生成对应的具体作物
+ *
+ * 作物的抽象工厂类，此处不再写具体工厂类，如CabbageFactory；
  */
 public class AbstractCropsFactory implements Factory {
     final static String PATH = "moleFarm.concrete.crops.";

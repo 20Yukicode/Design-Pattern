@@ -3,6 +3,9 @@ package moleFarm.common.factory;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.other.MyException;
 
+/**
+ * 肥料的抽象工厂类，此处不再写具体的，如PrimaryFertilizerFactory
+ */
 public class AbstractFertilizerFactory implements Factory{
     final static String PATH = "moleFarm.concrete.fertilizer.";
     final static String MSG = "没有该肥料销售噢";
