@@ -4,6 +4,7 @@ import moleFarm.common.status.ProductType;
 import moleFarm.common.other.JsonOp;
 import moleFarm.common.other.MyException;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public  class FarmProductFactory {
@@ -15,7 +16,8 @@ public  class FarmProductFactory {
      * @return
      * @throws MyException
      */
-    public static <T> T createFarmProduct(String name) throws MyException {
+    public static <T> T createFarmProduct(String name) throws MyException
+    {
         List<String> crops = JsonOp.searchJson(ProductType.CROPS);
         List<String> farmTool = JsonOp.searchJson(ProductType.FARM_TOOL);
         List<String> seed = JsonOp.searchJson(ProductType.SEED);
@@ -32,4 +34,22 @@ public  class FarmProductFactory {
             throw new MyException(message);
         }
     }
+
+    /**
+     * 尽量不要用此方法，反射不是初衷，关键要使用工厂模式
+     * @param tClass
+     * @param <T>
+     * @return
+     * @throws MyException
+     */
+    public static <T> T createFarmProduct(Class<T>tClass) throws MyException{
+        T product=null;
+        try {
+            product=tClass.getConstructor().newInstance();
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+            throw new MyException(message);
+        }
+        return product;
+    }
+
 }
