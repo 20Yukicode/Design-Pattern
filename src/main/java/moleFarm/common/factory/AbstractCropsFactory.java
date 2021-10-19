@@ -1,6 +1,6 @@
 package moleFarm.common.factory;
 
-import moleFarm.common.other.MyException;
+import moleFarm.other.MyException;
 import moleFarm.common.product.AbstractCrops;
 
 /**

@@ -1,7 +1,7 @@
 package moleFarm.common.factory;
 
 import moleFarm.common.product.AbstractFarmTool;
-import moleFarm.common.other.MyException;
+import moleFarm.other.MyException;
 
 /**
  * 工具的抽象工厂类，此处不再写具体的，如ConcreteFarmToolFactory

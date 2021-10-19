@@ -1,5 +1,6 @@
 package moleFarm.concrete;
 
+import moleFarm.common.IFactory;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFarmTool;
 import moleFarm.common.product.AbstractFertilizer;

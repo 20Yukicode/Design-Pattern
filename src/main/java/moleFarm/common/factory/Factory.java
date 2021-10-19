@@ -1,6 +1,6 @@
 package moleFarm.common.factory;
 
-import moleFarm.common.other.MyException;
+import moleFarm.other.MyException;
 import moleFarm.common.product.useless.IMole;
 
 import java.lang.reflect.InvocationTargetException;
