@@ -1,7 +1,7 @@
 package moleFarm.common.factory;
 
 import moleFarm.common.product.AbstractFertilizer;
-import moleFarm.common.other.MyException;
+import moleFarm.other.MyException;
 
 /**
  * 肥料的抽象工厂类，此处不再写具体的，如PrimaryFertilizerFactory

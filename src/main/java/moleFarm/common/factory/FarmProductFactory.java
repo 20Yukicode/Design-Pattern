@@ -1,8 +1,8 @@
 package moleFarm.common.factory;
 
 import moleFarm.common.status.ProductType;
-import moleFarm.common.other.JsonOp;
-import moleFarm.common.other.MyException;
+import moleFarm.other.JsonOp;
+import moleFarm.other.MyException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;

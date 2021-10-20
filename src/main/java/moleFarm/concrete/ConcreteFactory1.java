@@ -1,7 +1,7 @@
 package moleFarm.concrete;
 
 import moleFarm.common.factory.*;
-import moleFarm.common.other.MyException;
+import moleFarm.other.MyException;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFarmTool;
 import moleFarm.common.product.AbstractFertilizer;

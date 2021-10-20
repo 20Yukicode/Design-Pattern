@@ -4,7 +4,7 @@ import moleFarm.common.factory.AbstractCropsFactory;
 import moleFarm.common.factory.AbstractFarmToolFactory;
 import moleFarm.common.factory.AbstractFertilizerFactory;
 import moleFarm.common.factory.AbstractSeedFactory;
-import moleFarm.common.other.MyException;
+import moleFarm.other.MyException;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFarmTool;
 import moleFarm.common.product.AbstractFertilizer;

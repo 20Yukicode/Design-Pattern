@@ -1,5 +1,5 @@
 import moleFarm.common.factory.FarmProductFactory;
-import moleFarm.common.other.MyException;
+import moleFarm.other.MyException;
 import moleFarm.concrete.seed.StrawberrySeed;
 
 public class DemoTest {
