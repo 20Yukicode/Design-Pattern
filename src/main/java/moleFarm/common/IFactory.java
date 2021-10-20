@@ -1,10 +1,10 @@
 package moleFarm.common;
 
-import moleFarm.other.MyException;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFarmTool;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
+import moleFarm.other.MyException;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -19,28 +19,28 @@ public interface IFactory {
      *
      * @return
      */
-    AbstractCrops createCrops();
+    AbstractCrops createCrops(String name) throws MyException;
 
     /**
      * 产生种子
      *
      * @return
      */
-    AbstractSeed createSeed();
+    AbstractSeed createSeed(String name) throws MyException;
 
     /**
      * 产生肥料
      *
      * @return
      */
-    AbstractFertilizer createFertilier();
+    AbstractFertilizer createFertilier(String name) throws MyException;
 
     /**
      * 生产工具
      *
      * @return
      */
-    AbstractFarmTool createFarmTool();
+    AbstractFarmTool createFarmTool(String name) throws MyException;
 
     /**
      * 根据工厂名字生成对应具体工厂，这里具体工厂一定要和concreteFactory放在一个包下面

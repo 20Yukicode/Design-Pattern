@@ -5,9 +5,9 @@ import moleFarm.common.status.Color;
 import moleFarm.common.status.Size;
 
 /**
- * 茄子
+ * 茄子🍆
  */
-public class Eggplant extends AbstractCrops {
+public class Eggplant extends AbstractCrops implements Cloneable{
     /**
      * 名字
      */
@@ -25,6 +25,18 @@ public class Eggplant extends AbstractCrops {
      */
     private final Double price = 20.0;
 
+    /**
+     * 构造方法
+     *
+     * @param name
+     * @param color
+     * @param size
+     * @param price
+     */
+    private Eggplant(String name, Color color, Size size, Double price) {
+        super(name, color, size, price);
+    }
+
     public String getName() {
         return name;
     }
@@ -39,5 +51,11 @@ public class Eggplant extends AbstractCrops {
 
     public Double getPrice() {
         return price;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Eggplant eggplant = new Eggplant(this.name, this.color, this.size, this.price);
+        return eggplant;
     }
 }

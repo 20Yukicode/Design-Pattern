@@ -7,7 +7,7 @@ import moleFarm.common.status.Size;
 /**
  * 茄子种子
  */
-public class EggplantSeed extends AbstractSeed {
+public class EggplantSeed extends AbstractSeed implements Cloneable{
     /**
      * 名字
      */
@@ -29,6 +29,10 @@ public class EggplantSeed extends AbstractSeed {
      */
     private final Double price = 5.0;
 
+    private EggplantSeed(String name, Color color, Size size, String growthCycle, Double price) {
+        super(name,color,size,growthCycle,price);
+    }
+
     public String getName() {
         return name;
     }
@@ -47,5 +51,15 @@ public class EggplantSeed extends AbstractSeed {
 
     public Double getPrice() {
         return price;
+    }
+
+    /**
+     * 原型模式，重写clone方法
+     * @return
+     */
+    @Override
+    public Object clone() {
+        EggplantSeed eggplantSeed = new EggplantSeed(this.name, this.color, this.size, this.growthCycle, this.price);
+        return eggplantSeed;
     }
 }

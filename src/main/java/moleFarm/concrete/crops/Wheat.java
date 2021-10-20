@@ -5,9 +5,9 @@ import moleFarm.common.status.Color;
 import moleFarm.common.status.Size;
 
 /**
- * 小麦
+ * 小麦🌿
  */
-public class Wheat extends AbstractCrops {
+public class Wheat extends AbstractCrops implements Cloneable{
     /**
      * 名字
      */
@@ -25,6 +25,18 @@ public class Wheat extends AbstractCrops {
      */
     private final Double price = 5.0;
 
+    /**
+     * 构造方法
+     *
+     * @param name
+     * @param color
+     * @param size
+     * @param price
+     */
+    private Wheat(String name, Color color, Size size, Double price) {
+        super(name, color, size, price);
+    }
+
     public String getName() {
         return name;
     }
@@ -39,5 +51,11 @@ public class Wheat extends AbstractCrops {
 
     public Double getPrice() {
         return price;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Wheat wheat = new Wheat(this.name, this.color, this.size, this.price);
+        return wheat;
     }
 }

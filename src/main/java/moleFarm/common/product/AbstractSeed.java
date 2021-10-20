@@ -28,4 +28,20 @@ public abstract class AbstractSeed implements IMole {
      * 价格
      */
     protected Double price;
+
+    /**
+     * 构造方法
+     * @param name
+     * @param color
+     * @param size
+     * @param growthCycle
+     * @param price
+     */
+    protected AbstractSeed(String name, Color color, Size size, String growthCycle, Double price) {
+        this.name = name;
+        this.color = color;
+        this.size = size;
+        this.growthCycle = growthCycle;
+        this.price = price;
+    }
 }

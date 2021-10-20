@@ -8,14 +8,9 @@ import moleFarm.common.status.Size;
  * 白菜种子
  */
 public class CabbageSeed extends AbstractSeed implements Cloneable{
-    public CabbageSeed(String name, Color color, Size size, String growthCycle, Double price) {
-        this.name = name;
-        this.color = color;
-        this.size = size;
-        this.growthCycle = growthCycle;
-        this.price = price;
+    protected CabbageSeed(String name, Color color, Size size, String growthCycle, Double price) {
+        super(name,color,size,growthCycle,price);
     }
-    public CabbageSeed(){};
     /**
      * 名字
      */

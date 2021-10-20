@@ -1,7 +1,7 @@
 package moleFarm.common;
 
 import moleFarm.common.product.AbstractSeed;
-import moleFarm.common.status.FarmBlockStatus;
+import moleFarm.concrete.Iterator.FarmIterator;
 
 import java.util.List;
 
@@ -23,12 +23,20 @@ public class MoleFarm {
      */
     private Integer area;
     /**
-     * 状态
+     * 农田块列表
      */
-    private List<FarmBlockStatus> farmBlockStatuses;
+    private List<MoleFarmBlock> farmBlockList;
     /**
      *农田存放的种子
      */
     private List<AbstractSeed> seedList;
+
+    /**
+     * 迭代器
+     * @return
+     */
+    public Iterator getIterator(){
+        return (new FarmIterator(farmBlockList));
+    }
 
 }
