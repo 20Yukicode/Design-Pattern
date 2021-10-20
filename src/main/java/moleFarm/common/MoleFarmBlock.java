@@ -2,10 +2,15 @@ package moleFarm.common;
 
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.FarmBlockStatus;
+import moleFarm.common.status.Shape;
 
 import java.util.List;
 
 public class MoleFarmBlock {
+    /**
+     * 形状
+     */
+    private final Shape shape=Shape.CIRCULAR;
     /**
      * 面积
      */
