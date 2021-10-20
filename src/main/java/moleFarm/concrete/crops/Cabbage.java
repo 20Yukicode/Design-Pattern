@@ -3,11 +3,12 @@ package moleFarm.concrete.crops;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.status.Color;
 import moleFarm.common.status.Size;
+import moleFarm.concrete.seed.CabbageSeed;
 
 /**
- * 白菜
+ * 白菜🥦
  */
-public class Cabbage extends AbstractCrops {
+public class Cabbage extends AbstractCrops implements Cloneable{
     /**
      * 名字
      */
@@ -25,6 +26,18 @@ public class Cabbage extends AbstractCrops {
      */
    private final Double price = 10.0;
 
+    /**
+     * 构造方法
+     *
+     * @param name
+     * @param color
+     * @param size
+     * @param price
+     */
+    private Cabbage(String name, Color color, Size size, Double price) {
+        super(name, color, size, price);
+    }
+
     public String getName() {
         return name;
     }
@@ -39,5 +52,11 @@ public class Cabbage extends AbstractCrops {
 
     public Double getPrice() {
         return price;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Cabbage cabbage = new Cabbage(this.name, this.color, this.size, this.price);
+        return cabbage;
     }
 }

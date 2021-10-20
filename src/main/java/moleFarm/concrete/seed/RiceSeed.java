@@ -7,7 +7,7 @@ import moleFarm.common.status.Size;
 /**
  * 水稻种子
  */
-public class RiceSeed extends AbstractSeed {
+public class RiceSeed extends AbstractSeed implements Cloneable{
     /**
      * 名字
      */
@@ -29,6 +29,19 @@ public class RiceSeed extends AbstractSeed {
      */
     private final Double price = 2.0;
 
+    /**
+     * 构造方法
+     *
+     * @param name
+     * @param color
+     * @param size
+     * @param growthCycle
+     * @param price
+     */
+    private RiceSeed(String name, Color color, Size size, String growthCycle, Double price) {
+        super(name, color, size, growthCycle, price);
+    }
+
     public String getName() {
         return name;
     }
@@ -47,5 +60,11 @@ public class RiceSeed extends AbstractSeed {
 
     public Double getPrice() {
         return price;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        RiceSeed riceSeed = new RiceSeed(this.name, this.color, this.size, this.growthCycle, this.price);
+        return riceSeed;
     }
 }

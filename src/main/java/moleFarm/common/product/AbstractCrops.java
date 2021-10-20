@@ -17,8 +17,23 @@ public abstract class AbstractCrops implements IMole {
      * 大小
      */
     protected Size size;
+
     /**
      * 价格
      */
     protected Double price;
+
+    /**
+     * 构造方法
+     * @param name
+     * @param color
+     * @param size
+     * @param price
+     */
+    protected AbstractCrops(String name, Color color, Size size, Double price) {
+        this.name = name;
+        this.color = color;
+        this.size = size;
+        this.price = price;
+    }
 }
