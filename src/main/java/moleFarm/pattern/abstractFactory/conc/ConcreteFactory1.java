@@ -19,7 +19,7 @@ import java.util.List;
  * 生产白菜、草莓、水稻的作物及种子
  * 生产高级肥料
  * 生产水壶和镰刀
- * 此类生产产品去moleFarm.factory下的对应工厂调用方法
+ * 此类生产产品去moleFarm.pattern.factory.conc下的对应工厂调用方法
  */
 public class ConcreteFactory1 implements IFactory {
     private final List<String> cropsList = Arrays.asList("Cabbage", "Strawberry", "Rice");
