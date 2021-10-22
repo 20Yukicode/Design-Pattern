@@ -13,11 +13,6 @@ public class CropsFactory implements Factory {
     final static String PATH = JsonOp.getPathJson("CropsFactory");
     final static String MSG = JsonOp.getMsgJson("CropsFactory");
     private static volatile CropsFactory cropsFactory;
-    /**
-     * 单例模式
-     *
-     * @return
-     */
     public synchronized static CropsFactory newInstance() {
         if (cropsFactory == null) {
             cropsFactory = new CropsFactory();
