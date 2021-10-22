@@ -7,10 +7,9 @@ public class DemoTest {
     public static void main(String[] args) throws Exception {
         String farmProductFactory = JsonOp.getMsgJson("FarmProductFactory");
         System.out.println(farmProductFactory);
-
         try {
             ConcreteFactory1 concreteFactory1 = ConcreteFactory1.newInstance();
-           AbstractCrops cabbage = concreteFactory1.createCrops("Cabbage");
+            AbstractCrops cabbage = concreteFactory1.createCrops("Cabbage");
 
         } catch (MyException e) {
             System.out.println(e.getMessage());
