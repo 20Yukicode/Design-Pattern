@@ -45,6 +45,9 @@ public class Wheat extends AbstractCrops implements Cloneable{
         Wheat wheat = new Wheat(this.name, this.color, this.size, this.price);
         return wheat;
     }
+    public String getName() {
+        return name;
+    }
     public Color getColor() {
         return color;
     }

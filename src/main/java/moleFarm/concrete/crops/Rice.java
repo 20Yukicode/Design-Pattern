@@ -46,6 +46,9 @@ public class Rice extends AbstractCrops implements Cloneable{
         Rice rice=new Rice();
         return rice;
     }
+    public String getName() {
+        return name;
+    }
     public Color getColor() {
         return color;
     }
@@ -57,5 +60,6 @@ public class Rice extends AbstractCrops implements Cloneable{
     public Double getPrice() {
         return price;
     }
+
 
 }

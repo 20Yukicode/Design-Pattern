@@ -29,5 +29,4 @@ public abstract class AbstractCrops implements IMole {
         this.size = size;
         this.price = price;
     }
-
 }

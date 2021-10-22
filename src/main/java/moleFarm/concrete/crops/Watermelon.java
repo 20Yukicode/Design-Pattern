@@ -45,6 +45,9 @@ public class Watermelon extends AbstractCrops implements Cloneable{
         Watermelon watermelon = new Watermelon(this.name, this.color, this.size, this.price);
         return watermelon;
     }
+    public String getName() {
+        return name;
+    }
     public Color getColor() {
         return color;
     }

@@ -43,6 +43,11 @@ public class Eggplant extends AbstractCrops implements Cloneable{
         Eggplant eggplant = new Eggplant(this.name, this.color, this.size, this.price);
         return eggplant;
     }
+
+    public String getName() {
+        return name;
+    }
+
     public Color getColor() {
         return color;
     }
@@ -54,5 +59,4 @@ public class Eggplant extends AbstractCrops implements Cloneable{
     public Double getPrice() {
         return price;
     }
-
 }

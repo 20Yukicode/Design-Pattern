@@ -55,6 +55,7 @@ public class Cabbage extends AbstractCrops implements Cloneable{
     }
 
     public String getName() {
-        return null;
+        return name;
     }
+
 }

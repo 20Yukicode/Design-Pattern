@@ -43,6 +43,9 @@ public class Strawberry extends AbstractCrops implements Cloneable{
         Strawberry strawberry = new Strawberry(this.name, this.color, this.size, this.price);
         return strawberry;
     }
+    public String getName() {
+        return name;
+    }
     public Color getColor() {
         return color;
     }

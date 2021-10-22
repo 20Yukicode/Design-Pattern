@@ -42,7 +42,6 @@ public class WheatSeed extends AbstractSeed implements Cloneable{
         super(name, color, size, growthCycle, price);
     }
 
-
     @Override
     public Object clone() throws CloneNotSupportedException {
         WheatSeed wheatSeed = new WheatSeed(this.name, this.color, this.size, this.growthCycle, this.price);
