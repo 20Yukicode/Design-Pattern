@@ -3,11 +3,11 @@ package moleFarm.common.product.tool;
 import moleFarm.common.product.AbstractTool;
 
 /**
- * 锄头
- * 用于种植
+ * 镰刀
+ * 用于除草
  */
-public class hoe extends AbstractTool {
-    private final String name = "锄头";
+public class Sickle extends AbstractTool {
+    private final String name = "镰刀";
     @Override
     public void ToolBehavior() {
 

@@ -40,7 +40,7 @@ public interface IFactory {
      *
      * @return
      */
-    AbstractTool createFarmTool(String name) throws MyException;
+    AbstractTool createTool(String name) throws MyException;
 
     /**
      * 根据工厂名字生成对应具体工厂，这里具体工厂一定要和concreteFactory放在一个包下面
