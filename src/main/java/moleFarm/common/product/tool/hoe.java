@@ -1,12 +1,12 @@
 package moleFarm.common.product.tool;
 
-import moleFarm.common.product.AbstractFarmTool;
+import moleFarm.common.product.AbstractTool;
 
 /**
  * 锄头
  * 用于种植
  */
-public class hoe extends AbstractFarmTool {
+public class hoe extends AbstractTool {
     private final String name = "锄头";
     @Override
     public void ToolBehavior() {

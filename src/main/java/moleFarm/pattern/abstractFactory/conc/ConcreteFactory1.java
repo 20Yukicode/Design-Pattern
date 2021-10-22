@@ -2,11 +2,11 @@ package moleFarm.pattern.abstractFactory.conc;
 
 import moleFarm.pattern.abstractFactory.IFactory;
 import moleFarm.pattern.factory.conc.CropsFactory;
-import moleFarm.pattern.factory.conc.FarmToolFactory;
+import moleFarm.pattern.factory.conc.ToolFactory;
 import moleFarm.pattern.factory.conc.FertilizerFactory;
 import moleFarm.pattern.factory.conc.SeedFactory;
 import moleFarm.common.product.AbstractCrops;
-import moleFarm.common.product.AbstractFarmTool;
+import moleFarm.common.product.AbstractTool;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.utils.MyException;
@@ -41,8 +41,8 @@ public class ConcreteFactory1 implements IFactory {
     }
 
     @Override
-    public AbstractFarmTool createFarmTool(String name) throws MyException {
-        FarmToolFactory farmToolFactory = FarmToolFactory.newInstance();
-        return farmToolFactory.create(name);
+    public AbstractTool createFarmTool(String name) throws MyException {
+        ToolFactory toolFactory = ToolFactory.newInstance();
+        return toolFactory.create(name);
     }
 }

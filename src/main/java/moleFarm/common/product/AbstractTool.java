@@ -3,7 +3,7 @@ package moleFarm.common.product;
 /**
  * 抽象农场工具
  */
-public abstract class AbstractFarmTool implements IMole {
+public abstract class AbstractTool implements IMole {
     /**
      * 名字
      */

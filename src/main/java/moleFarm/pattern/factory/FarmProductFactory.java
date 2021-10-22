@@ -4,7 +4,7 @@ import moleFarm.common.status.ProductType;
 import moleFarm.common.utils.JsonOp;
 import moleFarm.common.utils.MyException;
 import moleFarm.pattern.factory.conc.CropsFactory;
-import moleFarm.pattern.factory.conc.FarmToolFactory;
+import moleFarm.pattern.factory.conc.ToolFactory;
 import moleFarm.pattern.factory.conc.FertilizerFactory;
 import moleFarm.pattern.factory.conc.SeedFactory;
 
@@ -28,7 +28,7 @@ public  class FarmProductFactory {
         if (crops.contains(name)) {
             return (T) CropsFactory.newInstance().create(name);
         } else if (farmTool.contains(name)) {
-            return (T) FarmToolFactory.newInstance().create(name);
+            return (T) ToolFactory.newInstance().create(name);
         } else if (seed.contains(name)) {
             return (T) SeedFactory.newInstance().create(name);
         } else if (fertilizer.contains(name)) {

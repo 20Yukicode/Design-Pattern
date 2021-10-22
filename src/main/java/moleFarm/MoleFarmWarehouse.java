@@ -1,6 +1,6 @@
 package moleFarm;
 
-import moleFarm.common.product.AbstractFarmTool;
+import moleFarm.common.product.AbstractTool;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 
@@ -22,5 +22,5 @@ public class MoleFarmWarehouse {
     /**
      * 工具存储
      */
-    private Map<AbstractFarmTool,Integer>farmToolMap;
+    private Map<AbstractTool,Integer>farmToolMap;
 }

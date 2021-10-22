@@ -1,7 +1,7 @@
 package moleFarm.pattern.abstractFactory;
 
 import moleFarm.common.product.AbstractCrops;
-import moleFarm.common.product.AbstractFarmTool;
+import moleFarm.common.product.AbstractTool;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.utils.MyException;
@@ -10,8 +10,7 @@ import moleFarm.common.utils.MyException;
  * 抽象农场工厂
  */
 public interface IFactory {
-    String path = "moleFarm.concrete.";
-
+    String path = "moleFarm.pattern.abstractFactory.conc.";
     /**
      * 生产作物
      *
@@ -38,7 +37,7 @@ public interface IFactory {
      *
      * @return
      */
-    AbstractFarmTool createFarmTool(String name) throws MyException;
+    AbstractTool createFarmTool(String name) throws MyException;
 
     /**
      * 根据工厂名字生成对应具体工厂，这里具体工厂一定要和concreteFactory放在一个包下面
