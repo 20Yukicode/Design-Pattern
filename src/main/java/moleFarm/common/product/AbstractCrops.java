@@ -8,7 +8,7 @@ public abstract class AbstractCrops implements IMole {
     /**
      * 名字
      */
-    protected  String name;
+    protected String name;
     /**
      颜色
      */
@@ -17,15 +17,11 @@ public abstract class AbstractCrops implements IMole {
      * 大小
      */
     protected Size size;
-
     /**
      * 价格
      */
     protected Double price;
-
-    public AbstractCrops() {
-
-    }
+    public AbstractCrops(){}
 
     public AbstractCrops(String name, Color color, Size size, Double price) {
         this.name = name;

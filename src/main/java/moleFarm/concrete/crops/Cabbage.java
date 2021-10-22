@@ -36,9 +36,7 @@ public class Cabbage extends AbstractCrops implements Cloneable{
     private Cabbage(String name, Color color, Size size, Double price) {
         super(name, color, size, price);
     }
-    public Cabbage(){
-        super();
-    }
+    public Cabbage(){}
     @Override
     public Object clone() throws CloneNotSupportedException {
         Cabbage cabbage = new Cabbage(this.name, this.color, this.size, this.price);
@@ -57,6 +55,6 @@ public class Cabbage extends AbstractCrops implements Cloneable{
     }
 
     public String getName() {
-        return name;
+        return null;
     }
 }

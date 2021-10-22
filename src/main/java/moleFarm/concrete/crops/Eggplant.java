@@ -39,6 +39,7 @@ public class Eggplant extends AbstractCrops implements Cloneable{
     public Eggplant(){}
     @Override
     public Object clone() throws CloneNotSupportedException {
+
         Eggplant eggplant = new Eggplant(this.name, this.color, this.size, this.price);
         return eggplant;
     }

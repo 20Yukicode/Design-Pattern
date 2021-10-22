@@ -13,7 +13,7 @@ public class DemoTest {
 
         try {
             ConcreteFactory1 concreteFactory1 = ConcreteFactory1.newInstance();
-            //concreteFactory1.createCrops("")
+            concreteFactory1.createCrops("Cabbage")
 
         } catch (MyException e) {
             System.out.println(e.getMessage());

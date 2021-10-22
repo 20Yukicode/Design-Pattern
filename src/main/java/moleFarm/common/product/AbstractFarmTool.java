@@ -10,9 +10,6 @@ public abstract class AbstractFarmTool implements IMole {
      * 名字
      */
     protected String name;
-
-
-
     /**
      * 工具的处理行为
      */
