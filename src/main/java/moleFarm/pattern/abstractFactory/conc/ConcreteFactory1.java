@@ -22,8 +22,8 @@ import java.util.List;
  * 此类生产产品去moleFarm.factory下的对应工厂调用方法
  */
 public class ConcreteFactory1 implements IFactory {
-    private final List<String> seedList = Arrays.asList("Cabbage", "Strawberry", "Rice");
-    private final List<String> cropsList = Arrays.asList("CabbageSeed", "StrawberrySeed", "RiceSeed");
+    private final List<String> cropsList = Arrays.asList("Cabbage", "Strawberry", "Rice");
+    private final List<String> seedList = Arrays.asList("CabbageSeed", "StrawberrySeed", "RiceSeed");
     private final List<String> fertilizerList =Arrays.asList("AdvancedFertilizer");
     private final List<String> toolList = Arrays.asList("WateringCan","Sick");
     private final CropsFactory cropsFactory = CropsFactory.newInstance();

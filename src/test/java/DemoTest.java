@@ -5,7 +5,9 @@ import moleFarm.pattern.abstractFactory.conc.ConcreteFactory1;
 
 public class DemoTest {
     public static void main(String[] args) throws Exception {
-        System.out.println(JsonOp.getMsgJson("FarmProductFactory"));
+        String farmProductFactory = JsonOp.getMsgJson("FarmProductFactory");
+        System.out.println(farmProductFactory);
+
         try {
             ConcreteFactory1 concreteFactory1 = ConcreteFactory1.newInstance();
            AbstractCrops cabbage = concreteFactory1.createCrops("Cabbage");
