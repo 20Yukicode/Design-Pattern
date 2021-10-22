@@ -1,6 +1,5 @@
 package moleFarm.common.product;
 
-import moleFarm.common.product.useless.IMole;
 import moleFarm.common.status.Level;
 
 /**

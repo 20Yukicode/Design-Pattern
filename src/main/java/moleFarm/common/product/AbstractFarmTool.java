@@ -1,7 +1,5 @@
 package moleFarm.common.product;
 
-import moleFarm.common.product.useless.IMole;
-
 /**
  * 抽象农场工具
  */
