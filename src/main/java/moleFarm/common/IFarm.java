@@ -14,6 +14,11 @@ public interface IFarm{
      * @param seedList
      */
     void plantSeed(List<AbstractSeed>seedList);
+
+    /**
+     * 松土
+     */
+    void loosenSoil();
     /**
      * 收获作物
      */
