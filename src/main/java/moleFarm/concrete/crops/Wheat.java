@@ -37,21 +37,6 @@ public class Wheat extends AbstractCrops implements Cloneable{
         super(name, color, size, price);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public Size getSize() {
-        return size;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
 
     @Override
     protected Object clone() throws CloneNotSupportedException {

@@ -32,29 +32,7 @@ public class CabbageSeed extends AbstractSeed implements Cloneable{
      */
     private Double price = 3.0;
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public Size getSize() {
-        return size;
-    }
-
-    public String getGrowthCycle() {
-        return growthCycle;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
 
     /**
      * 原型模式，重写clone方法

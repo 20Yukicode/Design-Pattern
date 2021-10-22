@@ -42,26 +42,6 @@ public class StrawberrySeed extends AbstractSeed implements Cloneable{
         super(name, color, size, growthCycle, price);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public Size getSize() {
-        return size;
-    }
-
-    public String getGrowthCycle() {
-        return growthCycle;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
     @Override
     public Object clone() throws CloneNotSupportedException {
         StrawberrySeed strawberrySeed = new StrawberrySeed(this.name, this.color, this.size, this.growthCycle, this.price);

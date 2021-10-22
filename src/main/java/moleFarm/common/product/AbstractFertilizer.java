@@ -19,4 +19,16 @@ public abstract class AbstractFertilizer implements IMole {
      * 等级
      */
     protected Level level;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getOriginPlace() {
+        return originPlace;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
 }

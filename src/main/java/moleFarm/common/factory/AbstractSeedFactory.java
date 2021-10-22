@@ -30,7 +30,7 @@ public class AbstractSeedFactory implements Factory {
      * @throws MyException
      */
     public AbstractSeed create(String name) throws MyException {
-        return Factory.create(MSG, PATH+name);
+        return Factory.createProduct(MSG, PATH+name);
     }
 }
 

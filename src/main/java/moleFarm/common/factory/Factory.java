@@ -13,7 +13,7 @@ public interface Factory {
     * @throws MyException
     */
    IMole create(String name) throws MyException;
-   static<T extends IMole> T create(String message, String name) throws MyException {
+   static<T extends IMole> T createProduct(String message, String name) throws MyException {
       T abstractObj = null;
       try {
          Class<T> aClass = (Class<T>) Class.forName(name);
@@ -36,7 +36,7 @@ public interface Factory {
     * @return
     * @throws MyException
     */
-   static <T> T create(String message,Class<T>tClass) throws MyException{
+   static <T> T createProduct(String message,Class<T>tClass) throws MyException{
       T abstractObj=null;
       try {
          abstractObj = tClass.getConstructor().newInstance();

@@ -53,8 +53,8 @@ public interface IFactory {
         try {
             Class<T> aClass = (Class<T>) Class.forName(path + factoryName);
             try {
-                iFactory = aClass.getConstructor().newInstance();
-            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                iFactory = aClass.newInstance();
+            } catch (InstantiationException | IllegalAccessException e) {
                 e.printStackTrace();
             }
         } catch (ClassNotFoundException e) {

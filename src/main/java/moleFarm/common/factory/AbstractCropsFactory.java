@@ -31,6 +31,6 @@ public class AbstractCropsFactory implements Factory {
      */
     @Override
     public AbstractCrops create(String name) throws MyException {
-        return Factory.create(MSG, PATH + name);
+        return Factory.createProduct(MSG, PATH + name);
     }
 }

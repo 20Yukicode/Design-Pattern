@@ -19,6 +19,10 @@ import moleFarm.other.MyException;
  * 此类生产产品去moleFarm.factory下的对应工厂调用方法
  */
 public class ConcreteFactory1 implements IFactory {
+    private ConcreteFactory1() {}
+    public static ConcreteFactory1 newInstance() throws MyException{
+        return IFactory.newConcreteFactory("ConcreteFactory1");
+    }
 
     @Override
     public AbstractCrops createCrops(String name) throws MyException {

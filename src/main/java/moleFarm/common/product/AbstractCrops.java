@@ -23,6 +23,21 @@ public abstract class AbstractCrops implements IMole {
      */
     protected Double price;
 
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
     /**
      * 构造方法
      * @param name
