@@ -30,9 +30,6 @@ public class FarmIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        if(index>=farmBlockList.size()){
-            return false;
-        }
-        return true;
+        return index < farmBlockList.size();
     }
 }
