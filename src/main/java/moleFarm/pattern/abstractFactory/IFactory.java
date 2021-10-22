@@ -11,7 +11,9 @@ import moleFarm.common.utils.MyException;
  * 抽象农场工厂
  */
 public interface IFactory {
-    String path = JsonOp.getPathJson("IFactory");
+    String PATH = JsonOp.getPathJson("IFactory");
+
+    String MSG=JsonOp.getMsgJson("IFactory");
     /**
      * 生产作物
      *
@@ -49,14 +51,14 @@ public interface IFactory {
     static <T extends IFactory> T newConcreteFactory(String factoryName) throws MyException {
         T iFactory = null;
         try {
-            Class<T> aClass = (Class<T>) Class.forName(path + factoryName);
+            Class<T> aClass = (Class<T>) Class.forName(PATH + factoryName);
             try {
                 iFactory = aClass.newInstance();
             } catch (InstantiationException | IllegalAccessException e) {
                 e.printStackTrace();
             }
         } catch (ClassNotFoundException e) {
-            throw new MyException("对应的工厂尚未加入摩尔庄园，敬请期待......");
+            throw new MyException(MSG);
         }
         return iFactory;
     }

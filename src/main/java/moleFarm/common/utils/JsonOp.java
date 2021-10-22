@@ -42,17 +42,28 @@ public class JsonOp {
      * @param difference
      * @return
      */
-    public static String utilSearchJson(String name, String fileName, String difference){
+    public static String utilSearchJson(String name, String fileName, String ...difference){
         String jsonPath="src/main/java/moleFarm/common/resources/"+fileName+".json";
+        int size=difference.length;
         try {
             JSONObject json = getJson(jsonPath);
-            if(name==difference){
-                return (String) json.get(name);
+            if(size==1) {
+                if (name == difference[0]) {
+                    return (String) json.get(name);
+                } else {
+                    JSONObject factory = (JSONObject) json.get("factory");
+                    JSONObject conc = (JSONObject) factory.get("conc");
+                    return (String) conc.get(name);
+                }
             }
             else{
-                JSONObject factory = (JSONObject)json.get("factory");
-                JSONObject conc = (JSONObject)factory.get("conc");
-                return (String) conc.get(name);
+                if (name == difference[0]||name==difference[1]) {
+                    return (String) json.get(name);
+                } else {
+                    JSONObject factory = (JSONObject) json.get("factory");
+                    JSONObject conc = (JSONObject) factory.get("conc");
+                    return (String) conc.get(name);
+                }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -73,7 +84,7 @@ public class JsonOp {
      * @return
      */
     public static String getMsgJson(String name){
-        return utilSearchJson(name,"msg","FarmProductFactory");
+        return utilSearchJson(name,"msg","FarmProductFactory","IFactory");
     }
 
 }

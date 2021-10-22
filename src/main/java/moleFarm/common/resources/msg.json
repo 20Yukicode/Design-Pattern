@@ -7,5 +7,6 @@
       "ToolFactory": "没有该工具销售噢"
     }
   },
-  "FarmProductFactory": "对应的产品尚未加入摩尔庄园,敬请期待......"
+  "FarmProductFactory": "对应的产品尚未加入摩尔庄园,敬请期待......",
+  "IFactory": "对应的工厂尚未加入摩尔庄园,敬请期待......"
 }
