@@ -12,7 +12,7 @@ public interface Factory {
     * @return
     * @throws MyException
     */
-   IMole create(String name) throws MyException;
+   Object create(String name) throws MyException;
    static<T extends IMole> T createProduct(String message, String name) throws MyException {
       T abstractObj = null;
       try {

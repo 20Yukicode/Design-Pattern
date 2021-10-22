@@ -36,11 +36,23 @@ public class Strawberry extends AbstractCrops implements Cloneable{
     private Strawberry(String name, Color color, Size size, Double price) {
         super(name, color, size, price);
     }
-
+    public Strawberry(){}
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
         Strawberry strawberry = new Strawberry(this.name, this.color, this.size, this.price);
         return strawberry;
     }
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
 }

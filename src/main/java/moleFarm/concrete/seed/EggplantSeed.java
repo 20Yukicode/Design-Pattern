@@ -32,7 +32,7 @@ public class EggplantSeed extends AbstractSeed implements Cloneable{
     private EggplantSeed(String name, Color color, Size size, String growthCycle, Double price) {
         super(name,color,size,growthCycle,price);
     }
-
+    public EggplantSeed(){}
 
     /**
      * 原型模式，重写clone方法
@@ -42,5 +42,24 @@ public class EggplantSeed extends AbstractSeed implements Cloneable{
     public Object clone() {
         EggplantSeed eggplantSeed = new EggplantSeed(this.name, this.color, this.size, this.growthCycle, this.price);
         return eggplantSeed;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public String getGrowthCycle() {
+        return growthCycle;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 }

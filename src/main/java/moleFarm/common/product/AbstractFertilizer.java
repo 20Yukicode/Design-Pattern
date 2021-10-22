@@ -20,15 +20,4 @@ public abstract class AbstractFertilizer implements IMole {
      */
     protected Level level;
 
-    public String getName() {
-        return name;
-    }
-
-    public String getOriginPlace() {
-        return originPlace;
-    }
-
-    public Level getLevel() {
-        return level;
-    }
 }

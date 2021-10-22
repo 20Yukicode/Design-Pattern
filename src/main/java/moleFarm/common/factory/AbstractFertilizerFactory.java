@@ -1,6 +1,7 @@
 package moleFarm.common.factory;
 
 import moleFarm.common.product.AbstractFertilizer;
+import moleFarm.common.product.useless.IMole;
 import moleFarm.other.MyException;
 
 /**
@@ -19,7 +20,6 @@ public class AbstractFertilizerFactory implements Factory{
     }
     @Override
     public AbstractFertilizer create(String name) throws MyException {
-        return Factory.createProduct(MSG,PATH+name);
+        return Factory.createProduct(MSG, PATH + name);
     }
-
 }

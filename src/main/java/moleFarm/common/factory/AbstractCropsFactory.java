@@ -1,6 +1,8 @@
 package moleFarm.common.factory;
 
 import moleFarm.common.product.AbstractCrops;
+import moleFarm.common.product.useless.IMole;
+import moleFarm.concrete.crops.Cabbage;
 import moleFarm.other.MyException;
 
 /**

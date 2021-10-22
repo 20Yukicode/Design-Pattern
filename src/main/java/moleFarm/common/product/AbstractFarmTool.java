@@ -11,9 +11,7 @@ public abstract class AbstractFarmTool implements IMole {
      */
     protected String name;
 
-    public String getName() {
-        return name;
-    }
+
 
     /**
      * 工具的处理行为

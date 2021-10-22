@@ -19,7 +19,6 @@ import moleFarm.other.MyException;
  * 此类生产产品去moleFarm.factory下的对应工厂调用方法
  */
 public class ConcreteFactory2 implements IFactory {
-    private ConcreteFactory2() {}
     public static ConcreteFactory2 newInstance() throws MyException{
         return IFactory.newConcreteFactory("ConcreteFactory2");
     }

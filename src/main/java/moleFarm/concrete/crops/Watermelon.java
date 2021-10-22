@@ -37,10 +37,24 @@ public class Watermelon extends AbstractCrops implements Cloneable{
         super(name, color, size, price);
     }
 
+    public Watermelon() {
+    }
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
         Watermelon watermelon = new Watermelon(this.name, this.color, this.size, this.price);
         return watermelon;
     }
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
 }

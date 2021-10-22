@@ -28,7 +28,7 @@ public class WheatSeed extends AbstractSeed implements Cloneable{
      * 价格
      */
     private final Double price = 3.0;
-
+    public WheatSeed(){}
     /**
      * 构造方法
      *
@@ -47,5 +47,24 @@ public class WheatSeed extends AbstractSeed implements Cloneable{
     public Object clone() throws CloneNotSupportedException {
         WheatSeed wheatSeed = new WheatSeed(this.name, this.color, this.size, this.growthCycle, this.price);
         return wheatSeed;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public String getGrowthCycle() {
+        return growthCycle;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 }

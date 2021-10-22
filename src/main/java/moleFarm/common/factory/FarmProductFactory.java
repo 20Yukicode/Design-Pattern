@@ -16,8 +16,7 @@ public  class FarmProductFactory {
      * @return
      * @throws MyException
      */
-    public static <T> T createFarmProduct(String name) throws MyException
-    {
+    public static<T> T createFarmProduct(String name) throws MyException {
         List<String> crops = JsonOp.searchJson(ProductType.CROPS);
         List<String> farmTool = JsonOp.searchJson(ProductType.FARM_TOOL);
         List<String> seed = JsonOp.searchJson(ProductType.SEED);

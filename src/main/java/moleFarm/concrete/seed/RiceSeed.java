@@ -28,7 +28,7 @@ public class RiceSeed extends AbstractSeed implements Cloneable{
      * 价格
      */
     private final Double price = 2.0;
-
+    public RiceSeed(){}
     /**
      * 构造方法
      *
@@ -42,9 +42,29 @@ public class RiceSeed extends AbstractSeed implements Cloneable{
         super(name, color, size, growthCycle, price);
     }
 
+
     @Override
     public Object clone() throws CloneNotSupportedException {
         RiceSeed riceSeed = new RiceSeed(this.name, this.color, this.size, this.growthCycle, this.price);
         return riceSeed;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public String getGrowthCycle() {
+        return growthCycle;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 }

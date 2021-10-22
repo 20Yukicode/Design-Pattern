@@ -36,10 +36,22 @@ public class Eggplant extends AbstractCrops implements Cloneable{
     private Eggplant(String name, Color color, Size size, Double price) {
         super(name, color, size, price);
     }
-
+    public Eggplant(){}
     @Override
     public Object clone() throws CloneNotSupportedException {
         Eggplant eggplant = new Eggplant(this.name, this.color, this.size, this.price);
         return eggplant;
     }
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
 }

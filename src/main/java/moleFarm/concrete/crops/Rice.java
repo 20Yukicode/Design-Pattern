@@ -37,10 +37,25 @@ public class Rice extends AbstractCrops implements Cloneable{
         super(name, color, size, price);
     }
 
+    public Rice() {
+    }
+
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        Rice rice = new Rice(this.name, this.color, this.size, this.price);
+//        Rice rice = new Rice(this.name, this.color, this.size, this.price);
+        Rice rice=new Rice();
         return rice;
+    }
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 
 }

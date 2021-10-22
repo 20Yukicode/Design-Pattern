@@ -28,7 +28,7 @@ public class WatermelonSeed extends AbstractSeed implements Cloneable{
      * 价格
      */
     private final Double price = 5.0;
-
+    public WatermelonSeed(){}
     /**
      * 构造方法
      *
@@ -47,5 +47,24 @@ public class WatermelonSeed extends AbstractSeed implements Cloneable{
     protected Object clone() throws CloneNotSupportedException {
         WatermelonSeed watermelonSeed = new WatermelonSeed(this.name, this.color, this.size, this.growthCycle, this.price);
         return watermelonSeed;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public String getGrowthCycle() {
+        return growthCycle;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 }

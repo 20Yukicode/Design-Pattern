@@ -12,4 +12,7 @@ public class sickle extends AbstractFarmTool {
     public void ToolBehavior() {
 
     }
+    public String getName() {
+        return name;
+    }
 }

@@ -37,10 +37,24 @@ public class Wheat extends AbstractCrops implements Cloneable{
         super(name, color, size, price);
     }
 
+    public Wheat() {
+    }
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
         Wheat wheat = new Wheat(this.name, this.color, this.size, this.price);
         return wheat;
     }
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
 }

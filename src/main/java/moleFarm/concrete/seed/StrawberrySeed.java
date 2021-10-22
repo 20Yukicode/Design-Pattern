@@ -28,7 +28,7 @@ public class StrawberrySeed extends AbstractSeed implements Cloneable{
      * 价格
      */
     private final Double price = 6.0;
-
+    public StrawberrySeed(){}
     /**
      * 构造方法
      *
@@ -46,5 +46,24 @@ public class StrawberrySeed extends AbstractSeed implements Cloneable{
     public Object clone() throws CloneNotSupportedException {
         StrawberrySeed strawberrySeed = new StrawberrySeed(this.name, this.color, this.size, this.growthCycle, this.price);
         return strawberrySeed;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public String getGrowthCycle() {
+        return growthCycle;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 }

@@ -33,25 +33,7 @@ public abstract class AbstractSeed implements IMole {
         this.price = price;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public Size getSize() {
-        return size;
-    }
-
-    public String getGrowthCycle() {
-        return growthCycle;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
+    protected AbstractSeed(){}
     /**
      * 构造方法
      * @param name
