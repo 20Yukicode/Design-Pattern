@@ -7,6 +7,7 @@ import moleFarm.common.status.ProductType;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
+import java.util.Objects;
 
 public class JsonOp {
     /**
@@ -17,9 +18,14 @@ public class JsonOp {
      */
     private static JSONObject getJson(String jsonPath) throws FileNotFoundException {
         JSONReader jsonReader = new JSONReader(new FileReader(jsonPath));
-        JSONObject o = (JSONObject) jsonReader.readObject();
-        return o;
+        return (JSONObject) jsonReader.readObject();
     }
+
+    /**
+     * 解析farm.json
+     * @param productType
+     * @return
+     */
     public static List<String> SearchJson(ProductType productType) {
         String text = productType.getText();
         String jsonPath = "src/main/java/moleFarm/common/resources/farm.json";
@@ -48,7 +54,7 @@ public class JsonOp {
         try {
             JSONObject json = getJson(jsonPath);
             if(size==1) {
-                if (name == difference[0]) {
+                if (Objects.equals(name, difference[0])) {
                     return (String) json.get(name);
                 } else {
                     JSONObject factory = (JSONObject) json.get("factory");
@@ -57,7 +63,7 @@ public class JsonOp {
                 }
             }
             else{
-                if (name == difference[0]||name==difference[1]) {
+                if (Objects.equals(name, difference[0]) || Objects.equals(name, difference[1])) {
                     return (String) json.get(name);
                 } else {
                     JSONObject factory = (JSONObject) json.get("factory");
