@@ -20,7 +20,7 @@ public class JsonOp {
         JSONObject o = (JSONObject) jsonReader.readObject();
         return o;
     }
-    public static List<String> utilSearchJson(ProductType productType) {
+    public static List<String> SearchJson(ProductType productType) {
         String text = productType.getText();
         String jsonPath = "src/main/java/moleFarm/common/resources/farm.json";
         List<String> list = null;
@@ -34,6 +34,14 @@ public class JsonOp {
         System.out.println(list);
         return list;
     }
+
+    /**
+     * 工具类用来解析
+     * @param name
+     * @param fileName
+     * @param difference
+     * @return
+     */
     public static String utilSearchJson(String name, String fileName, String difference){
         String jsonPath="src/main/java/moleFarm/common/resources/"+fileName+".json";
         try {
@@ -60,7 +68,7 @@ public class JsonOp {
         return utilSearchJson(name, "path", "IFactory");
     }
     /**
-     *
+     *解析msg.json
      * @param name
      * @return
      */
