@@ -4,13 +4,14 @@ import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractTool;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
+import moleFarm.common.utils.JsonOp;
 import moleFarm.common.utils.MyException;
 
 /**
  * 抽象农场工厂
  */
 public interface IFactory {
-    String path = "moleFarm.pattern.abstractFactory.conc.";
+    String path = JsonOp.getPathJson("IFactory");
     /**
      * 生产作物
      *

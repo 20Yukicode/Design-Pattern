@@ -1,5 +1,6 @@
 package moleFarm.pattern.factory.conc;
 
+import moleFarm.common.utils.JsonOp;
 import moleFarm.pattern.factory.Factory;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.utils.MyException;
@@ -8,8 +9,8 @@ import moleFarm.common.utils.MyException;
  * 种子抽象工厂类，此处不再写具体的，如CabbageSeedFactory
  */
 public class SeedFactory implements Factory {
-    final static String PATH = "moleFarm.common.product.seed.";
-    final static String MSG = "没有该种子销售噢";
+    final static String PATH = JsonOp.getPathJson("SeedFactory");
+    final static String MSG = JsonOp.getMsgJson("SeedFactory");
     private static volatile SeedFactory seedFactory;
     private SeedFactory() {}
     /**

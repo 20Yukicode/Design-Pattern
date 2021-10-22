@@ -1,5 +1,6 @@
 package moleFarm.pattern.factory.conc;
 
+import moleFarm.common.utils.JsonOp;
 import moleFarm.pattern.factory.Factory;
 import moleFarm.common.product.AbstractTool;
 import moleFarm.common.utils.MyException;
@@ -8,8 +9,8 @@ import moleFarm.common.utils.MyException;
  * 工具的抽象工厂类，此处不再写具体的，如ConcreteFarmToolFactory
  */
 public class ToolFactory implements Factory {
-    final static String PATH = "moleFarm.common.product.tool.";
-    final static String MSG = "没有该工具销售噢";
+    final static String PATH = JsonOp.getPathJson("ToolFactory");
+    final static String MSG = JsonOp.getMsgJson("ToolFactory");
     private static volatile ToolFactory toolFactory;
     private ToolFactory(){}
     public synchronized static ToolFactory newInstance() {
