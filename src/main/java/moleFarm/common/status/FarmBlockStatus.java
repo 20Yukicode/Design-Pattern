@@ -7,7 +7,7 @@ public enum FarmBlockStatus {
     WEEDS("杂草"),
     INSECT_DISASTER("虫灾"),
     DROUGHT_TOLERANCE("耐旱"),
-    WITHERED("枯萎"),
+    //WITHERED("枯萎"),
     MOIST("湿润");
     String text;
     FarmBlockStatus(String text){
