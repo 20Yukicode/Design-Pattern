@@ -46,11 +46,11 @@ public class Shop {
         }
     }
 
-    public boolean BuySeeds(AbstractSeed seed, int num) throws MyException {
+    public boolean buySeeds(AbstractSeed seed, int num) throws MyException {
         return buyObject(seed, num, "getSeedMap");
     }
 
-    public boolean BuyFertilizer(AbstractFertilizer fertilizer, int num) throws MyException {
+    public boolean buyFertilizer(AbstractFertilizer fertilizer, int num) throws MyException {
         return buyObject(fertilizer, num, "getFertilizerMap");
     }
 }

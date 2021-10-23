@@ -22,7 +22,7 @@ public class SeedCommand {
     //商店接收命令，为仓库买入种子
     public void execute(AbstractSeed seed,int num){
         try {
-            shop.BuySeeds(seed,num);
+            shop.buySeeds(seed,num);
         } catch (MyException e) {
             e.printStackTrace();
         }
