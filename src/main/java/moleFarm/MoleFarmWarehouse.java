@@ -1,7 +1,7 @@
-package moleFarm.common.repository;
+package moleFarm;
 
 import moleFarm.common.product.*;
-import moleFarm.common.repository.IFarmWareHouse;
+import moleFarm.IFarmWareHouse;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,8 +1,5 @@
 package moleFarm;
 
-import moleFarm.common.farm.MoleFarm;
-import moleFarm.common.farm.MoleFarmBlock;
-import moleFarm.common.repository.MoleFarmWarehouse;
 import moleFarm.pattern.adapter.Mole;
 import moleFarm.pattern.adapter.Target;
 import moleFarm.pattern.adapter.WeatherAdapter;

@@ -1,9 +1,9 @@
-package moleFarm.common.repository;
+package moleFarm;
 
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.product.IProduct;
-import moleFarm.common.repository.MoleFarmWarehouse;
+import moleFarm.MoleFarmWarehouse;
 import moleFarm.common.utils.MyException;
 import moleFarm.pattern.adapter.MoleAdapter;
 import moleFarm.pattern.adapter.Target;

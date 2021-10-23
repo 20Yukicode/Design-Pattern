@@ -1,6 +1,6 @@
 package moleFarm.pattern.builder;
 
-import moleFarm.common.farm.MoleFarmBlock;
+import moleFarm.MoleFarmBlock;
 
 /**
  * 到时候在使用建造者模式的时候，分为一键种植（只是松土加种植），一键种植（加上浇水和施肥），
