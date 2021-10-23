@@ -1,5 +1,6 @@
-package moleFarm;
+package moleFarm.common.farm;
 
+import moleFarm.common.farm.IFarmBlock;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.FarmBlockStatus;
@@ -7,7 +8,7 @@ import moleFarm.common.status.Shape;
 
 import java.util.List;
 
-public class MoleFarmBlock implements IFarmBlock{
+public class MoleFarmBlock implements IFarmBlock {
     /**
      * 形状
      */

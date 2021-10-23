@@ -1,9 +1,8 @@
 package moleFarm.pattern.Command.conc;
 
-import moleFarm.MoleFarmWarehouse;
-import moleFarm.Shop;
+import moleFarm.common.repository.MoleFarmWarehouse;
+import moleFarm.common.repository.Shop;
 import moleFarm.common.product.AbstractSeed;
-import moleFarm.common.product.seed.CabbageSeed;
 import moleFarm.common.utils.MyException;
 
 /**

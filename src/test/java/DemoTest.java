@@ -12,7 +12,6 @@ public class DemoTest {
             ConcreteFactory2 concreteFactory2 = ConcreteFactory2.newInstance();
             AbstractCrops cabbage = concreteFactory2.createCrops("Wheat");
             System.out.println(cabbage.getName());
-
         } catch (MyException e) {
             System.out.println(e.getMessage());
         }

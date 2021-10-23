@@ -1,6 +1,7 @@
-package moleFarm;
+package moleFarm.common.repository;
 
 import moleFarm.common.product.*;
+import moleFarm.common.repository.IFarmWareHouse;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.Map;
  * 摩尔个人仓库
  * implements IFarmWareHouse
  */
-public class MoleFarmWarehouse implements IFarmWareHouse{
+public class MoleFarmWarehouse implements IFarmWareHouse {
     /**
      * 种子存储
      */

@@ -1,11 +1,10 @@
-package moleFarm;
+package moleFarm.common.farm;
 
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.Shape;
 import moleFarm.common.utils.MyException;
 import moleFarm.pattern.iterator.conc.FarmIterator;
-import moleFarm.pattern.iterator.Iterator;
 
 import java.util.List;
 

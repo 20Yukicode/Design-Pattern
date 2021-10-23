@@ -1,4 +1,4 @@
-package moleFarm;
+package moleFarm.common.repository;
 
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;

@@ -1,6 +1,6 @@
 package moleFarm.pattern.builder;
 
-import moleFarm.MoleFarmBlock;
+import moleFarm.common.farm.MoleFarmBlock;
 
 public class Director {
     Builder builder;

@@ -1,7 +1,7 @@
 package moleFarm.pattern.Command.conc;
 
-import moleFarm.MoleFarmWarehouse;
-import moleFarm.Shop;
+import moleFarm.common.repository.MoleFarmWarehouse;
+import moleFarm.common.repository.Shop;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.utils.MyException;
 
