@@ -29,13 +29,6 @@ public abstract class AbstractSeed implements Target,IMole {
      */
     protected Double price;
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public Double getPrice(){
-        return price;
-    }
 
     protected AbstractSeed(){}
     /**

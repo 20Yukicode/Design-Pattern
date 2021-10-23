@@ -14,4 +14,6 @@ public abstract class AbstractTool implements Target,IMole {
      * 工具的处理行为
      */
     public abstract void ToolBehavior();
+
+
 }

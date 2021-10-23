@@ -23,8 +23,4 @@ public abstract class AbstractFertilizer implements Target,IMole{
      * 价格
      */
     protected Double price;
-
-    public Double getPrice() {
-        return price;
-    }
 }
