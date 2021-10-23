@@ -5,7 +5,7 @@ import moleFarm.pattern.adapter.Target;
 /**
  * 抽象农场工具
  */
-public abstract class AbstractTool implements Target {
+public abstract class AbstractTool implements Target,IMole {
     /**
      * 名字
      */

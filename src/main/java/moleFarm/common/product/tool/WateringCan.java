@@ -9,11 +9,18 @@ import moleFarm.common.product.AbstractTool;
 public class WateringCan extends AbstractTool {
 
     private final String name = "浇水壶";
+
+    private Double price;
     @Override
     public void ToolBehavior() {
 
     }
     public String getName() {
         return name;
+    }
+
+    @Override
+    public Double getPrice() {
+        return price;
     }
 }

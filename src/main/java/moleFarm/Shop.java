@@ -2,11 +2,16 @@ package moleFarm;
 
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
+import moleFarm.common.product.IMole;
 import moleFarm.common.product.seed.CabbageSeed;
+import moleFarm.common.utils.MyException;
 import moleFarm.pattern.adapter.MoleAdapter;
 import moleFarm.pattern.adapter.Target;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.zip.DeflaterOutputStream;
 
 /**
  * 商店类
@@ -19,34 +24,35 @@ public class Shop {
     public Shop(MoleFarmWarehouse Warehouse){
         this.moleFarmWarehouse = Warehouse;
     }
-    public boolean BuySeeds(AbstractSeed seed, int num){
-        Double price = seed.getPrice()*num;
+    public<T extends IMole> boolean buyObject(T object,int num,String methodName) throws MyException {
+        Double price = object.getPrice() * num;
         //需要有一个摩尔角色类，判断剩余摩尔豆是否大于等于交换金额，是则返回true，并扣除相应大小的摩尔豆
         //调用适配器
         Target mole = new MoleAdapter();
         Double money = mole.getMoleDou();
-        boolean result = money>=price?true:false;
-        if(result==false)return false;
-        mole.setMoleDou(money-price);
-        Map<AbstractSeed, Integer> seedMap = moleFarmWarehouse.getSeedMap();
-        //返回仓库中该种子的原有数量，若map中无该类种子，则插入并返回null
-        Integer orinum = seedMap.putIfAbsent(seed,num);
-        //若仓库中原本有库存，则将其与新增进货量累加
-        if(orinum!=null)seedMap.put(seed,num+orinum);
-        return true;
+        if (money < price)
+            return false;
+        mole.setMoleDou(money - price);
+        try {
+            Method method = MoleFarmWarehouse.class.getDeclaredMethod(methodName);
+            Map<T, Integer> objectMap = (Map<T, Integer>) method.invoke(moleFarmWarehouse);
+            Integer orinum = objectMap.putIfAbsent(object, num);
+            //若仓库中原本有库存，则将其与新增进货量累加
+            if (orinum != null)
+                objectMap.put(object, num + orinum);
+            return true;
+            //返回仓库中该种子的原有数量，若map中无该类种子，则插入并返回null
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+            throw new MyException("购买出错......");
+        }
     }
-    public boolean BuyFertilizer(AbstractFertilizer fertilizer, int num){
-        Double price = fertilizer.getPrice()*num;
-        Target mole = new MoleAdapter();
-        Double money = mole.getMoleDou();
-        boolean result = money>=price?true:false;
-        if(result==false)return false;
-        mole.setMoleDou(money-price);
-        Map<AbstractFertilizer, Integer> fertilizerMap = moleFarmWarehouse.getFertilizerMap();
-        //返回仓库中该种子的原有数量，若map中无该类种子，则插入并返回null
-        Integer orinum = fertilizerMap.putIfAbsent(fertilizer,num);
-        //若仓库中原本有库存，则将其与新增进货量累加
-        if(orinum!=null)fertilizerMap.put(fertilizer,num+orinum);
-        return true;
+    public<T> void lan (T a){
+
+    }
+    public boolean BuySeeds(AbstractSeed seed, int num) throws MyException {
+        return buyObject(seed, num, "getSeedMap");
+    }
+    public boolean BuyFertilizer(AbstractFertilizer fertilizer, int num) throws MyException {
+        return buyObject(fertilizer, num, "getFertilizerMap");
     }
 }

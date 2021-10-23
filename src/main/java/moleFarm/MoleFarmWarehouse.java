@@ -1,26 +1,20 @@
 package moleFarm;
 
+import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractTool;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
+import moleFarm.pattern.adapter.Target;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * 摩尔个人仓库
  * implements IFarmWareHouse
  */
-public class MoleFarmWarehouse {
-
-    public Map<AbstractSeed, Integer> getSeedMap() {
-        return seedMap;
-    }
-
-    public Map<AbstractFertilizer, Integer> getFertilizerMap() {
-        return fertilizerMap;
-    }
-
+public class MoleFarmWarehouse implements IFarmWareHouse{
     /**
      * 种子存储
      */
@@ -33,4 +27,32 @@ public class MoleFarmWarehouse {
      * 工具存储
      */
     private Map<AbstractTool,Integer>farmToolMap=new HashMap<>();
+
+    public Map<AbstractSeed, Integer> getSeedMap() {
+        return seedMap;
+    }
+
+    public Map<AbstractFertilizer, Integer> getFertilizerMap() {
+        return fertilizerMap;
+    }
+
+    @Override
+    public boolean importSeedFromShop(List<AbstractSeed> seedList) {
+        return false;
+    }
+
+    @Override
+    public boolean exportCropsToShop(List<AbstractCrops> cropsList) {
+        return false;
+    }
+
+    @Override
+    public boolean provideItemToMole(List<Target> objectList) {
+        return false;
+    }
+
+    @Override
+    public boolean storeToRepository(List<AbstractCrops> cropsList) {
+        return false;
+    }
 }

@@ -4,6 +4,7 @@ import moleFarm.MoleFarmWarehouse;
 import moleFarm.Shop;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.product.seed.CabbageSeed;
+import moleFarm.common.utils.MyException;
 
 /**
  * 具体命令
@@ -20,7 +21,11 @@ public class SeedCommand {
     }
     //商店接收命令，为仓库买入种子
     public void execute(AbstractSeed seed,int num){
-        shop.BuySeeds(seed,num);
+        try {
+            shop.BuySeeds(seed,num);
+        } catch (MyException e) {
+            e.printStackTrace();
+        }
     }
 
 }

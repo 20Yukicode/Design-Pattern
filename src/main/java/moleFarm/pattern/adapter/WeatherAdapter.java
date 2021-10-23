@@ -7,6 +7,11 @@ public class WeatherAdapter extends Weather implements Target {
     }
 
     @Override
+    public void setMoleDou(Double money) {
+
+    }
+
+    @Override
     public String getWeather() {
         return getWeatherstatus();
     }

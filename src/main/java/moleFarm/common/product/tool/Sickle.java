@@ -8,11 +8,18 @@ import moleFarm.common.product.AbstractTool;
  */
 public class Sickle extends AbstractTool {
     private final String name = "镰刀";
+
+    private Double price;
     @Override
     public void ToolBehavior() {
 
     }
     public String getName() {
         return name;
+    }
+
+    @Override
+    public Double getPrice() {
+        return price;
     }
 }
