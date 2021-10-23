@@ -3,7 +3,6 @@ package moleFarm.pattern.Command.conc;
 import moleFarm.MoleFarmWarehouse;
 import moleFarm.Shop;
 import moleFarm.common.product.AbstractFertilizer;
-import moleFarm.common.product.AbstractSeed;
 
 /**
  * 具体命令
@@ -18,9 +17,9 @@ public class FertilizerCommand {
     FertilizerCommand(MoleFarmWarehouse moleFarmWarehouse){
         shop = new Shop(moleFarmWarehouse);
     }
-    //商店接收命令，为仓库买入种子
-    public void execute(AbstractFertilizer feritilizer, int num){
-        shop.BuyFertilizer(feritilizer,num);
+    //商店接收命令，为仓库买入肥料
+    public void execute(AbstractFertilizer fertilizer, int num){
+        shop.BuyFertilizer(fertilizer,num);
     }
 
 }
