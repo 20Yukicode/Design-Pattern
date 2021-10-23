@@ -24,6 +24,7 @@ public class Shop {
     public Shop(MoleFarmWarehouse Warehouse){
         this.moleFarmWarehouse = Warehouse;
     }
+
     public<T extends IMole> boolean buyObject(T object,int num,String methodName) throws MyException {
         Double price = object.getPrice() * num;
         //需要有一个摩尔角色类，判断剩余摩尔豆是否大于等于交换金额，是则返回true，并扣除相应大小的摩尔豆
@@ -46,12 +47,11 @@ public class Shop {
             throw new MyException("购买出错......");
         }
     }
-    public<T> void lan (T a){
 
-    }
     public boolean BuySeeds(AbstractSeed seed, int num) throws MyException {
         return buyObject(seed, num, "getSeedMap");
     }
+
     public boolean BuyFertilizer(AbstractFertilizer fertilizer, int num) throws MyException {
         return buyObject(fertilizer, num, "getFertilizerMap");
     }
