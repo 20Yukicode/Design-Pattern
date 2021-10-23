@@ -46,11 +46,11 @@ public class MoleFarm implements IFarm {
      */
     @Override
     public void plantSeeds(List<AbstractSeed> seedList) throws MyException {
-        if (seedList.size() > farmBlockList.size())
-            throw new MyException("作物数量太多，无法种植");
         for (int i = 0; i < seedList.size(); i++) {
             farmBlockList.get(i).plantSeed(seedList.get(i));
         }
+//        if (seedList.size() > farmBlockList.size())
+//            throw new MyException("作物数量太多，无法种植");
     }
 
     /**
