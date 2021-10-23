@@ -9,7 +9,7 @@ public abstract class AbstractCrops implements IProduct {
      */
     protected String name;
     /**
-     颜色
+     * 颜色
      */
     protected Color color;
     /**
@@ -21,7 +21,8 @@ public abstract class AbstractCrops implements IProduct {
      */
     protected Double price;
 
-    public AbstractCrops(){}
+    public AbstractCrops() {
+    }
 
     public AbstractCrops(String name, Color color, Size size, Double price) {
         this.name = name;
@@ -29,9 +30,4 @@ public abstract class AbstractCrops implements IProduct {
         this.size = size;
         this.price = price;
     }
-    public abstract String getName();
-    public abstract Color getColor() ;
-
-    public abstract Size getSize();
-    public abstract Double getPrice();
 }

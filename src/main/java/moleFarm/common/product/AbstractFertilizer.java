@@ -27,7 +27,4 @@ public abstract class AbstractFertilizer implements IProduct {
     public abstract Double getPrice() ;
     public abstract String getName();
 
-    public abstract String getOriginPlace();
-
-    public abstract Level getLevel();
 }

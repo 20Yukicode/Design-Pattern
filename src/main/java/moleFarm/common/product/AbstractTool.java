@@ -19,8 +19,4 @@ public abstract class AbstractTool implements IProduct {
      * 工具的处理行为
      */
     public abstract void ToolBehavior();
-
-    public abstract String getName();
-
-    public abstract Double getPrice();
 }
