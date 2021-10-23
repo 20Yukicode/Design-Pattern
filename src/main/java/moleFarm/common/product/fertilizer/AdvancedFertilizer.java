@@ -7,6 +7,13 @@ import moleFarm.common.status.Level;
  * 高级化肥
  */
 public class AdvancedFertilizer extends AbstractFertilizer {
+    private Double price = 10.0;
+
+    @Override
+    public Double getPrice() {
+        return price;
+    }
+
     public String getName() {
         return name;
     }

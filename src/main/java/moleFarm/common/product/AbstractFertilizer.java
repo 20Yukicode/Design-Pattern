@@ -18,5 +18,12 @@ public abstract class AbstractFertilizer implements IMole {
      * 等级
      */
     protected Level level;
+    /**
+     * 价格
+     */
+    protected Double price;
 
+    public Double getPrice() {
+        return price;
+    }
 }

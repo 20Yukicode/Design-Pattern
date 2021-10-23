@@ -32,6 +32,10 @@ public abstract class AbstractSeed implements IMole {
         this.price = price;
     }
 
+    public Double getPrice(){
+        return price;
+    }
+
     protected AbstractSeed(){}
     /**
      * 构造方法
