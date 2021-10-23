@@ -6,7 +6,7 @@ import moleFarm.pattern.adapter.Target;
 /**
  * 抽象农场肥料
  */
-public abstract class AbstractFertilizer implements Target,IMole{
+public abstract class AbstractFertilizer implements Target, IProduct {
     /**
      * 名字
      */

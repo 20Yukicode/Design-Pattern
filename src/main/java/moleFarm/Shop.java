@@ -2,8 +2,7 @@ package moleFarm;
 
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
-import moleFarm.common.product.IMole;
-import moleFarm.common.product.seed.CabbageSeed;
+import moleFarm.common.product.IProduct;
 import moleFarm.common.utils.MyException;
 import moleFarm.pattern.adapter.MoleAdapter;
 import moleFarm.pattern.adapter.Target;
@@ -11,7 +10,6 @@ import moleFarm.pattern.adapter.Target;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
-import java.util.zip.DeflaterOutputStream;
 
 /**
  * 商店类
@@ -25,7 +23,7 @@ public class Shop {
         this.moleFarmWarehouse = Warehouse;
     }
 
-    public<T extends IMole> boolean buyObject(T object,int num,String methodName) throws MyException {
+    public<T extends IProduct> boolean buyObject(T object, int num, String methodName) throws MyException {
         Double price = object.getPrice() * num;
         //需要有一个摩尔角色类，判断剩余摩尔豆是否大于等于交换金额，是则返回true，并扣除相应大小的摩尔豆
         //调用适配器

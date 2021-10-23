@@ -7,7 +7,7 @@ import moleFarm.pattern.adapter.Target;
 /**
  * 抽象农场种子
  */
-public abstract class AbstractSeed implements Target,IMole {
+public abstract class AbstractSeed implements Target, IProduct {
     /**
      * 名字
      */

@@ -1,7 +1,6 @@
 package moleFarm;
 
 import moleFarm.common.product.*;
-import moleFarm.pattern.adapter.Target;
 
 import java.util.HashMap;
 import java.util.List;
@@ -44,7 +43,7 @@ public class MoleFarmWarehouse implements IFarmWareHouse{
     }
 
     @Override
-    public boolean provideItemToMole(List<IMole> objectList) {
+    public boolean provideItemToMole(List<IProduct> objectList) {
         return false;
     }
 
