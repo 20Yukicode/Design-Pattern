@@ -46,4 +46,23 @@ public abstract class AbstractSeed implements IProduct {
         this.growthCycle = growthCycle;
         this.price = price;
     }
+    public String getName() {
+        return name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public String getGrowthCycle() {
+        return growthCycle;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
 }

@@ -20,5 +20,12 @@ public abstract class AbstractTool implements IProduct {
      */
     public abstract void ToolBehavior();
 
+    public String getName() {
+        return name;
+    }
 
+    @Override
+    public Double getPrice() {
+        return price;
+    }
 }
