@@ -17,9 +17,13 @@ public class MoleFarmBlock implements IFarmBlock{
      */
     private final Double area=1.0;
     /**
-     * 种子种类
+     * 种子
      */
     private AbstractSeed seed;
+    /**
+     * 作物
+     */
+    private AbstractCrops crops;
     /**
      * 农田块状态列表
      */

@@ -38,6 +38,12 @@ public class MoleFarm implements IFarm {
     public Iterator getIterator() {
         return (new FarmIterator(farmBlockList));
     }
+
+    /**
+     * 种下种子
+     * @param seedList
+     * @throws MyException
+     */
     @Override
     public void plantSeeds(List<AbstractSeed> seedList) throws MyException {
         if (seedList.size() > farmBlockList.size())
@@ -46,6 +52,11 @@ public class MoleFarm implements IFarm {
             farmBlockList.get(i).plantSeed(seedList.get(i));
         }
     }
+
+    /**
+     * 收获作物
+     * @return
+     */
     @Override
     public List<AbstractCrops> harvestCrops() {
         List<AbstractCrops> cropsList=null;
