@@ -3,6 +3,7 @@ package moleFarm.pattern.Command.conc;
 import moleFarm.MoleFarmWarehouse;
 import moleFarm.Shop;
 import moleFarm.common.product.AbstractFertilizer;
+import moleFarm.common.utils.MyException;
 
 /**
  * 具体命令
@@ -19,7 +20,11 @@ public class FertilizerCommand {
     }
     //商店接收命令，为仓库买入肥料
     public void execute(AbstractFertilizer fertilizer, int num){
-        shop.BuyFertilizer(fertilizer,num);
+        try {
+            shop.BuyFertilizer(fertilizer,num);
+        } catch (MyException e) {
+            e.printStackTrace();
+        }
     }
 
 }
