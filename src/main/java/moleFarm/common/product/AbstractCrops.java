@@ -29,18 +29,9 @@ public abstract class AbstractCrops implements IProduct {
         this.size = size;
         this.price = price;
     }
-    public String getName() {
-        return name;
-    }
-    public Color getColor() {
-        return color;
-    }
+    public abstract String getName();
+    public abstract Color getColor() ;
 
-    public Size getSize() {
-        return size;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
+    public abstract Size getSize();
+    public abstract Double getPrice();
 }
