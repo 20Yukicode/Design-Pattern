@@ -11,7 +11,7 @@ public class Watermelon extends AbstractCrops implements Cloneable{
     /**
      * 名字
      */
-    private final   String name = "西瓜";
+    private final   String name = "西瓜\uD83C\uDF49";
     /**
      颜色
      */

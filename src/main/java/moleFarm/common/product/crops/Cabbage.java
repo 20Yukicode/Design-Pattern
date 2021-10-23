@@ -11,7 +11,7 @@ public class Cabbage extends AbstractCrops implements Cloneable{
     /**
      * 名字
      */
-    private final String name = "白菜";
+    private final String name = "白菜\uD83E\uDD66";
     /**
      颜色
      */

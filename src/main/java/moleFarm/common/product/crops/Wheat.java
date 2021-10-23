@@ -11,7 +11,7 @@ public class Wheat extends AbstractCrops implements Cloneable{
     /**
      * 名字
      */
-    private  final String name = "小麦";
+    private  final String name = "小麦\uD83C\uDF3F";
     /**
      颜色
      */

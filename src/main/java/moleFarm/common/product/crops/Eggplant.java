@@ -11,7 +11,7 @@ public class Eggplant extends AbstractCrops implements Cloneable{
     /**
      * 名字
      */
-    private final String name = "茄子";
+    private final String name = "茄子\uD83C\uDF46";
     /**
      颜色
      */

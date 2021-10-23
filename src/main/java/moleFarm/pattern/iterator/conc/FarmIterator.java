@@ -32,4 +32,16 @@ public class FarmIterator implements Iterator {
     public boolean hasNext() {
         return index < farmBlockList.size();
     }
+
+    public MoleFarmBlock getByIndex(int index_){
+        this.index=index_;
+        if(index<=farmBlockList.size()-1){
+            System.out.println("农田块"+index+"：\n");
+            return farmBlockList.get(index);
+        }
+        else{
+            System.out.println("索引超出范围！");
+            return null;
+        }
+    }
 }

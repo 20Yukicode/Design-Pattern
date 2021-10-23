@@ -21,6 +21,7 @@ public abstract class AbstractCrops implements IProduct {
      * 价格
      */
     protected Double price;
+
     public AbstractCrops(){}
 
     public AbstractCrops(String name, Color color, Size size, Double price) {
@@ -28,5 +29,8 @@ public abstract class AbstractCrops implements IProduct {
         this.color = color;
         this.size = size;
         this.price = price;
+    }
+    public String getName(){
+        return name;
     }
 }

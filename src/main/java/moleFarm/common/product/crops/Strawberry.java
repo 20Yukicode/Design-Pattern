@@ -11,7 +11,7 @@ public class Strawberry extends AbstractCrops implements Cloneable{
     /**
      * 名字
      */
-    private  final String name = "草莓";
+    private  final String name = "草莓\uD83C\uDF53";
     /**
      颜色
      */

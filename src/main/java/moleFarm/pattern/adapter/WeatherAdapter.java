@@ -13,6 +13,6 @@ public class WeatherAdapter extends Weather implements Target {
 
     @Override
     public String getWeather() {
-        return getWeatherstatus();
+        return getWeatherStatus();
     }
 }

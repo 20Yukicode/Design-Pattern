@@ -35,7 +35,7 @@ public class MoleFarm implements IFarm {
      *
      * @return
      */
-    public Iterator getIterator() {
+    public FarmIterator getIterator() {
         return (new FarmIterator(farmBlockList));
     }
 

@@ -71,4 +71,16 @@ public class MoleFarmBlock implements IFarmBlock{
     public AbstractCrops harvestCrops() {
         return null;
     }
+
+    /**
+     * 获取农田块信息
+     */
+    public void getInfo(){
+        System.out.println("作物："+crops.getName());
+        System.out.println("状态：");
+        for(int i=0;i<statusList.size();++i){
+            System.out.println(statusList.get(i)+" ");
+        }
+        //生长周期待定
+    }
 }

@@ -11,7 +11,7 @@ public class Rice extends AbstractCrops implements Cloneable{
     /**
      * 名字
      */
-    private final String name = "水稻";
+    private final String name = "水稻\uD83C\uDF3E";
     /**
      颜色
      */
