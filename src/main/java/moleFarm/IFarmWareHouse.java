@@ -2,6 +2,7 @@ package moleFarm;
 
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
+import moleFarm.common.product.IMole;
 import moleFarm.pattern.adapter.Target;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public interface IFarmWareHouse {
      * 这里肯定要修改，比较怪异
      * @return
      */
-    boolean provideItemToMole(List<Target> objectList);
+    boolean provideItemToMole(List<IMole> objectList);
     /**
      * 存作物到仓库
      * @param cropsList

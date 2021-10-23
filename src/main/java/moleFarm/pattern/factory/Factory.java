@@ -1,6 +1,6 @@
 package moleFarm.pattern.factory;
 
-import moleFarm.pattern.adapter.Target;
+import moleFarm.common.product.IMole;
 import moleFarm.common.utils.MyException;
 
 import java.lang.reflect.InvocationTargetException;
@@ -12,8 +12,8 @@ public interface Factory {
     * @return
     * @throws MyException
     */
-   Target create(String name) throws MyException;
-   static<T extends Target> T createProduct(String message, String name) throws MyException {
+   IMole create(String name) throws MyException;
+   static<T extends IMole> T createProduct(String message, String name) throws MyException {
       T abstractObj = null;
       try {
          Class<T> aClass = (Class<T>) Class.forName(name);

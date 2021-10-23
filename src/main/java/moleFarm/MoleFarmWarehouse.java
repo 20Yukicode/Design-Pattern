@@ -1,9 +1,6 @@
 package moleFarm;
 
-import moleFarm.common.product.AbstractCrops;
-import moleFarm.common.product.AbstractTool;
-import moleFarm.common.product.AbstractFertilizer;
-import moleFarm.common.product.AbstractSeed;
+import moleFarm.common.product.*;
 import moleFarm.pattern.adapter.Target;
 
 import java.util.HashMap;
@@ -47,7 +44,7 @@ public class MoleFarmWarehouse implements IFarmWareHouse{
     }
 
     @Override
-    public boolean provideItemToMole(List<Target> objectList) {
+    public boolean provideItemToMole(List<IMole> objectList) {
         return false;
     }
 
