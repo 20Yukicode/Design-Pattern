@@ -2,8 +2,9 @@ package moleFarm.common.product;
 
 import moleFarm.common.status.Color;
 import moleFarm.common.status.Size;
+import moleFarm.pattern.adapter.Target;
 
-public abstract class AbstractCrops implements IMole {
+public abstract class AbstractCrops implements Target {
     /**
      * 名字
      */

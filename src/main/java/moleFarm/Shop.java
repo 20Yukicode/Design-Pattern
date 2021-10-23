@@ -3,6 +3,8 @@ package moleFarm;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.product.seed.CabbageSeed;
+import moleFarm.pattern.adapter.MoleAdapter;
+import moleFarm.pattern.adapter.Target;
 
 import java.util.Map;
 
@@ -20,7 +22,12 @@ public class Shop {
     public boolean BuySeeds(AbstractSeed seed, int num){
         Double price = seed.getPrice()*num;
         //需要有一个摩尔角色类，判断剩余摩尔豆是否大于等于交换金额，是则返回true，并扣除相应大小的摩尔豆
-        //result = mole.dou>=price?true:false;
+        //调用适配器
+        Target mole = new MoleAdapter();
+        Double money = mole.getMoleDou();
+        boolean result = money>=price?true:false;
+        if(result==false)return false;
+        mole.setMoleDou(money-price);
         Map<AbstractSeed, Integer> seedMap = moleFarmWarehouse.getSeedMap();
         //返回仓库中该种子的原有数量，若map中无该类种子，则插入并返回null
         Integer orinum = seedMap.putIfAbsent(seed,num);
@@ -30,8 +37,11 @@ public class Shop {
     }
     public boolean BuyFertilizer(AbstractFertilizer fertilizer, int num){
         Double price = fertilizer.getPrice()*num;
-        //需要有一个摩尔角色类，判断剩余摩尔豆是否大于等于交换金额，是则返回true，并扣除相应大小的摩尔豆
-        //result = mole.dou>=price?true:false;
+        Target mole = new MoleAdapter();
+        Double money = mole.getMoleDou();
+        boolean result = money>=price?true:false;
+        if(result==false)return false;
+        mole.setMoleDou(money-price);
         Map<AbstractFertilizer, Integer> fertilizerMap = moleFarmWarehouse.getFertilizerMap();
         //返回仓库中该种子的原有数量，若map中无该类种子，则插入并返回null
         Integer orinum = fertilizerMap.putIfAbsent(fertilizer,num);

@@ -1,11 +1,12 @@
 package moleFarm.common.product;
 
 import moleFarm.common.status.Level;
+import moleFarm.pattern.adapter.Target;
 
 /**
  * 抽象农场肥料
  */
-public abstract class AbstractFertilizer implements IMole {
+public abstract class AbstractFertilizer implements Target {
     /**
      * 名字
      */

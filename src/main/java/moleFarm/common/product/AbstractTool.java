@@ -1,9 +1,11 @@
 package moleFarm.common.product;
 
+import moleFarm.pattern.adapter.Target;
+
 /**
  * 抽象农场工具
  */
-public abstract class AbstractTool implements IMole {
+public abstract class AbstractTool implements Target {
     /**
      * 名字
      */

@@ -2,11 +2,12 @@ package moleFarm.common.product;
 
 import moleFarm.common.status.Color;
 import moleFarm.common.status.Size;
+import moleFarm.pattern.adapter.Target;
 
 /**
  * 抽象农场种子
  */
-public abstract class AbstractSeed implements IMole {
+public abstract class AbstractSeed implements Target {
     /**
      * 名字
      */
