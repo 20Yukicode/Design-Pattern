@@ -7,7 +7,7 @@ public class ConcreteBuilder1 extends Builder {
     @Override
     public void buildPlantSeed() {
         if(!farmBlock.getStatusList().contains(FarmBlockStatus.MOIST)){
-
+            System.out.println("正在用"+wateringCan.getName()+"浇水");
         }
     }
 

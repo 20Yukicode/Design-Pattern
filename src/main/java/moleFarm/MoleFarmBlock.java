@@ -51,7 +51,7 @@ public class MoleFarmBlock implements IFarmBlock {
     /**
      * 松土
      */
-    public void loosenSoil(){}
+    public boolean loosenSoil(){return false;}
     /**
      * 除草
      * @return

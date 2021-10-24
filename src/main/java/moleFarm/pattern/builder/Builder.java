@@ -1,13 +1,22 @@
 package moleFarm.pattern.builder;
 
 import moleFarm.MoleFarmBlock;
+import moleFarm.common.product.tool.Hoe;
+import moleFarm.common.product.tool.Sickle;
+import moleFarm.common.product.tool.WateringCan;
 
 /**
  * 到时候在使用建造者模式的时候，分为一键种植（只是松土加种植），一键种植（加上浇水和施肥），
  * 一键收获
  */
 public abstract class Builder {
-    protected MoleFarmBlock farmBlock;
+    protected MoleFarmBlock farmBlock=new MoleFarmBlock();
+
+    protected Hoe hoe=new Hoe();
+
+    protected Sickle sickle=new Sickle();
+
+    protected WateringCan wateringCan=new WateringCan();
     /**
      * 获取成员变量farm
      * @return
