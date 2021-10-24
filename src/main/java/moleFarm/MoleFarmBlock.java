@@ -79,8 +79,8 @@ public class MoleFarmBlock implements IFarmBlock {
     public void getInfo(){
         System.out.println("作物："+crops.getName());
         System.out.println("状态：");
-        for(int i=0;i<statusList.size();++i){
-            System.out.println(statusList.get(i)+" ");
+        for (FarmBlockStatus farmBlockStatus : statusList) {
+            System.out.println(farmBlockStatus + " ");
         }
         //生长周期待定
     }
