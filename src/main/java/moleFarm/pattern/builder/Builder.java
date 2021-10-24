@@ -3,6 +3,7 @@ package moleFarm.pattern.builder;
 import moleFarm.FarmGrowth;
 import moleFarm.MoleFarmBlock;
 import moleFarm.MoleFarmWarehouse;
+import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 
@@ -22,8 +23,8 @@ public abstract class Builder {
         return farmBlock;
     }
 
-    public abstract void buildPlant(AbstractSeed seed);
+    public abstract void buildPlant(AbstractSeed seed,AbstractFertilizer fertilizer);
 
-    public abstract void buildApplyFertilizer(AbstractFertilizer fertilizer);
+    public abstract AbstractCrops buildHarvestCrops();
 
 }

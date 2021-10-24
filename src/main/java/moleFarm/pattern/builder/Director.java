@@ -18,9 +18,7 @@ public class Director {
         this.builder = builder;
     }
 
-    public MoleFarmBlock test(AbstractSeed seed, AbstractFertilizer fertilizer) {
-        builder.buildPlant(seed);
-        builder.buildApplyFertilizer(fertilizer);
-        return builder.getFarmBlock();
+    public void test(AbstractSeed seed, AbstractFertilizer fertilizer) {
+        builder.buildPlant(seed,fertilizer);
     }
 }

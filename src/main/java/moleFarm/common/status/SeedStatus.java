@@ -1,7 +1,7 @@
 package moleFarm.common.status;
 
 public enum SeedStatus {
-    SPROUTING("发芽"),SEEDLING("幼苗"),BLOOM("开花"),FRUITING("结果");
+    SPROUTING("发芽"),SEEDLING("幼苗"),BLOOM("开花"),FRUITING("结果"), WITHERED("枯萎");
     String text;
     SeedStatus(String text) {
         this.text = text;

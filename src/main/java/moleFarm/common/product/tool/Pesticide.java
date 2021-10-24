@@ -5,7 +5,6 @@ import moleFarm.common.product.AbstractTool;
 public class Pesticide extends AbstractTool {
     private final String name = "农药";
 
-    private Double price;
     private Pesticide(){}
 
     private static Pesticide pesticide=new Pesticide();

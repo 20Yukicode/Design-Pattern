@@ -7,10 +7,7 @@ import moleFarm.common.product.fertilizer.AdvancedFertilizer;
 import moleFarm.common.product.fertilizer.MiddleFertilizer;
 import moleFarm.common.product.fertilizer.PrimaryFertilizer;
 import moleFarm.common.product.seed.*;
-import moleFarm.common.product.tool.Hoe;
-import moleFarm.common.product.tool.Pesticide;
-import moleFarm.common.product.tool.Sickle;
-import moleFarm.common.product.tool.WateringCan;
+import moleFarm.common.product.tool.*;
 import moleFarm.common.status.SeedStatus;
 
 import java.nio.file.SecureDirectoryStream;
@@ -44,6 +41,8 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
     protected WateringCan wateringCan=WateringCan.newInstance();
 
     protected Pesticide pesticide=Pesticide.newInstance();
+
+    protected Shovel shovel=Shovel.newInstance();
 
     private MoleFarmWarehouse(){
         this.seedMap.put(new CabbageSeed(),5);
@@ -83,6 +82,10 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
 
     public Pesticide getPesticide() {
         return pesticide;
+    }
+
+    public Shovel getShovel() {
+        return shovel;
     }
 
     public static MoleFarmWarehouse getMoleFarmWarehouse() {

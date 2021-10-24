@@ -6,6 +6,7 @@ import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.FarmBlockStatus;
+import moleFarm.common.status.SeedStatus;
 import moleFarm.common.utils.MyException;
 import moleFarm.pattern.factory.conc.CropsFactory;
 
@@ -26,20 +27,35 @@ public class FarmGrowth {
      * @param seed
      */
     public void PlantSeed(AbstractSeed seed) {
-        System.out.println("正在播种"+seed.getName()+"...");
-        farmBlock.setSeed(seed);
-        List<AbstractSeed> Seeds = Arrays.asList(seed);
-        //这个是调用仓库的代码，可能还要重写
-        moleFarmWarehouse.provideItemToMole(Seeds);
+        if (farmBlock.getSeed() != null) {
+            System.out.println("该土地上已有种子，无法继续种植");
+        } else if (seed == null) {
+            System.out.println("您手上没有种子，无法种植");
+        } else {
+            System.out.println("正在播种" + seed.getName() + "...");
+            farmBlock.setSeed(seed);
+            List<AbstractSeed> Seeds = Arrays.asList(seed);
+            //这个是调用仓库的代码，可能还要重写
+            moleFarmWarehouse.provideItemToMole(Seeds);
+        }
     }
-
+    /**
+     * 铲除作物
+     */
+    public void eradicateCrops(){
+        if(farmBlock.getSeed()!=null){
+            moleFarmWarehouse.shovel.ToolBehavior();
+        }
+        else {
+            System.out.println("该土地上没有作物,不能铲除");
+        }
+    }
     /**
      * 松土
      */
     public void LoosenSoil() {
         moleFarmWarehouse.getHoe().ToolBehavior();
     }
-
     /**
      * 浇水
      */
@@ -57,7 +73,7 @@ public class FarmGrowth {
      * @param fertilizer
      */
     public void ApplyFertilizer(AbstractFertilizer fertilizer) {
-        if(farmBlock.getSeed()!=null&&farmBlock.getSeedStatus()!=null&&farmBlock.getSeedStatus()<6){
+        if(farmBlock.getSeed()!=null&&farmBlock.getSeedStatus()!=null&&farmBlock.getSeedStatus()<6&&fertilizer!=null){
             System.out.println("正在用"+fertilizer.getName()+"施肥");
             Integer remainNum = moleFarmWarehouse.getFertilizerMap().get(fertilizer);
             remainNum-=1;
@@ -81,7 +97,7 @@ public class FarmGrowth {
      * 除草
      */
     public void Weed() {
-        if(farmBlock.getStatusList().removeIf(s -> s.equals(FarmBlockStatus.DROUGHT))) {
+        if(farmBlock.getStatusList().removeIf(s -> s.equals(FarmBlockStatus.WEEDS))) {
             moleFarmWarehouse.getSickle().ToolBehavior();
         }
         else {
@@ -106,7 +122,15 @@ public class FarmGrowth {
      * @return
      */
     public AbstractCrops harvestCrops() {
-        if(farmBlock.getSeed()!=null&&farmBlock.getSeedStatus()>=6){
+        if(farmBlock.getSeed()==null){
+            System.out.println("该土地上没有种植作物");
+        }
+        else if(farmBlock.getSeedStatus()<6){
+            System.out.println("作物"+farmBlock.getSeed().getName()+"正处于"+
+                    SeedStatus.getSeedStatusByNum(farmBlock.getSeedStatus()).getText()+"期,请过一段时间后再来收获"
+            );
+        }
+        else{
             String name= farmBlock.getSeed().getName();
             CropsFactory cropsFactory = CropsFactory.newInstance();
             try {
