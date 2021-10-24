@@ -45,11 +45,12 @@ public class FarmProcess {
             while(str1.equals("1")) {
                 //绘制农田状态图
                 farm.showFarm();
-                System.out.println("请输入1~9查看具体农田块状态，输入0返回农场首页，输入回车选择批量操作：");
+                System.out.println("请输入1~9查看具体农田块状态，输入0返回农场首页，输入b选择批量操作：");
                 String str2 = input.next();
+                if(str2.equals("0"))break;
                 while(!str2.equals("0")){
                     //批量操作
-                    if(str2.equals("\n")){
+                    if(str2.equals("b")){
                         //建造者模式
                         System.out.println("批量操作");
                     }
@@ -76,6 +77,7 @@ public class FarmProcess {
                 warehouse.showRepertory();
                 System.out.println("请选择操作：0——返回农场首页，1——买入种子，2——卖出作物");
                 String str4=input.next();
+                if(str4.equals("0"))break;
                 while(!str4.equals("0")){
                     switch (str4){
                         case "1":

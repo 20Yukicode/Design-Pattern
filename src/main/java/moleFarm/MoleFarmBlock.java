@@ -78,11 +78,16 @@ public class MoleFarmBlock implements IFarmBlock {
      * 获取农田块信息
      */
     public void getInfo(){
-        System.out.println("作物："+seed.getName());
-        System.out.println("状态：");
-        for (FarmBlockStatus farmBlockStatus : statusList) {
-            System.out.println(farmBlockStatus + " ");
+        String seedInfo = seed==null?"抱歉，该农田块上暂未种植作物" : ("作物"+seed.getName());
+        String statusInfo = "状态：";
+        if(statusList==null||statusList.size()==0)statusInfo="状态：正常";
+        else{
+            for(FarmBlockStatus i : statusList){
+                statusInfo+=i.getText()+"\t";
+            }
         }
+        System.out.println(seedInfo);
+        System.out.println(statusInfo);
         //生长周期待定
     }
 }
