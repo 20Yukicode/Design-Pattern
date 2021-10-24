@@ -2,6 +2,7 @@ import moleFarm.MoleFarmWarehouse;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
+import moleFarm.common.product.IProduct;
 import moleFarm.common.product.fertilizer.AdvancedFertilizer;
 import moleFarm.common.product.fertilizer.MiddleFertilizer;
 import moleFarm.common.product.seed.CabbageSeed;
@@ -9,6 +10,7 @@ import moleFarm.common.status.SeedStatus;
 import moleFarm.common.utils.JsonOp;
 import moleFarm.common.utils.MyException;
 import moleFarm.pattern.abstractFactory.conc.ConcreteFactory2;
+import moleFarm.pattern.factory.conc.CropsFactory;
 
 import java.util.*;
 
@@ -21,6 +23,13 @@ public class DemoTest {
         }
     }
     public static void main(String[] args) throws Exception {
+        String name="EggplantSeed";
+        CropsFactory cropsFactory = CropsFactory.newInstance();
+        System.out.println(cropsFactory.create(name.replace("Seed", "")).getName());
+
+        System.out.println(name.replace("Seed", ""));
+        System.out.println("");
+        System.out.println(new CabbageSeed() instanceof Object);
         map.put(new MiddleFertilizer(),10);
         map.put(new AdvancedFertilizer(),100);
         System.out.println(map.put(new MiddleFertilizer(),150));
