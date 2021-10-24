@@ -46,21 +46,21 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
     protected Pesticide pesticide=Pesticide.newInstance();
 
     private MoleFarmWarehouse(){
-        this.seedMap.put(new CabbageSeed(),0);
-        this.seedMap.put(new EggplantSeed(),0);
-        this.seedMap.put(new RiceSeed(),0);
-        this.seedMap.put(new StrawberrySeed(),0);
-        this.seedMap.put(new WatermelonSeed(),0);
-        this.seedMap.put(new WheatSeed(),0);
-        this.cropsMap.put(new Cabbage(),0);
-        this.cropsMap.put(new Eggplant(),0);
-        this.cropsMap.put(new Rice(),0);
-        this.cropsMap.put(new Strawberry(),0);
-        this.cropsMap.put(new Watermelon(),0);
-        this.cropsMap.put(new Wheat(),0);
-        this.fertilizerMap.put(new AdvancedFertilizer(),0);
-        this.fertilizerMap.put(new MiddleFertilizer(),0);
-        this.fertilizerMap.put(new PrimaryFertilizer(),0);
+        this.seedMap.put(new CabbageSeed(),5);
+        this.seedMap.put(new EggplantSeed(),5);
+        this.seedMap.put(new RiceSeed(),5);
+        this.seedMap.put(new StrawberrySeed(),5);
+        this.seedMap.put(new WatermelonSeed(),5);
+        this.seedMap.put(new WheatSeed(),5);
+        this.cropsMap.put(new Cabbage(),3);
+        this.cropsMap.put(new Eggplant(),3);
+        this.cropsMap.put(new Rice(),3);
+        this.cropsMap.put(new Strawberry(),3);
+        this.cropsMap.put(new Watermelon(),3);
+        this.cropsMap.put(new Wheat(),3);
+        this.fertilizerMap.put(new AdvancedFertilizer(),2);
+        this.fertilizerMap.put(new MiddleFertilizer(),2);
+        this.fertilizerMap.put(new PrimaryFertilizer(),2);
     }
 
     private static volatile MoleFarmWarehouse moleFarmWarehouse=new MoleFarmWarehouse();
@@ -124,7 +124,15 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
 
     public void showRepertory(){
         System.out.println("仓库库存如下：\n");
-        System.out.println("白菜\uD83E\uDD66  茄子\uD83C\uDF46  水稻\uD83C\uDF3E  草莓\uD83C\uDF53  西瓜\uD83C\uDF49  小麦\uD83C\uDF3F \n  ");
-        System.out.println(cropsMap.get(new Cabbage()));
+        System.out.println("白菜\uD83E\uDD66\t茄子\uD83C\uDF46\t水稻\uD83C\uDF3E\t草莓\uD83C\uDF53\t西瓜\uD83C\uDF49\t小麦\uD83C\uDF3F   ");
+        System.out.println(cropsMap.get(new Cabbage())+"\t\t"+cropsMap.get(new Eggplant())+"\t\t"+cropsMap.get(new Rice())+"\t\t"+
+                cropsMap.get(new Strawberry())+"\t\t"+cropsMap.get(new Watermelon())+"\t\t"+cropsMap.get(new Wheat())+"\t\t");
+        System.out.println("白菜种子\t茄子种子\t水稻种子\t草莓种子\t西瓜种子\t小麦种子");
+        System.out.println(seedMap.get(new CabbageSeed())+"\t\t"+seedMap.get(new EggplantSeed())+"\t\t"+seedMap.get(new RiceSeed())+"\t\t"+
+                seedMap.get(new StrawberrySeed())+"\t\t"+seedMap.get(new WatermelonSeed())+"\t\t"+seedMap.get(new WheatSeed())+"\t\t");
+        System.out.println("高级肥料\t中级肥料\t低级肥料");
+        System.out.println(fertilizerMap.get(new AdvancedFertilizer())+"\t\t"+fertilizerMap.get(new MiddleFertilizer())+"\t\t"+
+                fertilizerMap.get(new PrimaryFertilizer()));
     }
+
 }

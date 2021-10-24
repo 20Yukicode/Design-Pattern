@@ -27,9 +27,4 @@ public class WeatherObserver {
         }
     }
 
-    public static void main(String[] args) {
-        MoleFarm moleFarm = MoleFarm.newInstance();
-        WeatherObserver weatherObserver = new WeatherObserver(moleFarm);
-
-    }
 }
