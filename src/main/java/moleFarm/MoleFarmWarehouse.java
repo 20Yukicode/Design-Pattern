@@ -2,7 +2,11 @@ package moleFarm;
 
 import moleFarm.common.product.*;
 import moleFarm.IFarmWareHouse;
-import moleFarm.common.product.seed.CabbageSeed;
+import moleFarm.common.product.crops.*;
+import moleFarm.common.product.fertilizer.AdvancedFertilizer;
+import moleFarm.common.product.fertilizer.MiddleFertilizer;
+import moleFarm.common.product.fertilizer.PrimaryFertilizer;
+import moleFarm.common.product.seed.*;
 import moleFarm.common.product.tool.Hoe;
 import moleFarm.common.product.tool.Pesticide;
 import moleFarm.common.product.tool.Sickle;
@@ -41,7 +45,23 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
 
     protected Pesticide pesticide=Pesticide.newInstance();
 
-    private MoleFarmWarehouse(){}
+    private MoleFarmWarehouse(){
+        this.seedMap.put(new CabbageSeed(),0);
+        this.seedMap.put(new EggplantSeed(),0);
+        this.seedMap.put(new RiceSeed(),0);
+        this.seedMap.put(new StrawberrySeed(),0);
+        this.seedMap.put(new WatermelonSeed(),0);
+        this.seedMap.put(new WheatSeed(),0);
+        this.cropsMap.put(new Cabbage(),0);
+        this.cropsMap.put(new Eggplant(),0);
+        this.cropsMap.put(new Rice(),0);
+        this.cropsMap.put(new Strawberry(),0);
+        this.cropsMap.put(new Watermelon(),0);
+        this.cropsMap.put(new Wheat(),0);
+        this.fertilizerMap.put(new AdvancedFertilizer(),0);
+        this.fertilizerMap.put(new MiddleFertilizer(),0);
+        this.fertilizerMap.put(new PrimaryFertilizer(),0);
+    }
 
     private static volatile MoleFarmWarehouse moleFarmWarehouse=new MoleFarmWarehouse();
 
@@ -100,5 +120,11 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
     @Override
     public boolean storeToRepository(List<AbstractCrops> cropsList) {
         return false;
+    }
+
+    public void showRepertory(){
+        System.out.println("仓库库存如下：\n");
+        System.out.println("白菜\uD83E\uDD66  茄子\uD83C\uDF46  水稻\uD83C\uDF3E  草莓\uD83C\uDF53  西瓜\uD83C\uDF49  小麦\uD83C\uDF3F \n  ");
+        System.out.println(cropsMap.get(new Cabbage()));
     }
 }

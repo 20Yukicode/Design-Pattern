@@ -18,11 +18,18 @@ public class WeatherObserver {
     public void observer(){
         weatherAdapter=WeatherAdapter.getInstance();
         if(weatherAdapter.getWeather().equals("雨天")){
+            //下雨天去除干旱状态
             FarmIterator iterator = moleFarm.getIterator();
             while(iterator.hasNext()){
                 List<FarmBlockStatus> statusList = iterator.next().getStatusList();
-                statusList.remove("干旱");
+                statusList.remove(FarmBlockStatus.DROUGHT);
             }
         }
+    }
+
+    public static void main(String[] args) {
+        MoleFarm moleFarm = MoleFarm.newInstance();
+        WeatherObserver weatherObserver = new WeatherObserver(moleFarm);
+
     }
 }

@@ -38,6 +38,8 @@ public class MoleFarm implements IFarm {
     public static synchronized MoleFarm newInstance(){
         return moleFarm;
     }
+
+
     /**
      * 迭代器
      *
