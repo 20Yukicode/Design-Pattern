@@ -9,6 +9,7 @@ import moleFarm.common.status.SeedStatus;
  * 中级化肥
  */
 public class MiddleFertilizer extends AbstractFertilizer {
+    private String name="中级化肥";
     private Double price = 5.0;
 
     private Level level=Level.MIDDLE_LEVEL;

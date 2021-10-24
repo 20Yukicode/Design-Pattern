@@ -13,6 +13,7 @@ import java.nio.file.SecureDirectoryStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * 摩尔个人仓库
@@ -81,7 +82,14 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
     }
 
     public void setFertilizerMap(AbstractFertilizer abstractFertilizer,Integer count) {
-        //fertilizerMap.put(abstractFertilizer,count);
+        fertilizerMap.forEach(
+                (k,v)->{
+                    if(Objects.equals(k.getName(), abstractFertilizer.getName())){
+                        fertilizerMap.put(k,count);
+                        return;
+                    }
+                }
+        );
     }
 
     @Override

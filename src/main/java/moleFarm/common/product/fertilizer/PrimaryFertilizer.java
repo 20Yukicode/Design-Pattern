@@ -9,6 +9,8 @@ import moleFarm.common.status.SeedStatus;
  * 初级化肥
  */
 public class PrimaryFertilizer extends AbstractFertilizer {
+    private String name="初级化肥";
+
     private Double price = 2.0;
 
     private Level level=Level.PRIMARY_LEVEL;

@@ -9,6 +9,8 @@ import moleFarm.common.status.SeedStatus;
  * 高级化肥
  */
 public class AdvancedFertilizer extends AbstractFertilizer {
+    private String name="高级化肥";
+
     private Double price = 10.0;
 
     private Level level=Level.HIGH_LEVEL;
