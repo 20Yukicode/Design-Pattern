@@ -12,7 +12,7 @@ public class Sickle extends AbstractTool {
     private Double price;
     @Override
     public void ToolBehavior() {
-
+        System.out.println("正在用"+name+"除草");
     }
     public String getName() {
         return name;
