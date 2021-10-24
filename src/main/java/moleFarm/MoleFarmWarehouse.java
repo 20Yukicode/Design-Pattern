@@ -93,7 +93,7 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
     }
 
     @Override
-    public boolean provideItemToMole(List<IProduct> objectList) {
+    public <T extends IProduct> boolean provideItemToMole(List<T> objectList) {
         return false;
     }
 

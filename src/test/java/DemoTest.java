@@ -10,30 +10,20 @@ import moleFarm.common.utils.JsonOp;
 import moleFarm.common.utils.MyException;
 import moleFarm.pattern.abstractFactory.conc.ConcreteFactory2;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class DemoTest {
     static MoleFarmWarehouse moleFarmWarehouse=MoleFarmWarehouse.newInstance();
     static Map<AbstractFertilizer, Integer>map=new HashMap<>();
-    public static void setFertilizerMap(AbstractFertilizer abstractFertilizer,Integer count) {
-       map.forEach(
-                (k,v)->{
-                    if(Objects.equals(k.getName(), abstractFertilizer.getName())){
-                        map.put(k,count);
-                        return;
-                    }
-                }
-        );
+    public static void contains(String...name){
+        for (String s : name) {
+            System.out.println(name);
+        }
     }
-
     public static void main(String[] args) throws Exception {
         map.put(new MiddleFertilizer(),10);
         map.put(new AdvancedFertilizer(),100);
-        System.out.println(map.get(new MiddleFertilizer()));
-
-        setFertilizerMap(new MiddleFertilizer(),30);
+        System.out.println(map.put(new MiddleFertilizer(),150));
         System.out.println(map);
         AbstractSeed abstractSeed=new CabbageSeed();
         System.out.println(abstractSeed.getClass());

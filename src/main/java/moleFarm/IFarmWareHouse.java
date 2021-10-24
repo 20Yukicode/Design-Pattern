@@ -28,7 +28,7 @@ public interface IFarmWareHouse {
      * 这里肯定要修改，比较怪异
      * @return
      */
-    boolean provideItemToMole(List<IProduct> objectList);
+    <T extends IProduct> boolean provideItemToMole(List<T> objectList);
     /**
      * 存作物到仓库
      * @param cropsList

@@ -6,12 +6,16 @@ import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.pattern.builder.Builder;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class ConcreteBuilder1 extends Builder {
     @Override
     public void buildPlantSeed(AbstractSeed seed) {
-
+        System.out.println("正在播种"+seed.getName()+"...");
+        List<AbstractSeed> Seeds = Arrays.asList(seed);
+        moleFarmWarehouse.provideItemToMole(Seeds);
     }
-
     @Override
     public void buildLoosenSoil() {
         moleFarmWarehouse.getHoe().ToolBehavior();
@@ -34,8 +38,7 @@ public class ConcreteBuilder1 extends Builder {
             Integer remainNum = moleFarmWarehouse.getFertilizerMap().get(fertilizer);
             remainNum-=1;
             //设置新的数量
-            moleFarmWarehouse.setFertilizerMap(fertilizer,remainNum);
-
+            moleFarmWarehouse.getFertilizerMap().put(fertilizer,remainNum);
 
             int status= farmBlock.getSeedStatus();
             Integer integer = fertilizer.fertilizerBehavior(status);
