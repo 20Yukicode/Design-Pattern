@@ -13,7 +13,7 @@ public class WateringCan extends AbstractTool {
     private Double price;
     @Override
     public void ToolBehavior() {
-
+        System.out.println("正在用"+name+"浇水...");
     }
     public String getName() {
         return name;
