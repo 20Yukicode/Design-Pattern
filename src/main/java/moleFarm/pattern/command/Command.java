@@ -1,4 +1,4 @@
-package moleFarm.pattern.Command;
+package moleFarm.pattern.command;
 
 /**
  * 抽象命令
