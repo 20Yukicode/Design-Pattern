@@ -1,6 +1,8 @@
 package moleFarm.common.product;
 
+import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.common.status.Level;
+import moleFarm.common.status.SeedStatus;
 import moleFarm.pattern.adapter.Target;
 
 /**
@@ -12,10 +14,6 @@ public abstract class AbstractFertilizer implements IProduct {
      */
     protected String name;
     /**
-     * 产地（这个其实可以忽略)
-     */
-    protected String originPlace;
-    /**
      * 等级
      */
     protected Level level;
@@ -26,5 +24,7 @@ public abstract class AbstractFertilizer implements IProduct {
 
     public abstract Double getPrice() ;
     public abstract String getName();
+
+    public abstract Integer fertilizerBehavior(int status);
 
 }

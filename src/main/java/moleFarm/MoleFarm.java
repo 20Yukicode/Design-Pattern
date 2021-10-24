@@ -4,6 +4,7 @@ import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.Shape;
 import moleFarm.common.utils.MyException;
+import moleFarm.pattern.adapter.Mole;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 
 import java.util.List;
@@ -29,6 +30,14 @@ public class MoleFarm implements IFarm {
      * 农田块列表
      */
     private List<MoleFarmBlock> farmBlockList=null;
+
+    private MoleFarm(){}
+
+    private static volatile MoleFarm moleFarm=new MoleFarm();
+
+    public static synchronized MoleFarm newInstance(){
+        return moleFarm;
+    }
     /**
      * 迭代器
      *

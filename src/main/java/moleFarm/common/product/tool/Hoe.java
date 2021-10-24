@@ -9,6 +9,13 @@ import moleFarm.common.product.AbstractTool;
 public class Hoe extends AbstractTool {
     private final String name = "锄头";
 
+    private Hoe(){}
+
+    private static Hoe hoe=new Hoe();
+
+    public static Hoe newInstance(){
+        return hoe;
+    }
     private Double price;
     @Override
     public void ToolBehavior() {

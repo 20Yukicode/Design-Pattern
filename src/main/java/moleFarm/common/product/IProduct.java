@@ -45,14 +45,6 @@ public interface IProduct {
    }
 
    /**
-    * 获取产地
-    * @return
-    */
-   default String getOriginPlace() {
-      return null;
-   }
-
-   /**
     * 获取肥料等级
     * @return
     */

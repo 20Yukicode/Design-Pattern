@@ -3,6 +3,7 @@ package moleFarm;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.FarmBlockStatus;
+import moleFarm.common.status.SeedStatus;
 import moleFarm.common.status.Shape;
 
 import java.util.List;
@@ -21,17 +22,15 @@ public class MoleFarmBlock implements IFarmBlock {
      */
     private AbstractSeed seed;
     /**
-     * 作物
+     * 种子状态
+     * 这里调用 SeedStatus.getSeedStatusByNum(int number)
+     * 获取农田状态
      */
-    private AbstractCrops crops;
+    private Integer seedStatus;
     /**
      * 农田块状态列表
      */
     private List<FarmBlockStatus> statusList;
-
-    public List<FarmBlockStatus> getStatusList() {
-        return statusList;
-    }
 
     public Shape getShape() {
         return shape;
@@ -40,14 +39,31 @@ public class MoleFarmBlock implements IFarmBlock {
     public Double getArea() {
         return area;
     }
-
     public AbstractSeed getSeed() {
-        return seed;
+
+       return seed;
     }
 
-    public AbstractCrops getCrops() {
-        return crops;
+    public void setSeed(AbstractSeed seed) {
+        this.seed = seed;
     }
+
+    public Integer getSeedStatus() {
+        return seedStatus;
+    }
+
+    public void setSeedStatus(Integer seedStatus) {
+        this.seedStatus = seedStatus;
+    }
+
+    public List<FarmBlockStatus> getStatusList() {
+        return statusList;
+    }
+
+    public void setStatusList(List<FarmBlockStatus> statusList) {
+        this.statusList = statusList;
+    }
+
     /**
      * 松土
      */

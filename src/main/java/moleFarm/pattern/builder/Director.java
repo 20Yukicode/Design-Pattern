@@ -1,6 +1,8 @@
 package moleFarm.pattern.builder;
 
 import moleFarm.MoleFarmBlock;
+import moleFarm.common.product.AbstractFertilizer;
+import moleFarm.common.product.AbstractSeed;
 
 public class Director {
     Builder builder;
@@ -16,10 +18,11 @@ public class Director {
         this.builder = builder;
     }
 
-    public MoleFarmBlock farmGrowth(){
+    public MoleFarmBlock farmGrowth(AbstractSeed seed, AbstractFertilizer fertilizer){
         builder.buildLoosenSoil();
-        builder.buildPlantSeed();
+        builder.buildPlantSeed(seed);
         builder.buildWatering();
+        builder.buildApplyFertilizer(fertilizer);
         return builder.getFarmBlock();
     }
 }

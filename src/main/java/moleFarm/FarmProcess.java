@@ -12,17 +12,22 @@ import java.util.Scanner;
  */
 public class FarmProcess {
     //农场
-    private MoleFarm farm;
+    private MoleFarm farm=MoleFarm.newInstance();
     //仓库
-    private MoleFarmWarehouse warehouse;
+    private MoleFarmWarehouse warehouse=MoleFarmWarehouse.newInstance();
     //摩尔角色
     private Mole mole;
+
+    private FarmProcess(){}
+
+    private static volatile FarmProcess farmProcess=new FarmProcess();
+    public static synchronized FarmProcess newInstance(){
+        return farmProcess;
+    }
     /**
      * 农场主函数
      */
     public void process(Mole Imole){
-        farm = new MoleFarm();
-        warehouse = new MoleFarmWarehouse();
         mole=Imole;
         Scanner input=new Scanner(System.in);
         String str=input.next();

@@ -2,7 +2,14 @@ package moleFarm;
 
 import moleFarm.common.product.*;
 import moleFarm.IFarmWareHouse;
+import moleFarm.common.product.seed.CabbageSeed;
+import moleFarm.common.product.tool.Hoe;
+import moleFarm.common.product.tool.Pesticide;
+import moleFarm.common.product.tool.Sickle;
+import moleFarm.common.product.tool.WateringCan;
+import moleFarm.common.status.SeedStatus;
 
+import java.nio.file.SecureDirectoryStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +30,43 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
     /**
      * 工具存储
      */
-    private Map<AbstractTool,Integer>farmToolMap=new HashMap<>();
+    private Map<AbstractCrops,Integer>cropsMap=new HashMap<>();
+
+    protected Hoe hoe=Hoe.newInstance();
+
+    protected Sickle sickle=Sickle.newInstance();
+
+    protected WateringCan wateringCan=WateringCan.newInstance();
+
+    protected Pesticide pesticide=Pesticide.newInstance();
+
+    private MoleFarmWarehouse(){}
+
+    private static volatile MoleFarmWarehouse moleFarmWarehouse=new MoleFarmWarehouse();
+
+    public static synchronized MoleFarmWarehouse newInstance(){
+        return moleFarmWarehouse;
+    }
+
+    public Hoe getHoe() {
+        return hoe;
+    }
+
+    public Sickle getSickle() {
+        return sickle;
+    }
+
+    public WateringCan getWateringCan() {
+        return wateringCan;
+    }
+
+    public Pesticide getPesticide() {
+        return pesticide;
+    }
+
+    public static MoleFarmWarehouse getMoleFarmWarehouse() {
+        return moleFarmWarehouse;
+    }
 
     public Map<AbstractSeed, Integer> getSeedMap() {
         return seedMap;
@@ -31,6 +74,14 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
 
     public Map<AbstractFertilizer, Integer> getFertilizerMap() {
         return fertilizerMap;
+    }
+
+    public Map<AbstractCrops, Integer> getCropsMap() {
+        return cropsMap;
+    }
+
+    public void setFertilizerMap(AbstractFertilizer abstractFertilizer,Integer count) {
+        //fertilizerMap.put(abstractFertilizer,count);
     }
 
     @Override
