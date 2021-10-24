@@ -1,7 +1,5 @@
 package moleFarm;
 
-import moleFarm.MoleFarmBlock;
-import moleFarm.MoleFarmWarehouse;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
@@ -10,7 +8,7 @@ import moleFarm.common.status.SeedStatus;
 import moleFarm.common.utils.MyException;
 import moleFarm.pattern.factory.conc.CropsFactory;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class FarmGrowth {
@@ -34,7 +32,7 @@ public class FarmGrowth {
         } else {
             System.out.println("正在播种" + seed.getName() + "...");
             farmBlock.setSeed(seed);
-            List<AbstractSeed> Seeds = Arrays.asList(seed);
+            List<AbstractSeed> Seeds = Collections.singletonList(seed);
             //这个是调用仓库的代码，可能还要重写
             moleFarmWarehouse.provideItemToMole(Seeds);
         }
