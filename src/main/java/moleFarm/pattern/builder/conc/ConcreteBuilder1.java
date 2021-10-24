@@ -1,11 +1,14 @@
 package moleFarm.pattern.builder.conc;
 
+import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.pattern.builder.Builder;
 
 public class ConcreteBuilder1 extends Builder {
     @Override
     public void buildPlantSeed() {
+        if(!farmBlock.getStatusList().contains(FarmBlockStatus.MOIST)){
 
+        }
     }
 
     @Override

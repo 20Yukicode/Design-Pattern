@@ -1,6 +1,5 @@
 package moleFarm;
 
-import moleFarm.IFarmBlock;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.FarmBlockStatus;
@@ -30,36 +29,55 @@ public class MoleFarmBlock implements IFarmBlock {
      */
     private List<FarmBlockStatus> statusList;
 
+    public List<FarmBlockStatus> getStatusList() {
+        return statusList;
+    }
+
+    public Shape getShape() {
+        return shape;
+    }
+
+    public Double getArea() {
+        return area;
+    }
+
+    public AbstractSeed getSeed() {
+        return seed;
+    }
+
+    public AbstractCrops getCrops() {
+        return crops;
+    }
     /**
      * 松土
      */
-    void loosenSoil(){}
+    public void loosenSoil(){}
     /**
      * 除草
      * @return
      */
-    boolean weed(){
+    public boolean weed(){
         return false;
     }
     /**
      * 浇水
      * @return
      */
-    boolean watering(){
+    public boolean watering(){
         return false;
     }
     /**
      * 施肥
      * @return
      */
-    boolean applyFertilizer(){
+    public boolean applyFertilizer(){
         return false;
     }
     /**
      * 除虫
      * @return
      */
-    boolean disinsection(){
+    public boolean disinsection(){
         return false;
     }
 
@@ -77,7 +95,7 @@ public class MoleFarmBlock implements IFarmBlock {
      * 获取农田块信息
      */
     public void getInfo(){
-        System.out.println("作物："+crops.getName());
+        System.out.println("作物："+seed.getName());
         System.out.println("状态：");
         for (FarmBlockStatus farmBlockStatus : statusList) {
             System.out.println(farmBlockStatus + " ");
