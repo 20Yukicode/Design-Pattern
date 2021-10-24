@@ -63,38 +63,6 @@ public class MoleFarmBlock implements IFarmBlock {
         this.statusList = statusList;
     }
 
-    /**
-     * 松土
-     */
-    public boolean loosenSoil(){return false;}
-    /**
-     * 除草
-     * @return
-     */
-    public boolean weed(){
-        return false;
-    }
-    /**
-     * 浇水
-     * @return
-     */
-    public boolean watering(){
-        return false;
-    }
-    /**
-     * 施肥
-     * @return
-     */
-    public boolean applyFertilizer(){
-        return false;
-    }
-    /**
-     * 除虫
-     * @return
-     */
-    public boolean disinsection(){
-        return false;
-    }
 
     @Override
     public void plantSeed(AbstractSeed seed) {
