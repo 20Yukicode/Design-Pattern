@@ -1,18 +1,13 @@
 package moleFarm.pattern.adapter;
 
 public class WeatherAdapter extends Weather implements Target {
-    @Override
-    public Double getMoleDou() {
-        return null;
-    }
-
-    @Override
-    public void setMoleDou(Double money) {
-
-    }
-
+    private WeatherAdapter(){}
     @Override
     public String getWeather() {
         return getWeatherStatus();
+    }
+
+    public static WeatherAdapter getInstance(){
+        return new WeatherAdapter();
     }
 }

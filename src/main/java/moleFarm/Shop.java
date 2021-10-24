@@ -28,7 +28,7 @@ public class Shop {
         Double price = object.getPrice() * num;
         //需要有一个摩尔角色类，判断剩余摩尔豆是否大于等于交换金额，是则返回true，并扣除相应大小的摩尔豆
         //调用适配器
-        Target mole = new MoleAdapter();
+        Target mole = MoleAdapter.getInstance();
         Double money = mole.getMoleDou();
         if (money < price)
             return false;

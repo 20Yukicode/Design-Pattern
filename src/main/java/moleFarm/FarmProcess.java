@@ -37,7 +37,7 @@ public class FarmProcess {
                     "\n" +
                     "今日天气：");
             //获取今日天气并输出
-            Target weather = new WeatherAdapter();
+            Target weather = WeatherAdapter.getInstance();
             weather.getWeather();
             System.out.println("请选择您要去的地方：1——农田，2——仓库，0——游戏首页");
             str = input.next();

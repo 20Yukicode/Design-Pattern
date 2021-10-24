@@ -29,7 +29,7 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
      */
     private Map<AbstractFertilizer,Integer>fertilizerMap=new HashMap<>();
     /**
-     * 工具存储
+     * 作物存储
      */
     private Map<AbstractCrops,Integer>cropsMap=new HashMap<>();
 
@@ -81,16 +81,6 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         return cropsMap;
     }
 
-    public void setFertilizerMap(AbstractFertilizer abstractFertilizer,Integer count) {
-        fertilizerMap.forEach(
-                (k,v)->{
-                    if(Objects.equals(k.getName(), abstractFertilizer.getName())){
-                        fertilizerMap.put(k,count);
-                        return;
-                    }
-                }
-        );
-    }
 
     @Override
     public boolean importSeedFromShop(List<AbstractSeed> seedList) {
