@@ -32,10 +32,14 @@ public class ConcreteBuilder1 extends Builder {
         if(farmBlock.getSeed()!=null&&farmBlock.getSeedStatus()!=null&&farmBlock.getSeedStatus()<6){
             System.out.println("正在用"+fertilizer.getName()+"施肥");
             Integer remainNum = moleFarmWarehouse.getFertilizerMap().get(fertilizer);
+            remainNum-=1;
             //设置新的数量
             moleFarmWarehouse.setFertilizerMap(fertilizer,remainNum);
+
+
             int status= farmBlock.getSeedStatus();
             Integer integer = fertilizer.fertilizerBehavior(status);
+            //设置新的状态
             farmBlock.setSeedStatus(integer);
         }
         else if(farmBlock.getSeedStatus()>=6){

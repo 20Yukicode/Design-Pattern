@@ -3,6 +3,8 @@ package moleFarm.common.product;
 import moleFarm.common.status.Color;
 import moleFarm.common.status.Size;
 
+import java.util.Objects;
+
 public abstract class AbstractCrops implements IProduct {
     /**
      * 名字
@@ -29,5 +31,14 @@ public abstract class AbstractCrops implements IProduct {
         this.color = color;
         this.size = size;
         this.price = price;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        return obj.getClass()==this.getClass();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

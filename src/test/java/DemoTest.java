@@ -27,9 +27,12 @@ public class DemoTest {
                 }
         );
     }
+
     public static void main(String[] args) throws Exception {
         map.put(new MiddleFertilizer(),10);
         map.put(new AdvancedFertilizer(),100);
+        System.out.println(map.get(new MiddleFertilizer()));
+
         setFertilizerMap(new MiddleFertilizer(),30);
         System.out.println(map);
         AbstractSeed abstractSeed=new CabbageSeed();

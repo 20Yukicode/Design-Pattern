@@ -4,6 +4,8 @@ import moleFarm.common.status.Color;
 import moleFarm.common.status.Level;
 import moleFarm.common.status.Size;
 
+import java.util.Objects;
+
 /**
  * 我也不知道为什么要写这个接口，先写上去
  */
@@ -51,5 +53,9 @@ public interface IProduct {
    default Level getLevel() {
       return null;
    }
+
+
+
+
 
 }

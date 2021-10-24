@@ -5,6 +5,8 @@ import moleFarm.common.status.Level;
 import moleFarm.common.status.SeedStatus;
 import moleFarm.pattern.adapter.Target;
 
+import java.util.Objects;
+
 /**
  * 抽象农场肥料
  */
@@ -26,5 +28,13 @@ public abstract class AbstractFertilizer implements IProduct {
     public abstract String getName();
 
     public abstract Integer fertilizerBehavior(int status);
+    @Override
+    public boolean equals(Object obj) {
+        return obj.getClass()==this.getClass();
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }

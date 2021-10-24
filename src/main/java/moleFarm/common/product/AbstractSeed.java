@@ -4,6 +4,8 @@ import moleFarm.common.status.Color;
 import moleFarm.common.status.Size;
 import moleFarm.pattern.adapter.Target;
 
+import java.util.Objects;
+
 /**
  * 抽象农场种子
  */
@@ -45,5 +47,14 @@ public abstract class AbstractSeed implements IProduct {
         this.size = size;
         this.growthCycle = growthCycle;
         this.price = price;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        return obj.getClass()==this.getClass();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
