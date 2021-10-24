@@ -33,17 +33,16 @@ public class FarmProcess {
         String str=input.next();
         while (str!="0"){
             //欢迎辞
-            System.out.println("欢迎来到欢乐农场！\n" +
+            System.out.print("欢迎来到欢乐农场！\n" +
                     "\n" +
                     "今日天气：");
             //获取今日天气并输出
             Target weather = WeatherAdapter.getInstance();
-            weather.getWeather();
+            System.out.print(weather.getWeather()+"\n");
             System.out.println("请选择您要去的地方：1——农田，2——仓库，0——游戏首页");
             str = input.next();
             //农田模块
             while(str=="1") {
-                System.out.println("农田状态如下");
                 //绘制农田状态图
                 System.out.println("请输入1~9查看具体农田块状态，输入0返回农场首页，输入回车选择批量操作：");
                 String str1 = input.next();

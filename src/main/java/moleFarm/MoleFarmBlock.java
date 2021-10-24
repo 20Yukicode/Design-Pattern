@@ -40,7 +40,6 @@ public class MoleFarmBlock implements IFarmBlock {
         return area;
     }
     public AbstractSeed getSeed() {
-
        return seed;
     }
 
