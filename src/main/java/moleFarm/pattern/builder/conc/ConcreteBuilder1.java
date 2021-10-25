@@ -19,7 +19,6 @@ public class ConcreteBuilder1 extends Builder {
 
     @Override
     public AbstractCrops buildHarvestCrops() {
-        return null;
+        return FarmGrowth.harvestCrops(farmBlock);
     }
-
 }

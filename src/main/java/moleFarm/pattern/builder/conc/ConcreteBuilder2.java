@@ -13,9 +13,9 @@ public class ConcreteBuilder2 extends Builder {
         FarmGrowth.PlantSeed(seed, farmBlock);
         FarmGrowth.ApplyFertilizer(fertilizer, farmBlock);
     }
-    
+
     @Override
     public AbstractCrops buildHarvestCrops() {
-        return null;
+        return FarmGrowth.harvestCrops(farmBlock);
     }
 }
