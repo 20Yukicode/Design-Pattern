@@ -5,20 +5,27 @@ import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 
 public class Director {
-    Builder builder;
-    Director(Builder builder){
-        this.builder=builder;
+    private Builder builder;
+
+    private MoleFarmBlock farmBlock;
+
+    Director(Builder builder, MoleFarmBlock farmBlock) {
+        this.builder = builder;
+        this.farmBlock = farmBlock;
     }
 
-    public Builder getBuilder() {
-        return builder;
+    public void setFarmBlock(MoleFarmBlock farmBlock) {
+        this.farmBlock = farmBlock;
     }
 
     public void setBuilder(Builder builder) {
         this.builder = builder;
     }
 
-    public void test(AbstractSeed seed, AbstractFertilizer fertilizer) {
-        builder.buildPlant(seed,fertilizer);
+    public MoleFarmBlock getMoleFarmBlock(AbstractSeed seed, AbstractFertilizer fertilizer) {
+        //要先初始化农田块
+        builder.setFarmBlock(farmBlock);
+        builder.buildPlant(seed, fertilizer);
+        return builder.getFarmBlock();
     }
 }
