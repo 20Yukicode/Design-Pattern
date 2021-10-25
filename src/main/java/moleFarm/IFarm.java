@@ -9,12 +9,21 @@ import java.util.List;
 /**
  * 定义农场行为
  */
-public interface IFarm{
+public interface IFarm {
     /**
-     * 种植种子
+     * 一键种植种子
+     *
      * @param seedList
      */
-    void plantSeeds(List<AbstractSeed>seedList) throws MyException;
+    void plantSeeds(List<AbstractSeed> seedList) throws MyException;
+
+    /**
+     * 种植种子
+     *
+     * @param seed
+     */
+    void plantSeeds(AbstractSeed seed);
+
     /**
      * 收获作物
      */
