@@ -55,7 +55,7 @@ public class MoleFarm implements IFarm {
 
     /**
      * 种下种子
-     *
+     * 批量操作
      * @param seedList
      * @throws MyException
      */
@@ -75,7 +75,7 @@ public class MoleFarm implements IFarm {
 
     /**
      * 收获作物
-     *
+     * 批量操作
      * @return
      */
     @Override

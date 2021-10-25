@@ -11,7 +11,7 @@ public class StrawberrySeed extends AbstractSeed implements Cloneable{
     /**
      * 名字
      */
-    private  final String name = "草莓";
+    private  final String name = "草莓种子";
     /**
      颜色
      */

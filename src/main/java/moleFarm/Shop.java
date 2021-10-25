@@ -18,11 +18,8 @@ import java.util.Map;
  * 仓库卖出作物到商店
  */
 public class Shop {
-    private MoleFarmWarehouse moleFarmWarehouse;
+    private MoleFarmWarehouse moleFarmWarehouse=MoleFarmWarehouse.newInstance();
     //关联商店与仓库
-    public Shop(MoleFarmWarehouse Warehouse){
-        this.moleFarmWarehouse = Warehouse;
-    }
 
     public<T extends IProduct> boolean buyObject(T object, int num, String methodName) throws MyException {
         Double price = object.getPrice() * num;

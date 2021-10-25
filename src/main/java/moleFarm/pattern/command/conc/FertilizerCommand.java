@@ -15,8 +15,8 @@ public class FertilizerCommand {
     //命令发送方，仓库
     private MoleFarmWarehouse moleFarmWarehouse;
 
-    public FertilizerCommand(MoleFarmWarehouse moleFarmWarehouse){
-        shop = new Shop(moleFarmWarehouse);
+    public FertilizerCommand(){
+        shop = new Shop();
     }
     //商店接收命令，为仓库买入肥料
     public void execute(AbstractFertilizer fertilizer, int num){

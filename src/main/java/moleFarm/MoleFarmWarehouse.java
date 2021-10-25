@@ -9,6 +9,9 @@ import moleFarm.common.product.fertilizer.PrimaryFertilizer;
 import moleFarm.common.product.seed.*;
 import moleFarm.common.product.tool.*;
 import moleFarm.common.status.SeedStatus;
+import moleFarm.pattern.chainOfResponsibility.Handler;
+import moleFarm.pattern.chainOfResponsibility.ShopHandler;
+import moleFarm.pattern.chainOfResponsibility.WareHouseHandler;
 
 import java.nio.file.SecureDirectoryStream;
 import java.util.HashMap;
@@ -117,7 +120,11 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
 
     @Override
     public <T extends IProduct> boolean provideItemToMole(List<T> objectList) {
-        return false;
+        //调用职责链模式
+        WareHouseHandler wareHouseHandler = new WareHouseHandler();
+        ShopHandler shopHandler = new ShopHandler();
+        wareHouseHandler.setNext(shopHandler);
+        return wareHouseHandler.provideSeeds(objectList);
     }
 
     @Override

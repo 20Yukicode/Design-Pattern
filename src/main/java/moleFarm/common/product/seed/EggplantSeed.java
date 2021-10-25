@@ -11,7 +11,7 @@ public class EggplantSeed extends AbstractSeed implements Cloneable{
     /**
      * 名字
      */
-    private  final String name = "茄子";
+    private  final String name = "茄子种子";
     /**
      颜色
      */

@@ -11,7 +11,7 @@ public class WatermelonSeed extends AbstractSeed implements Cloneable{
     /**
      * 名字
      */
-    private   final String name = "西瓜";
+    private   final String name = "西瓜种子";
     /**
      颜色
      */

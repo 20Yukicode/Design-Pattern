@@ -15,8 +15,8 @@ public class SeedCommand {
     //命令发送方，仓库
     private MoleFarmWarehouse moleFarmWarehouse;
 
-    public SeedCommand(MoleFarmWarehouse moleFarmWarehouse){
-        shop = new Shop(moleFarmWarehouse);
+    public SeedCommand(){
+        shop = new Shop();
     }
     //商店接收命令，为仓库买入种子
     public void execute(AbstractSeed seed,int num){

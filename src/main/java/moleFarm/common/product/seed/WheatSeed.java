@@ -11,7 +11,7 @@ public class WheatSeed extends AbstractSeed implements Cloneable{
     /**
      * 名字
      */
-    private final String name = "小麦";
+    private final String name = "小麦种子";
     /**
      颜色
      */

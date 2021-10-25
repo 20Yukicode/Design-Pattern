@@ -2,13 +2,13 @@ package moleFarm.pattern.adapter;
 
 public class Mole {
     //摩尔豆
-    private Double Money;
+    private static Double money;
 
-    public Double getMoney() {
-        return Money;
+    public static Double getMoney() {
+        return money;
     }
 
-    public void setMoney(Double money) {
-        Money = money;
+    public static void setMoney(Double money) {
+        money = money;
     }
 }
