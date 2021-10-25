@@ -11,6 +11,11 @@ public abstract class Builder {
 
     protected MoleFarmBlock farmBlock;
 
+    /**
+     * 种植一个具体的种子
+     *
+     * @param seed
+     */
     public abstract void buildPlant(AbstractSeed seed);
 
     public void setFarmBlock(MoleFarmBlock farmBlock) {
