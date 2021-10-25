@@ -1,7 +1,6 @@
 package moleFarm.pattern.builder.conc;
 
 import moleFarm.FarmGrowth;
-import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.pattern.builder.Builder;
@@ -15,10 +14,5 @@ public class ConcreteBuilder1 extends Builder {
         FarmGrowth.Watering(farmBlock);
         FarmGrowth.Weed(farmBlock);
         FarmGrowth.ApplyFertilizer(fertilizer, farmBlock);
-    }
-
-    @Override
-    public AbstractCrops buildHarvestCrops() {
-        return FarmGrowth.harvestCrops(farmBlock);
     }
 }
