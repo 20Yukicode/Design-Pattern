@@ -1,9 +1,9 @@
 package moleFarm.pattern.factory.conc;
 
-import moleFarm.common.utils.JsonOp;
-import moleFarm.pattern.factory.Factory;
 import moleFarm.common.product.AbstractSeed;
+import moleFarm.common.utils.JsonOp;
 import moleFarm.common.utils.MyException;
+import moleFarm.pattern.factory.Factory;
 
 /**
  * 种子抽象工厂类，此处不再写具体的，如CabbageSeedFactory
@@ -12,7 +12,10 @@ public class SeedFactory implements Factory {
     final static String PATH = JsonOp.getPathJson("SeedFactory");
     final static String MSG = JsonOp.getMsgJson("SeedFactory");
     private static volatile SeedFactory seedFactory;
-    private SeedFactory() {}
+
+    private SeedFactory() {
+    }
+
     /**
      * 单例模式
      *
@@ -24,6 +27,7 @@ public class SeedFactory implements Factory {
         }
         return seedFactory;
     }
+
     /**
      * 根据种子的名字生产对应的种子
      *
@@ -31,8 +35,9 @@ public class SeedFactory implements Factory {
      * @return
      * @throws MyException
      */
+    @Override
     public AbstractSeed create(String name) throws MyException {
-        return Factory.createProduct(MSG, PATH+name);
+        return Factory.createProduct(MSG, PATH + name);
     }
 }
 
