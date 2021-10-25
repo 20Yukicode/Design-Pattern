@@ -61,8 +61,8 @@ public class MoleFarm implements IFarm {
      */
     @Override
     public void plantSeeds(List<AbstractSeed> seedList) throws MyException {
-        for (int i = 0; i < seedList.size(); i++) {
-            farmBlockList.get(i).plantSeed(seedList.get(i));
+        for (AbstractSeed seed : seedList) {
+           
         }
 //        if (seedList.size() > farmBlockList.size())
 //            throw new MyException("作物数量太多，无法种植");
@@ -77,7 +77,7 @@ public class MoleFarm implements IFarm {
     public List<AbstractCrops> harvestCrops() {
         List<AbstractCrops> cropsList = null;
         for (MoleFarmBlock item : farmBlockList) {
-            AbstractCrops crops = item.harvestCrops();
+            AbstractCrops crops = FarmGrowth.harvestCrops(item);
             if (crops != null) {
                 cropsList.add(crops);
             }
