@@ -8,13 +8,15 @@ import java.util.List;
 public class FarmIterator implements Iterator {
 
     private List<MoleFarmBlock> farmBlockList;
-    private int index=0;
-    public FarmIterator(List<MoleFarmBlock>list){
-        this.farmBlockList=list;
+    private int index = 0;
+
+    public FarmIterator(List<MoleFarmBlock> list) {
+        this.farmBlockList = list;
     }
+
     @Override
     public MoleFarmBlock first() {
-        index=0;
+        index = 0;
         MoleFarmBlock block = farmBlockList.get(index);
         return block;
     }
@@ -22,7 +24,7 @@ public class FarmIterator implements Iterator {
     @Override
     public MoleFarmBlock next() {
         MoleFarmBlock block = null;
-        if(this.hasNext()){
+        if (this.hasNext()) {
             block = farmBlockList.get(index++);
         }
         return block;
@@ -33,15 +35,13 @@ public class FarmIterator implements Iterator {
         return index < farmBlockList.size();
     }
 
-    public MoleFarmBlock getByIndex(int index_){
-        this.index=index_;
-        if(index<=farmBlockList.size()-1){
-            System.out.println("农田块"+index+"：\n");
+    public MoleFarmBlock getByIndex(int index_) {
+        if (index_ < 0 || index_ >= farmBlockList.size()) {
+            throw new IndexOutOfBoundsException("索引超出范围！");
+        } else {
+            this.index = index_;
+            System.out.println("农田块" + index + "：\n");
             return farmBlockList.get(index);
-        }
-        else{
-            System.out.println("索引超出范围！");
-            return null;
         }
     }
 }
