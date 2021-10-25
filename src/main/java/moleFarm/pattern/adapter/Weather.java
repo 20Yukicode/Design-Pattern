@@ -1,9 +1,9 @@
 package moleFarm.pattern.adapter;
 
 public class Weather {
-    private String weatherstatus;
+    protected String weatherStatus;
 
     public String getWeatherStatus() {
-        return weatherstatus;
+        return weatherStatus;
     }
 }

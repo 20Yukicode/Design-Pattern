@@ -13,9 +13,9 @@ public interface IFarm {
     /**
      * 一键种植种子
      *
-     * @param seedList
+     * @param seed
      */
-    void plantSeeds(List<AbstractSeed> seedList) throws MyException;
+    void plantBatchSeeds(AbstractSeed seed) throws MyException;
 
     /**
      * 种植种子

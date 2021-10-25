@@ -2,7 +2,7 @@ package moleFarm;
 
 import moleFarm.pattern.adapter.Mole;
 import moleFarm.pattern.adapter.Target;
-import moleFarm.pattern.adapter.WeatherAdapter;
+import moleFarm.pattern.adapter.conc.WeatherAdapter;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 
 import java.util.Scanner;
@@ -37,8 +37,9 @@ public class FarmProcess {
             System.out.print("欢迎来到欢乐农场！\n" +
                     "今日天气：");
             //获取今日天气并输出
-            Target weather = WeatherAdapter.getInstance();
-            System.out.print(weather.getWeather()+"\n");
+            WeatherAdapter weatherAdapter = WeatherAdapter.getInstance();
+            //String weather=weatherAdapter.transfer();
+            System.out.print(weatherAdapter.getWeather()+"\n");
             System.out.println("请选择您要去的地方：1——农田，2——仓库，0——游戏首页");
             String str1 = input.next();
             //农田模块
@@ -94,7 +95,8 @@ public class FarmProcess {
     }
 
     public static void main(String[] args) {
-        FarmProcess farmProcess = new FarmProcess();
+        FarmProcess farmProcess = FarmProcess.newInstance();
         farmProcess.process(new Mole());
+        return;
     }
 }

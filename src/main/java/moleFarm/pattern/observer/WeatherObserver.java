@@ -2,7 +2,7 @@ package moleFarm.pattern.observer;
 
 import moleFarm.MoleFarm;
 import moleFarm.common.status.FarmBlockStatus;
-import moleFarm.pattern.adapter.WeatherAdapter;
+import moleFarm.pattern.adapter.conc.WeatherAdapter;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 
 import java.util.List;

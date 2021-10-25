@@ -1,5 +1,8 @@
-package moleFarm.pattern.adapter;
+package moleFarm.pattern.adapter.conc;
 
+
+import moleFarm.pattern.adapter.Mole;
+import moleFarm.pattern.adapter.Target;
 
 public class MoleAdapter extends Mole implements Target {
 

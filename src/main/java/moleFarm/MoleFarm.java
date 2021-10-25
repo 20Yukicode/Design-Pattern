@@ -56,14 +56,18 @@ public class MoleFarm implements IFarm {
     /**
      * 种下种子
      * 批量操作
-     * @param seedList
+     * @param seed
      * @throws MyException
      */
     @Override
-    public void plantSeeds(List<AbstractSeed> seedList) throws MyException {
-        for (AbstractSeed seed : seedList) {
-
+    public void plantBatchSeeds(AbstractSeed seed) {
+        //寻找空地，一键播种
+        for (MoleFarmBlock item : farmBlockList) {
+            if(item.getSeed()!=null){
+                item.plantSeed(seed);
+            }
         }
+        System.out.println("所有空地均已播种成功");
 //        if (seedList.size() > farmBlockList.size())
 //            throw new MyException("作物数量太多，无法种植");
     }

@@ -3,9 +3,9 @@ package moleFarm;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.product.IProduct;
-import moleFarm.MoleFarmWarehouse;
 import moleFarm.common.utils.MyException;
-import moleFarm.pattern.adapter.MoleAdapter;
+import moleFarm.pattern.adapter.Mole;
+import moleFarm.pattern.adapter.conc.MoleAdapter;
 import moleFarm.pattern.adapter.Target;
 
 import java.lang.reflect.InvocationTargetException;
@@ -51,4 +51,5 @@ public class Shop {
     public boolean buyFertilizer(AbstractFertilizer fertilizer, int num) throws MyException {
         return buyObject(fertilizer, num, "getFertilizerMap");
     }
+
 }

@@ -1,4 +1,4 @@
-package moleFarm.pattern.chainOfResponsibility;
+package moleFarm.pattern.chainOfResponsibility.conc;
 
 import moleFarm.MoleFarm;
 import moleFarm.MoleFarmBlock;
@@ -6,12 +6,13 @@ import moleFarm.MoleFarmWarehouse;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.product.IProduct;
+import moleFarm.pattern.chainOfResponsibility.Handler;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class WareHouseHandler extends Handler{
+public class WareHouseHandler extends Handler {
     @Override
     public <T extends IProduct> boolean provideSeeds(List<T> list) {
         for(T item:list){

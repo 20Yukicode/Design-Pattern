@@ -1,14 +1,15 @@
-package moleFarm.pattern.chainOfResponsibility;
+package moleFarm.pattern.chainOfResponsibility.conc;
 
 import moleFarm.MoleFarmBlock;
 import moleFarm.Shop;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.product.IProduct;
 import moleFarm.pattern.adapter.Mole;
+import moleFarm.pattern.chainOfResponsibility.Handler;
 
 import java.util.List;
 
-public class ShopHandler extends Handler{
+public class ShopHandler extends Handler {
     @Override
     public <T extends IProduct> boolean provideSeeds(List<T> list) {
         for(T item:list){

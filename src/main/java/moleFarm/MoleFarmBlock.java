@@ -3,7 +3,6 @@ package moleFarm;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.FarmBlockStatus;
-import moleFarm.common.status.SeedStatus;
 import moleFarm.common.status.Shape;
 
 import java.util.List;
