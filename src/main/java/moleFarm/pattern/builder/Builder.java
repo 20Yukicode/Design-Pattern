@@ -1,7 +1,6 @@
 package moleFarm.pattern.builder;
 
 import moleFarm.MoleFarmBlock;
-import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 
 /**
@@ -12,8 +11,7 @@ public abstract class Builder {
 
     protected MoleFarmBlock farmBlock;
 
-    public abstract void buildPlant(AbstractSeed seed, AbstractFertilizer fertilizer);
-
+    public abstract void buildPlant(AbstractSeed seed);
 
     public void setFarmBlock(MoleFarmBlock farmBlock) {
         this.farmBlock = farmBlock;
