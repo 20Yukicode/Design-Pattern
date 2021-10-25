@@ -42,6 +42,7 @@ public class FarmGrowth {
     public static void eradicateCrops(MoleFarmBlock farmBlock) {
         if (farmBlock.getSeed() != null) {
             moleFarmWarehouse.shovel.ToolBehavior();
+            farmBlock.setSeed(null);
         } else {
             System.out.println("该土地上没有作物,不能铲除");
         }
@@ -128,6 +129,7 @@ public class FarmGrowth {
                     SeedStatus.getSeedStatusByNum(farmBlock.getSeedStatus()).getText() + "期,请过一段时间后再来收获"
             );
         } else {
+            farmBlock.setSeed(null);
             String name = farmBlock.getSeed().getName();
             CropsFactory cropsFactory = CropsFactory.newInstance();
             try {
