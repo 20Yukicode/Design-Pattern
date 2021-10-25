@@ -17,6 +17,9 @@ public class FarmGrowth {
      */
     private static MoleFarmWarehouse moleFarmWarehouse = MoleFarmWarehouse.newInstance();
 
+    public FarmGrowth() {
+    }
+
     /**
      * 播种
      *
