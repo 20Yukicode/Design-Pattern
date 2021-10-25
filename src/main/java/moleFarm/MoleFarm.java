@@ -4,7 +4,6 @@ import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.Shape;
 import moleFarm.common.utils.MyException;
-import moleFarm.pattern.adapter.Mole;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 
 import java.util.ArrayList;
@@ -32,19 +31,18 @@ public class MoleFarm implements IFarm {
      */
     private List<MoleFarmBlock> farmBlockList;
 
-    private MoleFarm() {
-        farmBlockList=new ArrayList<>() ;
-        for (int i = 0; i < farmBlockCount; ++i) {
-            farmBlockList.add(new MoleFarmBlock());
-        }
-    }
-
     private static volatile MoleFarm moleFarm = new MoleFarm();
 
     public static synchronized MoleFarm newInstance() {
         return moleFarm;
     }
 
+    private MoleFarm() {
+        farmBlockList = new ArrayList<>();
+        for (int i = 0; i < farmBlockCount; ++i) {
+            farmBlockList.add(new MoleFarmBlock());
+        }
+    }
 
     /**
      * 迭代器
@@ -87,6 +85,9 @@ public class MoleFarm implements IFarm {
         return cropsList;
     }
 
+    /**
+     * 展示农场
+     */
     public void showFarm() {
         System.out.println("农田状态如下：");
         for (int i = 0; i < farmBlockList.size(); i += 3) {
@@ -97,7 +98,7 @@ public class MoleFarm implements IFarm {
             System.out.print(farmBlockList.get(i).getSeed() == null ? "┗━┛" : "┖┸┚");
             System.out.print(farmBlockList.get(i).getSeed() == null ? "┗━┛" : "┖┸┚");
             System.out.print(farmBlockList.get(i).getSeed() == null ? "┗━┛" : "┖┸┚");
-            System.out.println(i==0?"①~③":i==4?"④~⑥":"⑦~⑨");
+            System.out.println(i == 0 ? "①~③" : i == 4 ? "④~⑥" : "⑦~⑨");
         }
     }
 }
