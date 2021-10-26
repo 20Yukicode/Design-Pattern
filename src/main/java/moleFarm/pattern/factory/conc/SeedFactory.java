@@ -3,6 +3,7 @@ package moleFarm.pattern.factory.conc;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.utils.JsonOp;
 import moleFarm.common.utils.MyException;
+import moleFarm.common.utils.SeedNotFoundException;
 import moleFarm.pattern.factory.Factory;
 
 /**
@@ -36,8 +37,12 @@ public class SeedFactory implements Factory {
      * @throws MyException
      */
     @Override
-    public AbstractSeed create(String name) throws MyException {
-        return Factory.createProduct(MSG, PATH + name);
+    public AbstractSeed create(String name) throws SeedNotFoundException {
+        try {
+            return Factory.createProduct(PATH + name);
+        } catch (MyException e) {
+            throw new SeedNotFoundException(MSG);
+        }
     }
 }
 

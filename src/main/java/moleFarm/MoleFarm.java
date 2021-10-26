@@ -3,7 +3,9 @@ package moleFarm;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.Shape;
+import moleFarm.common.utils.CropsNotFoundException;
 import moleFarm.common.utils.MyException;
+import moleFarm.common.utils.ProductNotFoundException;
 import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 
@@ -80,15 +82,11 @@ public class MoleFarm implements IFarm {
      * @param name
      * @throws MyException
      */
-    public void plantBatchSeeds(String name) {
+    public void plantBatchSeeds(String name) throws ProductNotFoundException {
         //寻找空地，一键播种
         for (MoleFarmBlock item : farmBlockList) {
             if (item.getSeed() != null) {
-                try {
-                    FarmGrowth.plantSeed(name, item);
-                } catch (MyException e) {
-                    System.out.println(e.getMessage());
-                }
+                FarmGrowth.plantSeed(name, item);
             }
         }
         System.out.println("所有空地均已播种成功");
@@ -118,7 +116,7 @@ public class MoleFarm implements IFarm {
                 CropsFactory cropsFactory = CropsFactory.newInstance();
                 try {
                     crops = cropsFactory.create(name.replace("Seed", ""));
-                } catch (MyException e) {
+                } catch (CropsNotFoundException e) {
                     e.printStackTrace();
                 }
             }

@@ -6,8 +6,10 @@ import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.common.status.SeedStatus;
+import moleFarm.common.utils.CropsNotFoundException;
+import moleFarm.common.utils.FertilizerNotFoundException;
 import moleFarm.common.utils.JsonOp;
-import moleFarm.common.utils.MyException;
+import moleFarm.common.utils.SeedNotFoundException;
 import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.factory.conc.FertilizerFactory;
 import moleFarm.pattern.factory.conc.SeedFactory;
@@ -58,7 +60,7 @@ public class FarmGrowth {
      *
      * @param name
      */
-    public static void plantSeed(String name, MoleFarmBlock farmBlock) throws MyException {
+    public static void plantSeed(String name, MoleFarmBlock farmBlock) throws SeedNotFoundException {
         AbstractSeed seed;
         seed = seedFactory.create((String) map.get(name));
         plantSeed(seed, farmBlock);
@@ -129,7 +131,7 @@ public class FarmGrowth {
      *
      * @param name
      */
-    public static void applyFertilizer(String name, MoleFarmBlock farmBlock) throws MyException {
+    public static void applyFertilizer(String name, MoleFarmBlock farmBlock) throws FertilizerNotFoundException {
         AbstractFertilizer fertilizer;
         fertilizer = fertilizerFactory.create((String) (map.get(name)));
         applyFertilizer(fertilizer, farmBlock);
@@ -174,7 +176,7 @@ public class FarmGrowth {
             String name = farmBlock.getSeed().getName();
             try {
                 return cropsFactory.create(name.replace("Seed", ""));
-            } catch (MyException e) {
+            } catch (CropsNotFoundException e) {
                 e.printStackTrace();
             }
         }
