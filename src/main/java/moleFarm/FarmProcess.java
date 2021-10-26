@@ -92,9 +92,9 @@ public class FarmProcess {
             case "6":
                 //施肥
                 if (block.getSeed() == null) {
-                    System.out.println("此处没有种子种植,播种后再施肥效果更佳噢");
+                    System.out.println("此处没有种子种植，播种后再施肥效果更佳噢");
                 } else if (block.getSeedStatus() == 6 || block.getSeedStatus() == 7) {
-                    System.out.println("作物已经成熟,请立即收获");
+                    System.out.println("作物已经成熟，请立即收获");
                 } else {
                     System.out.println("请选择肥料:(高级/中级/低级肥料)");
                     String fertilizerName = input.next();
@@ -175,7 +175,7 @@ public class FarmProcess {
             if (obj instanceof AbstractSeed) {
                 if (shop.buySeeds((AbstractSeed) obj, objNum)) {
                     System.out.println("正在向商店购买" + obj.getName() +
-                            ",共消费" + price + "摩尔豆," +
+                            "，共消费" + price + "摩尔豆，" +
                             "剩余" + mole.getMoney() + "摩尔豆\n");
                 } else {
                     System.out.println("抱歉你的摩尔豆不足");
@@ -183,7 +183,7 @@ public class FarmProcess {
             } else {
                 if (shop.buyFertilizer((AbstractFertilizer) obj, objNum)) {
                     System.out.println("正在向商店购买" + obj.getName() +
-                            ",共消费" + price + "摩尔豆," +
+                            "，共消费" + price + "摩尔豆，" +
                             "剩余" + mole.getMoney() + "摩尔豆\n");
                 } else {
                     System.out.println("抱歉你的摩尔豆不足\n");
@@ -206,7 +206,7 @@ public class FarmProcess {
                 case "1":
                     String text1 = "种子";
                     System.out.println("请输入想要购买的" + text1 + "类型" +
-                            "(白菜种子--3.0,茄子种子--5.0,水稻种子--2.0,草莓种子--6.0,西瓜种子--5.0,小麦种子--3.0)," +
+                            "(白菜种子--3.0，茄子种子--5.0，水稻种子--2.0，草莓种子--6.0，西瓜种子--5.0，小麦种子--3.0)，" +
                             "输入0返回上级：");
                     String objName = input.next();
                     if ("0".equals(objName)) {
@@ -218,7 +218,7 @@ public class FarmProcess {
                 case "2":
                     String text2 = "肥料";
                     System.out.println("请输入想要购买的" + text2 + "类型" +
-                            "(高级肥料--10.0,中级肥料--5.0,初级肥料--2.0)," +
+                            "(高级肥料--10.0，中级肥料--5.0，初级肥料--2.0)，" +
                             "输入0返回上级：");
                     String objName1 = input.next();
                     if ("0".equals(objName1)) {
@@ -256,13 +256,13 @@ public class FarmProcess {
         System.out.println("输入y进入农场：");
         Scanner input = new Scanner(System.in);
         String str = input.next();
+        //获取今日天气并输出
+        WeatherAdapter weatherAdapter = WeatherAdapter.getInstance();
+        weatherAdapter.transfer();
         while (!"0".equals(str)) {
             //欢迎辞
             System.out.print("\n欢迎来到欢乐农场！\n" +
                     "今日天气：");
-            //获取今日天气并输出
-            WeatherAdapter weatherAdapter = WeatherAdapter.getInstance();
-            String weather = weatherAdapter.transfer();
             System.out.print(weatherAdapter.getWeather() + "\n");
             System.out.println("请选择您要去的地方：1——农田，2——仓库，0——游戏首页");
             String str1 = input.next();

@@ -39,13 +39,12 @@ public class FarmGrowth {
         if (seed == null) {
             System.out.println("您手上没有种子，无法种植");
         } else {
-            System.out.println("正在播种" + seed.getName() + "...");
             farmBlock.setSeed(seed);
             //设置生长周期
             farmBlock.setSeedStatus(0);
             List<AbstractSeed> seeds = Collections.singletonList(seed);
-            //这个是调用仓库的代码，可能还要重写
-            moleFarmWarehouse.provideItemToMole(seeds);
+            //仓库提供种子，调用职责链模式
+            if(moleFarmWarehouse.provideItemToMole(seeds)==true)System.out.println("正在播种" + seed.getName() + "...");
         }
     }
 
