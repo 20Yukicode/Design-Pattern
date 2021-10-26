@@ -1,5 +1,6 @@
 package moleFarm;
 
+import moleFarm.common.exception.product.conc.SeedNotFoundException;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 
@@ -14,7 +15,7 @@ public interface IFarm {
      *
      * @param seed
      */
-    void plantBatchSeeds(AbstractSeed seed);
+    void plantBatchSeeds(AbstractSeed seed) throws SeedNotFoundException;
 
     /**
      * 种植种子

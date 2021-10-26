@@ -2,7 +2,6 @@ package moleFarm.pattern.command.conc;
 
 import moleFarm.MoleFarmWarehouse;
 import moleFarm.Shop;
-import moleFarm.common.exception.MyException;
 import moleFarm.common.product.AbstractSeed;
 
 /**
@@ -26,11 +25,7 @@ public class SeedCommand {
      * @param num
      */
     public void execute(AbstractSeed seed, int num) {
-        try {
-            shop.buySeeds(seed, num);
-        } catch (MyException e) {
-            e.printStackTrace();
-        }
+        shop.buySeeds(seed, num);
     }
 
 }

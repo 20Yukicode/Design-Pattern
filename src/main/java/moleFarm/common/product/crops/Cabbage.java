@@ -46,18 +46,22 @@ public class Cabbage extends AbstractCrops implements Cloneable {
         return cabbage;
     }
 
+    @Override
     public Color getColor() {
         return color;
     }
 
+    @Override
     public Size getSize() {
         return size;
     }
 
+    @Override
     public Double getPrice() {
         return price;
     }
 
+    @Override
     public String getName() {
         return name;
     }

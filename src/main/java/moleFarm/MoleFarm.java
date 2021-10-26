@@ -1,8 +1,8 @@
 package moleFarm;
 
 import moleFarm.common.exception.MyException;
-import moleFarm.common.exception.product.ProductNotFoundException;
 import moleFarm.common.exception.product.conc.CropsNotFoundException;
+import moleFarm.common.exception.product.conc.SeedNotFoundException;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.product.Shape;
@@ -82,7 +82,7 @@ public class MoleFarm implements IFarm {
      * @param name
      * @throws MyException
      */
-    public void plantBatchSeeds(String name) throws ProductNotFoundException {
+    public void plantBatchSeeds(String name) throws SeedNotFoundException {
         //寻找空地，一键播种
         for (MoleFarmBlock item : farmBlockList) {
             if (item.getSeed() == null) {
@@ -152,7 +152,7 @@ public class MoleFarm implements IFarm {
             System.out.print(farmBlockList.get(i).getSeed() == null ? "┏━┓" : "┎┰┒");
             System.out.print(farmBlockList.get(i + 1).getSeed() == null ? "┏━┓" : "┎┰┒");
             System.out.print(farmBlockList.get(i + 2).getSeed() == null ? "┏━┓" : "┎┰┒");
-            System.out.println("");
+            System.out.println(" ");
             System.out.print(farmBlockList.get(i).getSeed() == null ? "┗━┛" : "┖┸┚");
             System.out.print(farmBlockList.get(i + 1).getSeed() == null ? "┗━┛" : "┖┸┚");
             System.out.print(farmBlockList.get(i + 2).getSeed() == null ? "┗━┛" : "┖┸┚");

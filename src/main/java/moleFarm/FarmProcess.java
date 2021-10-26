@@ -1,5 +1,9 @@
 package moleFarm;
 
+import moleFarm.common.exception.product.ProductNotFoundException;
+import moleFarm.common.exception.product.conc.CropsNotFoundException;
+import moleFarm.common.exception.product.conc.FertilizerNotFoundException;
+import moleFarm.common.exception.product.conc.SeedNotFoundException;
 import moleFarm.common.utils.JsonOp;
 import moleFarm.pattern.adapter.Mole;
 import moleFarm.pattern.adapter.conc.WeatherAdapter;
@@ -19,17 +23,16 @@ public class FarmProcess {
     农田
      */
     private MoleFarm farm = MoleFarm.newInstance();
-    /*
-    仓库
-     */
+    //仓库
     private MoleFarmWarehouse warehouse = MoleFarmWarehouse.newInstance();
     /*
     摩尔角色
      */
-    private Mole mole;
+    private static Mole mole = Mole.getMole();
+
     /*
-    商店
-     */
+        商店
+         */
     private Shop shop = Shop.newInstance();
     /*
     具体工厂，负责生产种子/作物/肥料
@@ -53,9 +56,10 @@ public class FarmProcess {
 
     /**
      * 农田进程
+     *
      * @param str2
      */
-    public void farmProcess(String str2){
+    public void farmProcess(String str2) {
         Scanner input = new Scanner(System.in);
         while (true) {
             //批量操作
@@ -68,7 +72,8 @@ public class FarmProcess {
                     String name = input.next();
                     try {
                         farm.plantBatchSeeds(name);
-                    } catch (Exception e) {
+                    } catch (ProductNotFoundException e) {
+                        e.printStackTrace();
                     }
                 } else if ("2".equals(str3)) {
                     //一键收获作物并放入仓库
@@ -82,7 +87,7 @@ public class FarmProcess {
             //单个农田块操作
             else {
                 //获取农田块编号
-                int index = Integer.parseInt(str2)-1;
+                int index = Integer.parseInt(str2) - 1;
                 //获取具体农田块对象
                 FarmIterator iterator = farm.getIterator();
                 MoleFarmBlock block = iterator.getByIndex(index);
@@ -94,107 +99,131 @@ public class FarmProcess {
                     break;
                 }
                 //对作物进行具体操作
-                switch (str3) {
-                    case "1":
-                        //播种
-                        System.out.println("请输入想要种植的作物种子");
-                        String name = input.next();
-                        try {
-                            FarmGrowth.plantSeed(name, block);
-                        } catch (Exception e) {
-                        }
-                        break;
-                    case "2":
-                        //收获
-                        FarmGrowth.harvestCrops(block);
-                        break;
-                    case "3":
-                        //浇水
-                        FarmGrowth.watering(block);
-                        break;
-                    case "4":
-                        //除草
-                        FarmGrowth.weed(block);
-                        break;
-                    case "5":
-                        //除虫
-                        FarmGrowth.disinsection(block);
-                        break;
-                    case "6":
-                        //施肥
-                        System.out.println("请选择肥料：高级/中级/低级肥料");
-                        String fertilizerName = input.next();
-                        try {
-                            FarmGrowth.applyFertilizer(fertilizerName, block);
-                        } catch (Exception e) {
-                        }
-                        break;
-                    case "7":
-                        //铲除作物
-                        FarmGrowth.eradicateCrops(block);
-                        break;
-                }
+                operationSeed(str3, block);
             }
+        }
+    }
+
+    public void operationSeed(String str3, MoleFarmBlock block) {
+        Scanner input = new Scanner(System.in);
+        switch (str3) {
+            case "1":
+                if (block.getSeed() == null) {
+                    System.out.println("请输入想要种植的作物种子:(白菜/茄子/水稻/草莓/西瓜/小麦种子）");
+                    String seedName = input.next();
+                    try {
+                        FarmGrowth.plantSeed(seedName, block);
+                    } catch (SeedNotFoundException e) {
+                        System.out.println(e.getMessage());
+                    }
+                } else {
+                    System.out.println("该土地上已有种子，无法继续种植");
+                }
+                break;
+            case "2":
+                //收获
+                FarmGrowth.harvestCrops(block);
+                break;
+            case "3":
+                //浇水
+                FarmGrowth.watering(block);
+                break;
+            case "4":
+                //除草
+                FarmGrowth.weed(block);
+                break;
+            case "5":
+                //除虫
+                FarmGrowth.disinsection(block);
+                break;
+            case "6":
+                //施肥
+                if (block.getSeed() == null) {
+                    System.out.println("此处没有种子种植,播种后再施肥效果更佳噢");
+                } else if (block.getSeedStatus() == 6 || block.getSeedStatus() == 7) {
+                    System.out.println("作物已经成熟,请立即收获");
+                } else {
+                    System.out.println("请选择肥料:(高级/中级/低级肥料)");
+                    String fertilizerName = input.next();
+                    try {
+                        FarmGrowth.applyFertilizer(fertilizerName, block);
+                    } catch (FertilizerNotFoundException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                break;
+            case "7":
+                //铲除作物
+                FarmGrowth.eradicateCrops(block);
+                break;
+            default:
+                break;
         }
     }
 
     /**
      * 仓库进程
+     *
      * @param str4
      */
-    public void warehouseProcess(String str4){
+    public void warehouseProcess(String str4) {
         Scanner input = new Scanner(System.in);
         //循环条件
-        int cir=1;
-        while (cir==1) {
+        int cir = 1;
+        while (cir == 1) {
             switch (str4) {
                 case "1":
                     //挑选种类，输入数目，买入种子
                     System.out.println("请输入想要购买的种子类型，输入0返回上级：");
                     String seedName = input.next();
-                    if(seedName.equals("0")){
-                        cir=0;
+                    if ("0".equals(seedName)) {
+                        cir = 0;
                         break;
                     }
                     String seedClassName = map.get(seedName);
                     System.out.println("请输入想要购买的种子数目：");
-                    Integer seedNum = input.nextInt();
+                    int seedNum = input.nextInt();
                     try {
                         shop.buySeeds(seedFactory.create(seedClassName), seedNum);
-                    } catch (Exception e) {
+                    } catch (SeedNotFoundException e) {
+                        System.out.println(e.getMessage());
                     }
                     break;
                 case "2":
                     //挑选种类，输入数目，买入肥料
                     System.out.println("请输入想要购买的肥料类型，输入0返回上级：");
                     String fertilizerName = input.next();
-                    if(fertilizerName.equals("0")){
-                        cir=0;
+                    if ("0".equals(fertilizerName)) {
+                        cir = 0;
                         break;
                     }
                     String fertilizerClassName = map.get(fertilizerName);
                     System.out.println("请输入想要购买的肥料数目：");
-                    Integer fertilizerNum = input.nextInt();
+                    int fertilizerNum = input.nextInt();
                     try {
                         shop.buyFertilizer(fertilizerFactory.create(fertilizerClassName), fertilizerNum);
-                    } catch (Exception e) {
+                    } catch (FertilizerNotFoundException e) {
+                        System.out.println(e.getMessage());
                     }
                     break;
                 case "3":
                     //挑选种类，输入数目，卖出作物
                     System.out.println("请输入想要卖出的作物类型，输入0返回上级：");
                     String cropName = input.next();
-                    if(cropName.equals("0")){
-                        cir=0;
+                    if (cropName.equals("0")) {
+                        cir = 0;
                         break;
                     }
                     String cropClassName = map.get(cropName);
                     System.out.println("请输入想要卖出的作物数目：");
-                    Integer cropNum = input.nextInt();
+                    int cropNum = input.nextInt();
                     try {
                         shop.sellCrops(cropFactory.create(cropClassName), cropNum);
-                    } catch (Exception e) {
+                    } catch (CropsNotFoundException e) {
+                        System.out.println(e.getMessage());
                     }
+                    break;
+                default:
                     break;
             }
         }
@@ -205,7 +234,6 @@ public class FarmProcess {
      */
     public void process(Mole Imole) {
         mole = Imole;
-
         System.out.println("输入y进入农场：");
         Scanner input = new Scanner(System.in);
         String str = input.next();
@@ -246,7 +274,8 @@ public class FarmProcess {
 
     public static void main(String[] args) {
         FarmProcess farmProcess = FarmProcess.newInstance();
-        farmProcess.process(new Mole());
+        mole.setMoney(100.0);
+        farmProcess.process(mole);
         return;
     }
 }

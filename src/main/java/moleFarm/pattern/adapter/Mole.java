@@ -7,21 +7,29 @@ public class Mole {
     /*
     摩尔豆（金币）
      */
-    private static Double money;
+    private Double money;
+
+    private static Mole mole = new Mole();
+
+    public static Mole getMole() {
+        return mole;
+    }
 
     /**
      * 获取摩尔豆
+     *
      * @return
      */
-    public static Double getMoney() {
+    public Double getMoney() {
         return money;
     }
 
     /**
      * 设置摩尔豆
+     *
      * @param money
      */
-    public static void setMoney(Double money) {
-        money = money;
+    public void setMoney(Double money) {
+        this.money = money;
     }
 }

@@ -1,6 +1,5 @@
 package moleFarm;
 
-import moleFarm.common.exception.MyException;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
@@ -28,6 +27,7 @@ import java.util.Map;
  * implements IFarmWareHouse
  */
 public class MoleFarmWarehouse implements IFarmWareHouse {
+    private Mole mole = Mole.getMole();
     /**
      * 种子存储
      */
@@ -158,7 +158,7 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
                 fertilizerMap.get(new PrimaryFertilizer()));
     }
 
-    public <T extends IProduct> boolean buyObject(T object, int num, String methodName) throws MyException {
+    public <T extends IProduct> boolean buyObject(T object, int num, String methodName) {
         Double price = object.getPrice() * num;
         //需要有一个摩尔角色类，判断剩余摩尔豆是否大于等于交换金额，是则返回true，并扣除相应大小的摩尔豆
         //调用适配器
@@ -179,15 +179,16 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
             return true;
             //返回仓库中该种子的原有数量，若map中无该类种子，则插入并返回null
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            throw new MyException("购买出错......");
+            System.out.println(e.getMessage());
         }
+        return false;
     }
 
-    public boolean buySeeds(AbstractSeed seed, int num) throws MyException {
+    public boolean buySeeds(AbstractSeed seed, int num) {
         return buyObject(seed, num, "getSeedMap");
     }
 
-    public boolean buyFertilizer(AbstractFertilizer fertilizer, int num) throws MyException {
+    public boolean buyFertilizer(AbstractFertilizer fertilizer, int num) {
         return buyObject(fertilizer, num, "getFertilizerMap");
     }
 
@@ -200,7 +201,7 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
             return false;
         }
         this.getCropsMap().put(crops, left - num);
-        Mole.setMoney(Mole.getMoney() + crops.getPrice() * num);
+        mole.setMoney(mole.getMoney() + crops.getPrice() * num);
         System.out.println("卖出成功，共进账￥" + crops.getPrice() * num + "元！");
         return true;
     }

@@ -47,18 +47,22 @@ public class Rice extends AbstractCrops implements Cloneable {
         return rice;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public Color getColor() {
         return color;
     }
 
+    @Override
     public Size getSize() {
         return size;
     }
 
+    @Override
     public Double getPrice() {
         return price;
     }

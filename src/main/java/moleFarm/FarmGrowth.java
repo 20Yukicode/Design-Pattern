@@ -36,21 +36,16 @@ public class FarmGrowth {
      * @param seed
      */
     public static void plantSeed(AbstractSeed seed, MoleFarmBlock farmBlock) {
-        if (farmBlock.getSeed() != null) {
-            System.out.println("该土地上已有种子，无法继续种植");
-        } else if (seed == null) {
+        if (seed == null) {
             System.out.println("您手上没有种子，无法种植");
         } else {
             System.out.println("正在播种" + seed.getName() + "...");
             farmBlock.setSeed(seed);
             //设置生长周期
             farmBlock.setSeedStatus(0);
-//            //设置农田状态
-//            List<FarmBlockStatus> statusList = farmBlock.getStatusList();
-//            statusList=new ArrayList<>();
-            List<AbstractSeed> Seeds = Collections.singletonList(seed);
+            List<AbstractSeed> seeds = Collections.singletonList(seed);
             //这个是调用仓库的代码，可能还要重写
-            moleFarmWarehouse.provideItemToMole(Seeds);
+            moleFarmWarehouse.provideItemToMole(seeds);
         }
     }
 
@@ -118,10 +113,6 @@ public class FarmGrowth {
             Integer integer = fertilizer.fertilizerBehavior(status);
             //设置新的状态
             farmBlock.setSeedStatus(integer);
-        } else if (farmBlock.getSeedStatus() >= 6) {
-            System.out.println("作物已经成熟,请立即收获");
-        } else {
-            System.out.println("此处没有种子种植,播种后再施肥效果更佳噢");
         }
     }
 
@@ -132,7 +123,7 @@ public class FarmGrowth {
      */
     public static void applyFertilizer(String name, MoleFarmBlock farmBlock) throws FertilizerNotFoundException {
         AbstractFertilizer fertilizer;
-        fertilizer = fertilizerFactory.create((String) (map.get(name)));
+        fertilizer = fertilizerFactory.create(map.get(name));
         applyFertilizer(fertilizer, farmBlock);
     }
 

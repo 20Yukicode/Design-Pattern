@@ -16,7 +16,7 @@ public interface Factory {
      */
     IProduct create(String name) throws ProductNotFoundException;
 
-    static <T extends IProduct> T createProduct(String name) throws MyException {
+    static <T extends IProduct> T createProduct(String name) throws ProductNotFoundException {
         T abstractObj = null;
         try {
             Class<T> aClass = (Class<T>) Class.forName(name);
@@ -26,7 +26,7 @@ public interface Factory {
                 e.printStackTrace();
             }
         } catch (ClassNotFoundException e) {
-            throw new MyException();
+            throw new ProductNotFoundException();
         }
         return abstractObj;
     }

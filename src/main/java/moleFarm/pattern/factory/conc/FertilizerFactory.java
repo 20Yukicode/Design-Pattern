@@ -1,6 +1,6 @@
 package moleFarm.pattern.factory.conc;
 
-import moleFarm.common.exception.MyException;
+import moleFarm.common.exception.product.ProductNotFoundException;
 import moleFarm.common.exception.product.conc.FertilizerNotFoundException;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.utils.JsonOp;
@@ -28,7 +28,7 @@ public class FertilizerFactory implements Factory {
     public AbstractFertilizer create(String name) throws FertilizerNotFoundException {
         try {
             return Factory.createProduct(PATH + name);
-        } catch (MyException e) {
+        } catch (ProductNotFoundException e) {
             throw new FertilizerNotFoundException(MSG);
         }
     }

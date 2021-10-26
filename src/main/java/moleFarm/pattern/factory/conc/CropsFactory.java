@@ -1,6 +1,7 @@
 package moleFarm.pattern.factory.conc;
 
 import moleFarm.common.exception.MyException;
+import moleFarm.common.exception.product.ProductNotFoundException;
 import moleFarm.common.exception.product.conc.CropsNotFoundException;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.utils.JsonOp;
@@ -32,7 +33,7 @@ public class CropsFactory implements Factory {
     public AbstractCrops create(String name) throws CropsNotFoundException {
         try {
             return Factory.createProduct(PATH + name);
-        } catch (MyException e) {
+        } catch (ProductNotFoundException e) {
             throw new CropsNotFoundException(MSG);
         }
     }
