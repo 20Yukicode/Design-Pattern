@@ -53,7 +53,6 @@ public class JsonOp {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        System.out.println(list);
         return list;
     }
 

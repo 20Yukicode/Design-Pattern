@@ -11,17 +11,21 @@ public class Sickle extends AbstractTool {
 
     private Double price;
 
-    private Sickle(){}
+    private Sickle() {
+    }
 
-    private static Sickle sickle=new Sickle();
+    private static Sickle sickle = new Sickle();
 
-    public static Sickle newInstance(){
+    public static Sickle newInstance() {
         return sickle;
     }
+
     @Override
     public void ToolBehavior() {
-        System.out.println("正在用"+name+"除草");
+        System.out.println("正在用" + name + "除草");
     }
+
+    @Override
     public String getName() {
         return name;
     }

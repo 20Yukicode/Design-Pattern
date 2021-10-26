@@ -10,8 +10,8 @@ import moleFarm.pattern.factory.Factory;
  * 种子抽象工厂类，此处不再写具体的，如CabbageSeedFactory
  */
 public class SeedFactory implements Factory {
-    final static String PATH = JsonOp.getPathJson("SeedFactory");
-    final static String MSG = JsonOp.getMsgJson("SeedFactory");
+    private final static String PATH = JsonOp.getPathJson("SeedFactory");
+    private final static String MSG = JsonOp.getMsgJson("SeedFactory");
     private static volatile SeedFactory seedFactory;
 
     private SeedFactory() {

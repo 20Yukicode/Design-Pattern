@@ -1,17 +1,20 @@
 package moleFarm.pattern.factory.conc;
 
-import moleFarm.common.exception.MyException;
+import moleFarm.MoleFarmWarehouse;
 import moleFarm.common.exception.product.conc.ToolNotFoundException;
 import moleFarm.common.product.AbstractTool;
 import moleFarm.common.utils.JsonOp;
 import moleFarm.pattern.factory.Factory;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 /**
  * 工具的抽象工厂类，此处不再写具体的，如ConcreteFarmToolFactory
  */
 public class ToolFactory implements Factory {
-    final static String PATH = JsonOp.getPathJson("ToolFactory");
-    final static String MSG = JsonOp.getMsgJson("ToolFactory");
+    private final static String PATH = JsonOp.getPathJson("ToolFactory");
+    private final static String MSG = JsonOp.getMsgJson("ToolFactory");
     private static volatile ToolFactory toolFactory;
 
     private ToolFactory() {
@@ -27,8 +30,11 @@ public class ToolFactory implements Factory {
     @Override
     public AbstractTool create(String name) throws ToolNotFoundException {
         try {
-            return Factory.createProduct(PATH + name);
-        } catch (MyException e) {
+            Method method = MoleFarmWarehouse.class.getDeclaredMethod("get" + name);
+            final MoleFarmWarehouse moleFarmWarehouse = MoleFarmWarehouse.getMoleFarmWarehouse();
+            AbstractTool invoke = (AbstractTool) method.invoke(moleFarmWarehouse);
+            return invoke;
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             throw new ToolNotFoundException(MSG);
         }
     }
