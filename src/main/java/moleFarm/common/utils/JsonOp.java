@@ -12,6 +12,7 @@ import java.util.Objects;
 public class JsonOp {
     /**
      * 通过路径读取json文件，返回jsonobject对象
+     *
      * @param jsonPath
      * @return
      * @throws FileNotFoundException
@@ -21,8 +22,20 @@ public class JsonOp {
         return (JSONObject) jsonReader.readObject();
     }
 
+    public static JSONObject searchMapper() {
+        JSONObject json = null;
+        try {
+            String jsonPath = "src/main/java/moleFarm/common/resources/mapper.json";
+            json = getJson(jsonPath);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return json;
+    }
+
     /**
      * 解析farm.json
+     *
      * @param productType
      * @return
      */
@@ -43,17 +56,18 @@ public class JsonOp {
 
     /**
      * 工具类用来解析
+     *
      * @param name
      * @param fileName
      * @param difference
      * @return
      */
-    public static String utilSearchJson(String name, String fileName, String ...difference){
-        String jsonPath="src/main/java/moleFarm/common/resources/"+fileName+".json";
-        int size=difference.length;
+    public static String utilSearchJson(String name, String fileName, String... difference) {
+        String jsonPath = "src/main/java/moleFarm/common/resources/" + fileName + ".json";
+        int size = difference.length;
         try {
             JSONObject json = getJson(jsonPath);
-            if(size==1) {
+            if (size == 1) {
                 if (Objects.equals(name, difference[0])) {
                     return (String) json.get(name);
                 } else {
@@ -61,8 +75,7 @@ public class JsonOp {
                     JSONObject conc = (JSONObject) factory.get("conc");
                     return (String) conc.get(name);
                 }
-            }
-            else{
+            } else {
                 if (Objects.equals(name, difference[0]) || Objects.equals(name, difference[1])) {
                     return (String) json.get(name);
                 } else {
@@ -76,21 +89,25 @@ public class JsonOp {
         }
         return null;
     }
+
     /**
      * 解析path.json
+     *
      * @param name
      * @return
      */
-    public static String getPathJson(String name){
+    public static String getPathJson(String name) {
         return utilSearchJson(name, "path", "IFactory");
     }
+
     /**
-     *解析msg.json
+     * 解析msg.json
+     *
      * @param name
      * @return
      */
-    public static String getMsgJson(String name){
-        return utilSearchJson(name,"msg","FarmProductFactory","IFactory");
+    public static String getMsgJson(String name) {
+        return utilSearchJson(name, "msg", "FarmProductFactory", "IFactory");
     }
 
 }

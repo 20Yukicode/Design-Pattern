@@ -11,8 +11,8 @@ import moleFarm.pattern.builder.Builder;
 public class ConcreteBuilder2 extends Builder {
     @Override
     public void buildPlant(AbstractSeed seed) {
-        FarmGrowth.PlantSeed(seed, farmBlock);
-        FarmGrowth.ApplyFertilizer(new MiddleFertilizer(), farmBlock);
+        FarmGrowth.plantSeed(seed, farmBlock);
+        FarmGrowth.applyFertilizer(new MiddleFertilizer(), farmBlock);
     }
 
 }

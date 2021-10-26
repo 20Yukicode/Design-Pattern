@@ -96,7 +96,7 @@ public class FarmProcess {
                                 System.out.println("请输入想要种植的作物种子");
                                 String name = input.next();
                                 try {
-                                    FarmGrowth.PlantSeed(name, block);
+                                    FarmGrowth.plantSeed(name, block);
                                 } catch (Exception e) {
                                 }
                                 break;
@@ -106,22 +106,22 @@ public class FarmProcess {
                                 break;
                             case "3":
                                 //浇水
-                                FarmGrowth.Watering(block);
+                                FarmGrowth.watering(block);
                                 break;
                             case "4":
                                 //除草
-                                FarmGrowth.Weed(block);
+                                FarmGrowth.weed(block);
                                 break;
                             case "5":
                                 //除虫
-                                FarmGrowth.Disinsection(block);
+                                FarmGrowth.disinsection(block);
                                 break;
                             case "6":
                                 //施肥
                                 System.out.println("请选择肥料：高级/中级/低级肥料");
                                 String fertilizerName = input.next();
                                 try {
-                                    FarmGrowth.ApplyFertilizer(fertilizerName, block);
+                                    FarmGrowth.applyFertilizer(fertilizerName, block);
                                 } catch (Exception e) {
                                 }
                                 break;

@@ -65,7 +65,7 @@ public class MoleFarm implements IFarm {
         //寻找空地，一键播种
         for (MoleFarmBlock item : farmBlockList) {
             if (item.getSeed() != null) {
-                FarmGrowth.PlantSeed(seed, item);
+                FarmGrowth.plantSeed(seed, item);
             }
         }
         System.out.println("所有空地均已播种成功");
@@ -85,7 +85,7 @@ public class MoleFarm implements IFarm {
         for (MoleFarmBlock item : farmBlockList) {
             if (item.getSeed() != null) {
                 try {
-                    FarmGrowth.PlantSeed(name, item);
+                    FarmGrowth.plantSeed(name, item);
                 } catch (MyException e) {
                     System.out.println(e.getMessage());
                 }

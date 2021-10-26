@@ -1,19 +1,17 @@
 package moleFarm.common.product.fertilizer;
 
 import moleFarm.common.product.AbstractFertilizer;
-import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.common.status.Level;
-import moleFarm.common.status.SeedStatus;
 
 /**
- * 初级化肥
+ * 初级肥料
  */
 public class PrimaryFertilizer extends AbstractFertilizer {
-    private String name="初级化肥";
+    private String name = "初级肥料";
 
     private Double price = 2.0;
 
-    private Level level=Level.PRIMARY_LEVEL;
+    private Level level = Level.PRIMARY_LEVEL;
 
     @Override
     public Double getPrice() {

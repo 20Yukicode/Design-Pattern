@@ -1,16 +1,17 @@
 package moleFarm;
 
+import com.alibaba.fastjson.JSONObject;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.common.status.SeedStatus;
+import moleFarm.common.utils.JsonOp;
 import moleFarm.common.utils.MyException;
 import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.factory.conc.FertilizerFactory;
 import moleFarm.pattern.factory.conc.SeedFactory;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,7 +21,9 @@ public class FarmGrowth {
      */
     private static final SeedFactory seedFactory = SeedFactory.newInstance();
     private static final FertilizerFactory fertilizerFactory = FertilizerFactory.newInstance();
+    private static final CropsFactory cropsFactory = CropsFactory.newInstance();
     private static MoleFarmWarehouse moleFarmWarehouse = MoleFarmWarehouse.newInstance();
+    private static JSONObject map = JsonOp.searchMapper();
 
     public FarmGrowth() {
     }
@@ -30,7 +33,7 @@ public class FarmGrowth {
      *
      * @param seed
      */
-    public static void PlantSeed(AbstractSeed seed, MoleFarmBlock farmBlock) {
+    public static void plantSeed(AbstractSeed seed, MoleFarmBlock farmBlock) {
         if (farmBlock.getSeed() != null) {
             System.out.println("该土地上已有种子，无法继续种植");
         } else if (seed == null) {
@@ -52,36 +55,15 @@ public class FarmGrowth {
     /**
      * 播种
      * 重载
+     *
      * @param name
      */
-    public static void PlantSeed(String name, MoleFarmBlock farmBlock) throws MyException {
+    public static void plantSeed(String name, MoleFarmBlock farmBlock) throws MyException {
         AbstractSeed seed;
-        switch (name){
-            case "白菜":
-                seed = seedFactory.create("CabbageSeed");
-                break;
-            case "茄子":
-                seed = seedFactory.create("EggplantSeed");
-                break;
-            case "水稻":
-                seed = seedFactory.create("RiceSeed");
-                break;
-            case "草莓":
-                seed = seedFactory.create("StrawberrySeed");
-                break;
-            case "西瓜":
-                seed = seedFactory.create("WatermelonSeed");
-                break;
-            case "小麦":
-                seed = seedFactory.create("WheatSeed");
-                break;
-            default:
-                System.out.println("请输入正确的种子名称!");
-                seed=null;
-                return;
-        }
-        PlantSeed(seed,farmBlock);
+        seed = seedFactory.create((String) map.get(name));
+        plantSeed(seed, farmBlock);
     }
+
     /**
      * 铲除作物
      */
@@ -97,7 +79,7 @@ public class FarmGrowth {
     /**
      * 松土
      */
-    public static void LoosenSoil(MoleFarmBlock farmBlock) {
+    public static void loosenSoil(MoleFarmBlock farmBlock) {
         if (farmBlock.getStatusList().removeIf(s -> s.equals(FarmBlockStatus.LAND_HARD))) {
             moleFarmWarehouse.getHoe().ToolBehavior();
         } else {
@@ -108,7 +90,7 @@ public class FarmGrowth {
     /**
      * 浇水
      */
-    public static void Watering(MoleFarmBlock farmBlock) {
+    public static void watering(MoleFarmBlock farmBlock) {
         if (farmBlock.getStatusList().removeIf(s -> s.equals(FarmBlockStatus.DROUGHT))) {
             moleFarmWarehouse.getWateringCan().ToolBehavior();
         } else {
@@ -121,8 +103,10 @@ public class FarmGrowth {
      *
      * @param fertilizer
      */
-    public static void ApplyFertilizer(AbstractFertilizer fertilizer, MoleFarmBlock farmBlock) {
-        if (farmBlock.getSeed() != null && farmBlock.getSeedStatus() != null && farmBlock.getSeedStatus() < 6 && fertilizer != null) {
+    public static void applyFertilizer(AbstractFertilizer fertilizer, MoleFarmBlock farmBlock) {
+        if (fertilizer == null) {
+            System.out.println("请输入正确的肥料名称噢");
+        } else if (farmBlock.getSeed() != null && farmBlock.getSeedStatus() != null && farmBlock.getSeedStatus() < 6) {
             System.out.println("正在用" + fertilizer.getName() + "施肥");
             Integer remainNum = moleFarmWarehouse.getFertilizerMap().get(fertilizer);
             remainNum -= 1;
@@ -139,34 +123,22 @@ public class FarmGrowth {
             System.out.println("此处没有种子种植,播种后再施肥效果更佳噢");
         }
     }
+
     /**
      * 施肥(重载)
      *
      * @param name
      */
-    public static void ApplyFertilizer(String name, MoleFarmBlock farmBlock) throws MyException {
+    public static void applyFertilizer(String name, MoleFarmBlock farmBlock) throws MyException {
         AbstractFertilizer fertilizer;
-        switch (name){
-            case "高级肥料":
-                fertilizer=fertilizerFactory.create("AdvancedFertilizer");
-                break;
-            case "中级肥料":
-                fertilizer=fertilizerFactory.create("MiddleFertilizer");
-                break;
-            case "低级肥料":
-                fertilizer=fertilizerFactory.create("PrimaryFertilizer");
-                break;
-            default:
-                System.out.println("请输入正确的肥料名!");
-                fertilizer=null;
-        }
-        ApplyFertilizer(fertilizer,farmBlock);
+        fertilizer = fertilizerFactory.create((String) (map.get(name)));
+        applyFertilizer(fertilizer, farmBlock);
     }
 
     /**
      * 除草
      */
-    public static void Weed(MoleFarmBlock farmBlock) {
+    public static void weed(MoleFarmBlock farmBlock) {
         if (farmBlock.getStatusList().removeIf(s -> s.equals(FarmBlockStatus.WEEDS))) {
             moleFarmWarehouse.getSickle().ToolBehavior();
         } else {
@@ -177,7 +149,7 @@ public class FarmGrowth {
     /**
      * 除虫
      */
-    public static void Disinsection(MoleFarmBlock farmBlock) {
+    public static void disinsection(MoleFarmBlock farmBlock) {
         if (farmBlock.getStatusList().removeIf(s -> s.equals(FarmBlockStatus.INSECT_DISASTER))) {
             moleFarmWarehouse.getPesticide().ToolBehavior();
         } else {
@@ -200,7 +172,6 @@ public class FarmGrowth {
         } else {
             farmBlock.setSeed(null);
             String name = farmBlock.getSeed().getName();
-            CropsFactory cropsFactory = CropsFactory.newInstance();
             try {
                 return cropsFactory.create(name.replace("Seed", ""));
             } catch (MyException e) {

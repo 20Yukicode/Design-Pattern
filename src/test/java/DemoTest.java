@@ -1,5 +1,7 @@
+import com.alibaba.fastjson.JSONObject;
 import moleFarm.MoleFarmWarehouse;
 import moleFarm.common.product.AbstractFertilizer;
+import moleFarm.common.utils.JsonOp;
 
 import java.util.*;
 
@@ -14,6 +16,9 @@ public class DemoTest {
     }
 
     public static void main(String[] args) throws Exception {
+        JSONObject jsonObject = JsonOp.searchMapper();
+        System.out.println(jsonObject.get("高级肥料"));
+
         Set<String> he = new HashSet<>();
         List<String> arr = new ArrayList<>(Arrays.asList("123", "456", "123"));
         arr.removeIf((String s) -> s.equals("123"));

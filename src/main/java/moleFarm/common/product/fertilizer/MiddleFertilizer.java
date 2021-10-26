@@ -1,18 +1,16 @@
 package moleFarm.common.product.fertilizer;
 
 import moleFarm.common.product.AbstractFertilizer;
-import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.common.status.Level;
-import moleFarm.common.status.SeedStatus;
 
 /**
- * 中级化肥
+ * 中级肥料
  */
 public class MiddleFertilizer extends AbstractFertilizer {
-    private String name="中级化肥";
+    private String name = "中级肥料";
     private Double price = 5.0;
 
-    private Level level=Level.MIDDLE_LEVEL;
+    private Level level = Level.MIDDLE_LEVEL;
 
     @Override
     public Double getPrice() {
@@ -27,6 +25,7 @@ public class MiddleFertilizer extends AbstractFertilizer {
     public Integer fertilizerBehavior(int status) {
         return Math.min(status + 2, 7);
     }
+
     public Level getLevel() {
         return level;
     }
