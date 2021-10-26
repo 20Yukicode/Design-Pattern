@@ -1,11 +1,11 @@
-import com.alibaba.fastjson.JSONObject;
 import moleFarm.MoleFarmWarehouse;
-import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
+import moleFarm.common.product.IProduct;
 import moleFarm.common.utils.JsonOp;
-import moleFarm.pattern.factory.conc.CropsFactory;
+import moleFarm.pattern.factory.FarmProductFactory;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DemoTest {
     static MoleFarmWarehouse moleFarmWarehouse = MoleFarmWarehouse.newInstance();
@@ -18,15 +18,12 @@ public class DemoTest {
     }
 
     public static void main(String[] args) throws Exception {
-        String text = "草莓";
-        JSONObject jsonObject = JsonOp.searchMapper();
-        AbstractCrops crops = CropsFactory.newInstance().create((String) jsonObject.get(text));
-        System.out.println(crops.getName());
-        Set<String> he = new HashSet<>();
-        List<String> arr = new ArrayList<>(Arrays.asList("123", "456", "123"));
-        arr.removeIf((String s) -> s.equals("123"));
-        System.out.println(arr);
-
+        String text = "铲子";
+        Map<String, String> stringStringMap = JsonOp.searchMapper();
+        String s = stringStringMap.get(text);
+        System.out.println(s);
+        IProduct crops = FarmProductFactory.createFarmProduct(s);
+//        System.out.println(crops.getName());
     }
 
 }
