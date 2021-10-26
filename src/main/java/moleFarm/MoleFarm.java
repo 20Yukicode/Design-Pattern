@@ -56,6 +56,7 @@ public class MoleFarm implements IFarm {
     /**
      * 种下种子
      * 批量操作
+     *
      * @param seed
      * @throws MyException
      */
@@ -63,25 +64,31 @@ public class MoleFarm implements IFarm {
     public void plantBatchSeeds(AbstractSeed seed) {
         //寻找空地，一键播种
         for (MoleFarmBlock item : farmBlockList) {
-            if(item.getSeed()!=null){
-                FarmGrowth.PlantSeed(seed,item);
+            if (item.getSeed() != null) {
+                FarmGrowth.PlantSeed(seed, item);
             }
         }
         System.out.println("所有空地均已播种成功");
 //        if (seedList.size() > farmBlockList.size())
 //            throw new MyException("作物数量太多，无法种植");
     }
+
     /**
      * 种下种子(重载)
      * 批量操作
+     *
      * @param name
      * @throws MyException
      */
-    public void plantBatchSeeds(String name) throws MyException {
+    public void plantBatchSeeds(String name) {
         //寻找空地，一键播种
         for (MoleFarmBlock item : farmBlockList) {
-            if(item.getSeed()!=null){
-                FarmGrowth.PlantSeed(name,item);
+            if (item.getSeed() != null) {
+                try {
+                    FarmGrowth.PlantSeed(name, item);
+                } catch (MyException e) {
+                    System.out.println(e.getMessage());
+                }
             }
         }
         System.out.println("所有空地均已播种成功");
@@ -91,12 +98,13 @@ public class MoleFarm implements IFarm {
 
     @Override
     public void plantSeeds(AbstractSeed seed) {
-        
+
     }
 
     /**
      * 收获作物
      * 批量操作
+     *
      * @return
      */
     @Override
@@ -104,7 +112,7 @@ public class MoleFarm implements IFarm {
         List<AbstractCrops> cropsList = null;
         for (MoleFarmBlock item : farmBlockList) {
             AbstractCrops crops = null;
-            if (item.getSeedStatus()!=null&&item.getSeedStatus() == 6) {
+            if (item.getSeedStatus() != null && item.getSeedStatus() == 6) {
                 item.setSeed(null);
                 String name = item.getSeed().getName();
                 CropsFactory cropsFactory = CropsFactory.newInstance();
@@ -118,8 +126,9 @@ public class MoleFarm implements IFarm {
                 cropsList.add(crops);
             }
         }
-        if (cropsList == null) System.out.println("抱歉，暂无成熟作物可收获");
-        else {
+        if (cropsList == null) {
+            System.out.println("抱歉，暂无成熟作物可收获");
+        } else {
             Map<AbstractCrops, Integer> map = new HashMap<>();
             for (AbstractCrops crop : cropsList) {
                 int num = map.get(crop) == null ? 0 : map.get(crop);

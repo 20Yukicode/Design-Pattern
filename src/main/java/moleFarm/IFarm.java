@@ -2,7 +2,6 @@ package moleFarm;
 
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
-import moleFarm.common.utils.MyException;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ public interface IFarm {
      *
      * @param seed
      */
-    void plantBatchSeeds(AbstractSeed seed) throws MyException;
+    void plantBatchSeeds(AbstractSeed seed);
 
     /**
      * 种植种子
