@@ -67,7 +67,7 @@ public class FarmProcess {
                 if (block.getSeed() == null) {
                     System.out.println("请输入想要种植的作物种子:(白菜/茄子/水稻/草莓/西瓜/小麦种子）");
                     String seedName = input.next();
-                    System.out.println("请输入1选择普通种植，输入2选择一键种植(种植+低级肥料)，输入3选择超级一键种植(种植+高级肥料+松土)");
+                    System.out.println("请输入1选择普通种植，输入2选择一键种植(种植+低级肥料)，输入3选择超级一键种植(松土+种植+浇水+除草+高级肥料)");
                     String way = input.next();
                     try {
                         switch (way) {

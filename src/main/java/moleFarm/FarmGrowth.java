@@ -80,7 +80,7 @@ public class FarmGrowth {
      * 松土
      */
     public static void loosenSoil() {
-        moleFarmWarehouse.getSickle().ToolBehavior();
+        moleFarmWarehouse.getShovel().ToolBehavior();
     }
 
     /**
