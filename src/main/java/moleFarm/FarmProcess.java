@@ -57,57 +57,7 @@ public class FarmProcess {
         return farmProcess;
     }
 
-    /**
-     * 农田进程
-     *
-     * @param str2
-     */
-    public void farmProcess(String str2) {
-        Scanner input = new Scanner(System.in);
-        while (true) {
-            //批量操作
-            if ("b".equals(str2)) {
-                System.out.println("\n批量操作");
-                System.out.println("请输入1选择一键播种，2选择一键收获，0返回上级：");
-                String str3 = input.next();
-                if ("1".equals(str3)) {
-                    System.out.println("请输入想要种植的作物种子");
-                    String name = input.next();
-                    try {
-                        farm.plantBatchSeeds(name);
-                    } catch (ProductNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                } else if ("2".equals(str3)) {
-                    //一键收获作物并放入仓库
-                    if (warehouse.storeToRepository(farm.harvestCrops())) {
-                        System.out.println("已为您一键收获作物并放入仓库");
-                    }
-                } else {
-                    break;
-                }
-            }
-            //单个农田块操作
-            else {
-                //获取农田块编号
-                int index = Integer.parseInt(str2) - 1;
-                //获取具体农田块对象
-                FarmIterator iterator = farm.getIterator();
-                MoleFarmBlock block = iterator.getByIndex(index);
-                //控制台输出农田块信息
-                block.getInfo();
-                System.out.println("请选择：0——返回上级，1——种植作物，2——收获作物，3——浇水，4——除草，5——除虫，6——施肥，7——铲除作物");
-                String str3 = input.next();
-                if ("0".equals(str3)) {
-                    break;
-                }
-                //对作物进行具体操作
-                operationSeed(str3, block);
-            }
-        }
-    }
-
-    public void operationSeed(String str3, MoleFarmBlock block) {
+    public void farmSmallProcess(String str3, MoleFarmBlock block) {
         Scanner input = new Scanner(System.in);
         switch (str3) {
             case "1":
@@ -161,6 +111,56 @@ public class FarmProcess {
                 break;
             default:
                 return;
+        }
+    }
+
+    /**
+     * 农田进程
+     *
+     * @param str2
+     */
+    public void farmProcess(String str2) {
+        Scanner input = new Scanner(System.in);
+        while (true) {
+            //批量操作
+            if ("b".equals(str2)) {
+                System.out.println("\n批量操作");
+                System.out.println("请输入1选择一键播种，2选择一键收获，0返回上级：");
+                String str3 = input.next();
+                if ("1".equals(str3)) {
+                    System.out.println("请输入想要种植的作物种子");
+                    String name = input.next();
+                    try {
+                        farm.plantBatchSeeds(name);
+                    } catch (ProductNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                } else if ("2".equals(str3)) {
+                    //一键收获作物并放入仓库
+                    if (warehouse.storeToRepository(farm.harvestCrops())) {
+                        System.out.println("已为您一键收获作物并放入仓库");
+                    }
+                } else {
+                    break;
+                }
+            }
+            //单个农田块操作
+            else {
+                //获取农田块编号
+                int index = Integer.parseInt(str2) - 1;
+                //获取具体农田块对象
+                FarmIterator iterator = farm.getIterator();
+                MoleFarmBlock block = iterator.getByIndex(index);
+                //控制台输出农田块信息
+                block.getInfo();
+                System.out.println("请选择：0——返回上级，1——种植作物，2——收获作物，3——浇水，4——除草，5——除虫，6——施肥，7——铲除作物");
+                String str3 = input.next();
+                if ("0".equals(str3)) {
+                    break;
+                }
+                //对作物进行具体操作
+                farmSmallProcess(str3, block);
+            }
         }
     }
 
@@ -288,13 +288,11 @@ public class FarmProcess {
                 warehouseProcess(str4);
             }
         }
-        return;
     }
 
     public static void main(String[] args) {
         FarmProcess farmProcess = FarmProcess.newInstance();
         mole.setMoney(100.0);
         farmProcess.process(mole);
-        return;
     }
 }
