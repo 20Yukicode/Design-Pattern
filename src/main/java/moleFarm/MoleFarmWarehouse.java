@@ -138,7 +138,7 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
     }
 
     public void showRepertory(){
-        System.out.println("仓库库存如下：\n");
+        System.out.println("\n仓库库存如下：");
         System.out.println("白菜\uD83E\uDD66\t茄子\uD83C\uDF46\t水稻\uD83C\uDF3E\t草莓\uD83C\uDF53\t西瓜\uD83C\uDF49\t小麦\uD83C\uDF3F   ");
         System.out.println(cropsMap.get(new Cabbage())+"\t\t"+cropsMap.get(new Eggplant())+"\t\t"+cropsMap.get(new Rice())+"\t\t"+
                 cropsMap.get(new Strawberry())+"\t\t"+cropsMap.get(new Watermelon())+"\t\t"+cropsMap.get(new Wheat())+"\t\t");
