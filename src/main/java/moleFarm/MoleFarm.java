@@ -85,7 +85,7 @@ public class MoleFarm implements IFarm {
     public void plantBatchSeeds(String name) throws ProductNotFoundException {
         //寻找空地，一键播种
         for (MoleFarmBlock item : farmBlockList) {
-            if (item.getSeed() != null) {
+            if (item.getSeed() == null) {
                 FarmGrowth.plantSeed(name, item);
             }
         }
@@ -154,8 +154,8 @@ public class MoleFarm implements IFarm {
             System.out.print(farmBlockList.get(i + 2).getSeed() == null ? "┏━┓" : "┎┰┒");
             System.out.println("");
             System.out.print(farmBlockList.get(i).getSeed() == null ? "┗━┛" : "┖┸┚");
-            System.out.print(farmBlockList.get(i+1).getSeed() == null ? "┗━┛" : "┖┸┚");
-            System.out.print(farmBlockList.get(i+2).getSeed() == null ? "┗━┛" : "┖┸┚");
+            System.out.print(farmBlockList.get(i + 1).getSeed() == null ? "┗━┛" : "┖┸┚");
+            System.out.print(farmBlockList.get(i + 2).getSeed() == null ? "┗━┛" : "┖┸┚");
             System.out.println(i == 0 ? "①~③" : i == 3 ? "④~⑥" : "⑦~⑨");
         }
     }

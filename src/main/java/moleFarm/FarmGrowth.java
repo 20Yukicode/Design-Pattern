@@ -29,7 +29,7 @@ public class FarmGrowth {
 
     public FarmGrowth() {
     }
-    
+
     /**
      * 播种
      *
@@ -61,8 +61,7 @@ public class FarmGrowth {
      * @param name
      */
     public static void plantSeed(String name, MoleFarmBlock farmBlock) throws SeedNotFoundException {
-        AbstractSeed seed;
-        seed = seedFactory.create((String) map.get(name));
+        AbstractSeed seed = seedFactory.create(map.get(name));
         plantSeed(seed, farmBlock);
     }
 
