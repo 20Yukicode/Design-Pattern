@@ -89,7 +89,7 @@ public class MoleFarm implements IFarm {
                 FarmGrowth.plantSeed(name, item);
             }
         }
-        System.out.println("所有空地均已播种成功");
+        System.out.println("批量播种结束");
 //        if (seedList.size() > farmBlockList.size())
 //            throw new MyException("作物数量太多，无法种植");
     }

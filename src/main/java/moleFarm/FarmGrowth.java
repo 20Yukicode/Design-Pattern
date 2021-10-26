@@ -39,12 +39,15 @@ public class FarmGrowth {
         if (seed == null) {
             System.out.println("您手上没有种子，无法种植");
         } else {
-            farmBlock.setSeed(seed);
-            //设置生长周期
-            farmBlock.setSeedStatus(0);
+
             List<AbstractSeed> seeds = Collections.singletonList(seed);
             //仓库提供种子，调用职责链模式
-            if(moleFarmWarehouse.provideItemToMole(seeds)==true)System.out.println("正在播种" + seed.getName() + "...");
+            if(moleFarmWarehouse.provideItemToMole(seeds)){
+                System.out.println("正在播种" + seed.getName() + "...");
+                farmBlock.setSeed(seed);
+                //设置生长周期
+                farmBlock.setSeedStatus(0);
+            }
         }
     }
 
@@ -67,7 +70,7 @@ public class FarmGrowth {
             moleFarmWarehouse.shovel.ToolBehavior();
             farmBlock.setSeed(null);
         } else {
-            System.out.println("该土地上没有作物,不能铲除");
+            System.out.println("该土地上没有作物，不能铲除");
         }
     }
 
@@ -82,11 +85,11 @@ public class FarmGrowth {
      * 浇水
      */
     public static void watering(MoleFarmBlock farmBlock) {
-        if (farmBlock.getStatusList().removeIf(s -> s.equals(FarmBlockStatus.DROUGHT))) {
-            moleFarmWarehouse.getWateringCan().ToolBehavior();
-        } else {
-            System.out.println("该农田块处于湿润状态，无需浇水");
-        }
+        //判断是否存在干旱状态，若存在则将其去除
+        farmBlock.getStatusList().removeIf(s -> s.equals(FarmBlockStatus.DROUGHT));
+        //使用浇水壶浇水
+        moleFarmWarehouse.getWateringCan().ToolBehavior();
+
     }
 
     /**
@@ -126,11 +129,10 @@ public class FarmGrowth {
      * 除草
      */
     public static void weed(MoleFarmBlock farmBlock) {
-        if (farmBlock.getStatusList().removeIf(s -> s.equals(FarmBlockStatus.WEEDS))) {
-            moleFarmWarehouse.getSickle().ToolBehavior();
-        } else {
-            System.out.println("没有杂草，无需除草");
-        }
+        //若存在杂草状态，则将其删去
+        farmBlock.getStatusList().removeIf(s -> s.equals(FarmBlockStatus.WEEDS));
+        //调用镰刀除草
+        moleFarmWarehouse.getSickle().ToolBehavior();
     }
 
     /**
@@ -140,7 +142,7 @@ public class FarmGrowth {
         if (farmBlock.getStatusList().removeIf(s -> s.equals(FarmBlockStatus.INSECT_DISASTER))) {
             moleFarmWarehouse.getPesticide().ToolBehavior();
         } else {
-            System.out.println("农场一片祥和,没有遭遇虫灾");
+            System.out.println("农场一片祥和，没有遭遇虫灾");
         }
     }
 
@@ -154,7 +156,7 @@ public class FarmGrowth {
             System.out.println("该土地上没有种植作物");
         } else if (farmBlock.getSeedStatus() < 6) {
             System.out.println("作物" + farmBlock.getSeed().getName() + "正处于" +
-                    SeedStatus.getSeedStatusByNum(farmBlock.getSeedStatus()).getText() + "期,请过一段时间后再来收获"
+                    SeedStatus.getSeedStatusByNum(farmBlock.getSeedStatus()).getText() + "期，请过一段时间后再来收获"
             );
         } else {
             farmBlock.setSeed(null);

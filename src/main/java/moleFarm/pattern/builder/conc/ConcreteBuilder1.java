@@ -13,8 +13,8 @@ public class ConcreteBuilder1 extends Builder {
     public void buildPlant(AbstractSeed seed) {
         FarmGrowth.loosenSoil();
         FarmGrowth.plantSeed(seed, farmBlock);
-        FarmGrowth.watering(farmBlock);
-        FarmGrowth.weed(farmBlock);
+        //FarmGrowth.watering(farmBlock);
+        //FarmGrowth.weed(farmBlock);
         FarmGrowth.applyFertilizer(new AdvancedFertilizer(), farmBlock);
     }
 }

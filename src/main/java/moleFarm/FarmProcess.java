@@ -7,9 +7,14 @@ import moleFarm.common.exception.product.conc.SeedNotFoundException;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.product.IProduct;
+import moleFarm.common.product.seed.CabbageSeed;
 import moleFarm.common.utils.JsonOp;
 import moleFarm.pattern.adapter.Mole;
 import moleFarm.pattern.adapter.conc.WeatherAdapter;
+import moleFarm.pattern.builder.Builder;
+import moleFarm.pattern.builder.Director;
+import moleFarm.pattern.builder.conc.ConcreteBuilder1;
+import moleFarm.pattern.builder.conc.ConcreteBuilder2;
 import moleFarm.pattern.factory.Factory;
 import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.factory.conc.FertilizerFactory;
@@ -64,8 +69,27 @@ public class FarmProcess {
                 if (block.getSeed() == null) {
                     System.out.println("请输入想要种植的作物种子:(白菜/茄子/水稻/草莓/西瓜/小麦种子）");
                     String seedName = input.next();
+                    System.out.println("请输入1选择普通种植，输入2选择一键种植(种植+低级肥料)，输入3选择超级一键种植(种植+高级肥料+松土)");
+                    String way = input.next();
                     try {
-                        FarmGrowth.plantSeed(seedName, block);
+                        switch (way){
+                            case "1":
+                                FarmGrowth.plantSeed(seedName, block);
+                                break;
+                            case "2":
+                                //调用建造者模式
+                                ConcreteBuilder2 concreteBuilder2 = new ConcreteBuilder2();
+                                concreteBuilder2.setFarmBlock(block);
+                                Director director = new Director(concreteBuilder2, block);
+                                director.getMoleFarmBlock(seedFactory.create(map.get(seedName)));
+                                break;
+                            case "3":
+                                ConcreteBuilder1 concreteBuilder1 = new ConcreteBuilder1();
+                                concreteBuilder1.setFarmBlock(block);
+                                Director director1 = new Director(concreteBuilder1, block);
+                                director1.getMoleFarmBlock(seedFactory.create(map.get(seedName)));
+                                break;
+                        }
                     } catch (SeedNotFoundException e) {
                         System.out.println(e.getMessage());
                     }
@@ -125,7 +149,7 @@ public class FarmProcess {
             //批量操作
             if ("b".equals(str2)) {
                 System.out.println("\n批量操作");
-                System.out.println("请输入1选择一键播种，2选择一键收获，0返回上级：");
+                System.out.println("请输入1选择批量播种，2选择批量收获，0返回上级：");
                 String str3 = input.next();
                 if ("1".equals(str3)) {
                     System.out.println("请输入想要种植的作物种子");
@@ -136,9 +160,9 @@ public class FarmProcess {
                         e.printStackTrace();
                     }
                 } else if ("2".equals(str3)) {
-                    //一键收获作物并放入仓库
+                    //批量收获作物并放入仓库
                     if (warehouse.storeToRepository(farm.harvestCrops())) {
-                        System.out.println("已为您一键收获作物并放入仓库");
+                        System.out.println("已为您批量收获作物并放入仓库");
                     }
                 } else {
                     break;

@@ -8,7 +8,7 @@ public class Director {
 
     private MoleFarmBlock farmBlock;
 
-    Director(Builder builder, MoleFarmBlock farmBlock) {
+    public Director(Builder builder, MoleFarmBlock farmBlock) {
         this.builder = builder;
         this.farmBlock = farmBlock;
     }
