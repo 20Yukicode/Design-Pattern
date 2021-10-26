@@ -25,15 +25,15 @@ public class JsonOp {
     }
 
     public static Map<String, String> searchMapper() {
-        JSONObject json = null;
         try {
             String jsonPath = "src/main/java/moleFarm/common/resources/mapper.json";
-            json = getJson(jsonPath);
+            JSONObject json = getJson(jsonPath);
+            String s = json.toJSONString();
+            return (Map<String, String>) JSON.parseObject(s, Map.class);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        String s = json.toJSONString();
-        return (Map<String, String>) JSON.parseObject(s, Map.class);
+        return null;
     }
 
     /**
