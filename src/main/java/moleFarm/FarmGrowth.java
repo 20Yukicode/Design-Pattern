@@ -76,11 +76,7 @@ public class FarmGrowth {
      * 松土
      */
     public static void loosenSoil(MoleFarmBlock farmBlock) {
-        if (farmBlock.getStatusList().removeIf(s -> s.equals(FarmBlockStatus.LAND_HARD))) {
-            moleFarmWarehouse.getHoe().ToolBehavior();
-        } else {
-            System.out.println("该农田块已经松过土，无需再松土");
-        }
+        moleFarmWarehouse.getHoe().ToolBehavior();
     }
 
     /**

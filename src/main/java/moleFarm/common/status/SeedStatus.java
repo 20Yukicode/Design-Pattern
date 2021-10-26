@@ -1,8 +1,9 @@
 package moleFarm.common.status;
 
 public enum SeedStatus {
-    SPROUTING("发芽"),SEEDLING("幼苗"),BLOOM("开花"),FRUITING("结果"), WITHERED("枯萎");
+    SPROUTING("发芽"), SEEDLING("幼苗"), BLOOM("开花"), FRUITING("结果");
     String text;
+
     SeedStatus(String text) {
         this.text = text;
     }
@@ -17,7 +18,7 @@ public enum SeedStatus {
 
     public static SeedStatus getSeedStatusByNum(int number) {
         for (SeedStatus value : SeedStatus.values()) {
-            if(number/2==value.ordinal())
+            if (number / 2 == value.ordinal())
                 return value;
         }
         return null;
