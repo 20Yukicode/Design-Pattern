@@ -35,11 +35,11 @@ public class FarmGrowth {
      *
      * @param seed
      */
-    public static void plantSeed(AbstractSeed seed, MoleFarmBlock farmBlock) {
+    public static boolean plantSeed(AbstractSeed seed, MoleFarmBlock farmBlock) {
         if (seed == null) {
             System.out.println("您手上没有种子，无法种植");
+            return false;
         } else {
-
             List<AbstractSeed> seeds = Collections.singletonList(seed);
             //仓库提供种子，调用职责链模式
             if(moleFarmWarehouse.provideItemToMole(seeds)){
@@ -47,8 +47,10 @@ public class FarmGrowth {
                 farmBlock.setSeed(seed);
                 //设置生长周期
                 farmBlock.setSeedStatus(0);
+                return true;
             }
         }
+        return false;
     }
 
     /**
@@ -57,9 +59,9 @@ public class FarmGrowth {
      *
      * @param name
      */
-    public static void plantSeed(String name, MoleFarmBlock farmBlock) throws SeedNotFoundException {
+    public static boolean plantSeed(String name, MoleFarmBlock farmBlock) throws SeedNotFoundException {
         AbstractSeed seed = seedFactory.create(map.get(name));
-        plantSeed(seed, farmBlock);
+        return plantSeed(seed, farmBlock);
     }
 
     /**

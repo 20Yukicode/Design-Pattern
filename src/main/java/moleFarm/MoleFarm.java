@@ -86,7 +86,7 @@ public class MoleFarm implements IFarm {
         //寻找空地，一键播种
         for (MoleFarmBlock item : farmBlockList) {
             if (item.getSeed() == null) {
-                FarmGrowth.plantSeed(name, item);
+                if(!FarmGrowth.plantSeed(name, item))break;
             }
         }
         System.out.println("批量播种结束");
