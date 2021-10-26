@@ -11,7 +11,7 @@ import moleFarm.pattern.builder.Builder;
 public class ConcreteBuilder1 extends Builder {
     @Override
     public void buildPlant(AbstractSeed seed) {
-        FarmGrowth.loosenSoil(farmBlock);
+        FarmGrowth.loosenSoil();
         FarmGrowth.plantSeed(seed, farmBlock);
         FarmGrowth.watering(farmBlock);
         FarmGrowth.weed(farmBlock);
