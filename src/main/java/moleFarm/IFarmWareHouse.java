@@ -1,6 +1,7 @@
 package moleFarm;
 
 import moleFarm.common.product.AbstractCrops;
+import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.product.IProduct;
 
@@ -11,20 +12,31 @@ import java.util.List;
  */
 public interface IFarmWareHouse {
     /**
-     * 从商店进口种子
+     * 从商店买种子
      *
-     * @param seedList
+     * @param seed
+     * @param num
      * @return
      */
-    boolean importSeedFromShop(AbstractSeed seedList, int num);
+    boolean buySeeds(AbstractSeed seed, int num);
+
+    /**
+     * 从商店买肥料
+     *
+     * @param fertilizer
+     * @param num
+     * @return
+     */
+    boolean buyFertilizer(AbstractFertilizer fertilizer, int num);
 
     /**
      * 出口作物到商店
      *
-     * @param cropsList
+     * @param crops
+     * @param num
      * @return
      */
-    boolean exportCropsToShop(AbstractCrops cropsList, int num);
+    boolean sellCrops(AbstractCrops crops, int num);
 
     /**
      * 给摩尔提供需要的东西

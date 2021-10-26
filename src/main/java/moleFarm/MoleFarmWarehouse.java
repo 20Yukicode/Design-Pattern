@@ -112,16 +112,6 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
     }
 
     @Override
-    public boolean importSeedFromShop(AbstractSeed seedList, int num) {
-        return false;
-    }
-
-    @Override
-    public boolean exportCropsToShop(AbstractCrops cropsList, int num) {
-        return false;
-    }
-
-    @Override
     public <T extends IProduct> boolean provideItemToMole(List<T> objectList) {
         //调用职责链模式
         WareHouseHandler wareHouseHandler = new WareHouseHandler();
@@ -185,14 +175,17 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         return false;
     }
 
+    @Override
     public boolean buySeeds(AbstractSeed seed, int num) {
         return buyObject(seed, num, "getSeedMap");
     }
 
+    @Override
     public boolean buyFertilizer(AbstractFertilizer fertilizer, int num) {
         return buyObject(fertilizer, num, "getFertilizerMap");
     }
 
+    @Override
     public boolean sellCrops(AbstractCrops crops, int num) {
         //计算仓库存量
         int left = this.getCropsMap().get(crops);
