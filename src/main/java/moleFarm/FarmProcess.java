@@ -153,12 +153,18 @@ public class FarmProcess {
                 if ("0".equals(str4)) {
                     break;
                 }
-                while (true) {
+                //循环条件
+                int cir=1;
+                while (cir==1) {
                     switch (str4) {
                         case "1":
                             //挑选种类，输入数目，买入种子
-                            System.out.println("请输入想要购买的种子类型：");
+                            System.out.println("请输入想要购买的种子类型，输入0返回上级：");
                             String seedName = input.next();
+                            if(seedName.equals("0")){
+                                cir=0;
+                                break;
+                            }
                             String seedClassName = map.get(seedName);
                             System.out.println("请输入想要购买的种子数目：");
                             Integer seedNum = input.nextInt();
@@ -169,8 +175,12 @@ public class FarmProcess {
                             break;
                         case "2":
                             //挑选种类，输入数目，买入肥料
-                            System.out.println("请输入想要购买的肥料类型：");
+                            System.out.println("请输入想要购买的肥料类型，输入0返回上级：");
                             String fertilizerName = input.next();
+                            if(fertilizerName.equals("0")){
+                                cir=0;
+                                break;
+                            }
                             String fertilizerClassName = map.get(fertilizerName);
                             System.out.println("请输入想要购买的肥料数目：");
                             Integer fertilizerNum = input.nextInt();
@@ -181,8 +191,12 @@ public class FarmProcess {
                             break;
                         case "3":
                             //挑选种类，输入数目，卖出作物
-                            System.out.println("请输入想要购买的作物类型：");
+                            System.out.println("请输入想要卖出的作物类型，输入0返回上级：");
                             String cropName = input.next();
+                            if(cropName.equals("0")){
+                                cir=0;
+                                break;
+                            }
                             String cropClassName = map.get(cropName);
                             System.out.println("请输入想要卖出的作物数目：");
                             Integer cropNum = input.nextInt();
