@@ -103,7 +103,7 @@ public class FarmGrowth {
         if (fertilizer == null) {
             System.out.println("请输入正确的肥料名称噢");
         } else if (farmBlock.getSeed() != null && farmBlock.getSeedStatus() != null && farmBlock.getSeedStatus() < 6) {
-            System.out.println("正在用" + fertilizer.getName() + "施肥");
+            System.out.println("正在用" + fertilizer.getName() + "施肥...");
             Integer remainNum = moleFarmWarehouse.getFertilizerMap().get(fertilizer);
             remainNum -= 1;
             //设置新的数量

@@ -250,7 +250,9 @@ public class FarmProcess {
                     break;
                 case "3":
                     //挑选种类，输入数目，卖出作物
-                    System.out.println("请输入想要卖出的作物类型，输入0返回上级：");
+                    System.out.println("请输入想要卖出的作物类型" +
+                            "(白菜--10.0，茄子--20.0，水稻--4.0，草莓--30.0，西瓜--20.0，小麦--5.0)"
+                            + "，输入0返回上级：");
                     String cropName = input.next();
                     if (cropName.equals("0")) {
                         return;

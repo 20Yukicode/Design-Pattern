@@ -203,7 +203,7 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         }
         this.getCropsMap().put(crops, left - num);
         mole.setMoney(mole.getMoney() + crops.getPrice() * num);
-        System.out.println("卖出成功，共进账￥" + crops.getPrice() * num + "元！");
+        System.out.println("卖出成功，共进账" + crops.getPrice() * num + "摩尔豆！" + "当前余额(" + mole.getMoney() + ")");
         return true;
     }
 
