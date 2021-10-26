@@ -9,6 +9,10 @@ import moleFarm.pattern.chainOfResponsibility.Handler;
 
 import java.util.List;
 
+/**
+ * 商店
+ * 接收者
+ */
 public class ShopHandler extends Handler {
     @Override
     public <T extends IProduct> boolean provideSeeds(List<T> list) {

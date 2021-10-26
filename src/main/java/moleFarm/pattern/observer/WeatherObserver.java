@@ -7,14 +7,24 @@ import moleFarm.pattern.iterator.conc.FarmIterator;
 
 import java.util.List;
 
+/**
+ * 天气状态
+ */
 public class WeatherObserver {
     private MoleFarm moleFarm;
     private WeatherAdapter weatherAdapter;
 
+    /**
+     * 构造函数
+     * @param farm
+     */
     public WeatherObserver(MoleFarm farm){
         this.moleFarm=farm;
     }
 
+    /**
+     * 观察天气
+     */
     public void observer(){
         weatherAdapter=WeatherAdapter.getInstance();
         if(weatherAdapter.getWeather().equals("雨天")){

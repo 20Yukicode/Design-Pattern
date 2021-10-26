@@ -12,6 +12,10 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
+/**
+ * 仓库
+ * 任务接收者
+ */
 public class WareHouseHandler extends Handler {
     @Override
     public <T extends IProduct> boolean provideSeeds(List<T> list) {

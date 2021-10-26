@@ -7,6 +7,10 @@ import moleFarm.common.product.IProduct;
 
 import java.util.List;
 
+/**
+ * 职责链模式
+ * 任务接收者抽象类
+ */
 public abstract class Handler {
     protected MoleFarmWarehouse farmWarehouse= MoleFarmWarehouse.newInstance();
     private Handler next;

@@ -5,6 +5,9 @@ import moleFarm.pattern.iterator.Iterator;
 
 import java.util.List;
 
+/**
+ * 农田类迭代器
+ */
 public class FarmIterator implements Iterator {
 
     private List<MoleFarmBlock> farmBlockList;

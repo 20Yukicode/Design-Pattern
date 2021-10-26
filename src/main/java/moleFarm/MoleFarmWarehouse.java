@@ -48,7 +48,6 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
     protected WateringCan wateringCan = WateringCan.newInstance();
 
     protected Pesticide pesticide = Pesticide.newInstance();
-
     protected Shovel shovel = Shovel.newInstance();
 
     private MoleFarmWarehouse() {
