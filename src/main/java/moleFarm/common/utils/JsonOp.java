@@ -1,12 +1,14 @@
 package moleFarm.common.utils;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONReader;
-import moleFarm.common.status.ProductType;
+import moleFarm.common.status.other.ProductType;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class JsonOp {
@@ -22,15 +24,16 @@ public class JsonOp {
         return (JSONObject) jsonReader.readObject();
     }
 
-    public static JSONObject searchMapper() {
-        JSONObject json = null;
+    public static Map<String, String> searchMapper() {
         try {
             String jsonPath = "src/main/java/moleFarm/common/resources/mapper.json";
-            json = getJson(jsonPath);
+            JSONObject json = getJson(jsonPath);
+            String s = json.toJSONString();
+            return (Map<String, String>) JSON.parseObject(s, Map.class);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        return json;
+        return null;
     }
 
     /**

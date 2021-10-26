@@ -1,4 +1,4 @@
-package moleFarm.common.utils;
+package moleFarm.common.exception;
 
 public class MyException extends Exception {
     public MyException(String message) {

@@ -1,7 +1,7 @@
-package moleFarm.common.status;
+package moleFarm.common.status.product;
 
 /**
- *颜色
+ * 颜色
  */
 public enum Color {
     RED("红色"),

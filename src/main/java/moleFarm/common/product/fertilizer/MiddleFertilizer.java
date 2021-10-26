@@ -1,7 +1,7 @@
 package moleFarm.common.product.fertilizer;
 
 import moleFarm.common.product.AbstractFertilizer;
-import moleFarm.common.status.Level;
+import moleFarm.common.status.product.Level;
 
 /**
  * 中级肥料

@@ -22,8 +22,6 @@ public class DemoTest {
         JSONObject jsonObject = JsonOp.searchMapper();
         AbstractCrops crops = CropsFactory.newInstance().create((String) jsonObject.get(text));
         System.out.println(crops.getName());
-
-
         Set<String> he = new HashSet<>();
         List<String> arr = new ArrayList<>(Arrays.asList("123", "456", "123"));
         arr.removeIf((String s) -> s.equals("123"));

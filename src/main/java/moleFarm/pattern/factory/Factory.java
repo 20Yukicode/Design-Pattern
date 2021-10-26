@@ -1,8 +1,8 @@
 package moleFarm.pattern.factory;
 
+import moleFarm.common.exception.MyException;
+import moleFarm.common.exception.product.ProductNotFoundException;
 import moleFarm.common.product.IProduct;
-import moleFarm.common.utils.MyException;
-import moleFarm.common.utils.ProductNotFoundException;
 
 import java.lang.reflect.InvocationTargetException;
 

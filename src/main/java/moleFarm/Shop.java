@@ -1,10 +1,10 @@
 package moleFarm;
 
+import moleFarm.common.exception.MyException;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.product.IProduct;
-import moleFarm.common.utils.MyException;
 import moleFarm.pattern.adapter.Mole;
 import moleFarm.pattern.adapter.Target;
 import moleFarm.pattern.adapter.conc.MoleAdapter;

@@ -1,19 +1,19 @@
 package moleFarm.common.product.seed;
 
 import moleFarm.common.product.AbstractSeed;
-import moleFarm.common.status.Color;
-import moleFarm.common.status.Size;
+import moleFarm.common.status.product.Color;
+import moleFarm.common.status.product.Size;
 
 /**
  * 小麦种子
  */
-public class WheatSeed extends AbstractSeed implements Cloneable{
+public class WheatSeed extends AbstractSeed implements Cloneable {
     /**
      * 名字
      */
     private final String name = "小麦种子";
     /**
-     颜色
+     * 颜色
      */
     private final Color color = Color.BROWN;
     /**
@@ -28,7 +28,10 @@ public class WheatSeed extends AbstractSeed implements Cloneable{
      * 价格
      */
     private final Double price = 3.0;
-    public WheatSeed(){}
+
+    public WheatSeed() {
+    }
+
     /**
      * 构造方法
      *
@@ -47,6 +50,7 @@ public class WheatSeed extends AbstractSeed implements Cloneable{
         WheatSeed wheatSeed = new WheatSeed(this.name, this.color, this.size, this.growthCycle, this.price);
         return wheatSeed;
     }
+
     public String getName() {
         return name;
     }

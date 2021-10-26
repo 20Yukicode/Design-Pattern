@@ -1,9 +1,6 @@
 package moleFarm.common.product;
 
-import moleFarm.common.status.FarmBlockStatus;
-import moleFarm.common.status.Level;
-import moleFarm.common.status.SeedStatus;
-import moleFarm.pattern.adapter.Target;
+import moleFarm.common.status.product.Level;
 
 import java.util.Objects;
 
@@ -24,13 +21,15 @@ public abstract class AbstractFertilizer implements IProduct {
      */
     protected Double price;
 
-    public abstract Double getPrice() ;
+    public abstract Double getPrice();
+
     public abstract String getName();
 
     public abstract Integer fertilizerBehavior(int status);
+
     @Override
     public boolean equals(Object obj) {
-        return obj.getClass()==this.getClass();
+        return obj.getClass() == this.getClass();
     }
 
     @Override

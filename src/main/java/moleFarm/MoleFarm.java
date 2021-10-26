@@ -1,11 +1,11 @@
 package moleFarm;
 
+import moleFarm.common.exception.MyException;
+import moleFarm.common.exception.product.ProductNotFoundException;
+import moleFarm.common.exception.product.conc.CropsNotFoundException;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
-import moleFarm.common.status.Shape;
-import moleFarm.common.utils.CropsNotFoundException;
-import moleFarm.common.utils.MyException;
-import moleFarm.common.utils.ProductNotFoundException;
+import moleFarm.common.status.product.Shape;
 import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 
