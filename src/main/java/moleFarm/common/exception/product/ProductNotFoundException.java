@@ -1,4 +1,4 @@
-package moleFarm.common.utils;
+package moleFarm.common.exception.product;
 
 public class ProductNotFoundException extends Exception {
     public ProductNotFoundException(String message) {

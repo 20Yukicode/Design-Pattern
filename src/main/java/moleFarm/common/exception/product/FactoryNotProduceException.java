@@ -1,4 +1,4 @@
-package moleFarm.common.utils;
+package moleFarm.common.exception.product;
 
 public class FactoryNotProduceException extends Exception {
     public FactoryNotProduceException(String message) {

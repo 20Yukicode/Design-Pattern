@@ -2,8 +2,8 @@ package moleFarm.pattern.command.conc;
 
 import moleFarm.MoleFarmWarehouse;
 import moleFarm.Shop;
+import moleFarm.common.exception.MyException;
 import moleFarm.common.product.AbstractFertilizer;
-import moleFarm.common.utils.MyException;
 
 /**
  * 具体命令
