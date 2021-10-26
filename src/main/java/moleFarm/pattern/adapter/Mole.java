@@ -11,7 +11,7 @@ public class Mole {
 
     private static Mole mole = new Mole();
 
-    public static Mole getMole() {
+    public static Mole getMoleInstance() {
         return mole;
     }
 
@@ -21,7 +21,7 @@ public class Mole {
      * @return
      */
     public Double getMoney() {
-        return money;
+        return mole.money;
     }
 
     /**
@@ -30,6 +30,6 @@ public class Mole {
      * @param money
      */
     public void setMoney(Double money) {
-        this.money = money;
+        mole.money = money;
     }
 }

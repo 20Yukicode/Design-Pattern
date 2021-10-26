@@ -13,7 +13,7 @@ import java.util.List;
 public abstract class Handler {
     protected MoleFarmWarehouse farmWarehouse = MoleFarmWarehouse.newInstance();
     private Handler next;
-    protected Mole mole = Mole.getMole();
+    protected Mole mole = Mole.getMoleInstance();
 
     public void setNext(Handler next) {
         this.next = next;

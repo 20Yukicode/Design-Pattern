@@ -22,18 +22,17 @@ public class FarmProcess {
     /*
     农田
      */
-    private MoleFarm farm = MoleFarm.newInstance();
+    private static MoleFarm farm = MoleFarm.newInstance();
     //仓库
-    private MoleFarmWarehouse warehouse = MoleFarmWarehouse.newInstance();
+    private static MoleFarmWarehouse warehouse = MoleFarmWarehouse.newInstance();
     /*
     摩尔角色
      */
-    private static Mole mole = Mole.getMole();
-
+    private static Mole mole = Mole.getMoleInstance();
     /*
         商店
          */
-    private Shop shop = Shop.newInstance();
+    private static Shop shop = Shop.newInstance();
     /*
     具体工厂，负责生产种子/作物/肥料
      */
@@ -157,7 +156,7 @@ public class FarmProcess {
                 FarmGrowth.eradicateCrops(block);
                 break;
             default:
-                break;
+                return;
         }
     }
 
@@ -224,7 +223,7 @@ public class FarmProcess {
                     }
                     break;
                 default:
-                    break;
+                    return;
             }
         }
     }

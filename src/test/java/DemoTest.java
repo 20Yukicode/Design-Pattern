@@ -18,7 +18,11 @@ public class DemoTest {
     }
 
     public static void main(String[] args) throws Exception {
-        
+        Double a = 100.0;
+        for (int i = 0; i < 6; i++) {
+            a -= 20;
+            System.out.println(a);
+        }
         String text = "农药";
         Map<String, String> stringStringMap = JsonOp.searchMapper();
         String s = stringStringMap.get(text);

@@ -27,7 +27,7 @@ import java.util.Map;
  * implements IFarmWareHouse
  */
 public class MoleFarmWarehouse implements IFarmWareHouse {
-    private Mole mole = Mole.getMole();
+    private Mole mole = Mole.getMoleInstance();
     /**
      * 种子存储
      */
