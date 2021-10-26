@@ -122,9 +122,19 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         return wareHouseHandler.provideSeeds(objectList);
     }
 
+    /**
+     * 新增库存
+     * @param cropsList
+     * @return
+     */
     @Override
     public boolean storeToRepository(List<AbstractCrops> cropsList) {
-        return false;
+        if(cropsList==null)return false;
+        for(AbstractCrops item : cropsList){
+            int num = cropsMap.get(item);
+            cropsMap.put(item,num+1);
+        }
+        return true;
     }
 
     public void showRepertory(){

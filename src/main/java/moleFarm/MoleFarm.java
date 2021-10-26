@@ -4,10 +4,10 @@ import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.Shape;
 import moleFarm.common.utils.MyException;
+import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 摩尔个人农场
@@ -64,7 +64,24 @@ public class MoleFarm implements IFarm {
         //寻找空地，一键播种
         for (MoleFarmBlock item : farmBlockList) {
             if(item.getSeed()!=null){
-                item.plantSeed(seed);
+                FarmGrowth.PlantSeed(seed,item);
+            }
+        }
+        System.out.println("所有空地均已播种成功");
+//        if (seedList.size() > farmBlockList.size())
+//            throw new MyException("作物数量太多，无法种植");
+    }
+    /**
+     * 种下种子(重载)
+     * 批量操作
+     * @param name
+     * @throws MyException
+     */
+    public void plantBatchSeeds(String name) throws MyException {
+        //寻找空地，一键播种
+        for (MoleFarmBlock item : farmBlockList) {
+            if(item.getSeed()!=null){
+                FarmGrowth.PlantSeed(name,item);
             }
         }
         System.out.println("所有空地均已播种成功");
@@ -86,9 +103,34 @@ public class MoleFarm implements IFarm {
     public List<AbstractCrops> harvestCrops() {
         List<AbstractCrops> cropsList = null;
         for (MoleFarmBlock item : farmBlockList) {
-            AbstractCrops crops = FarmGrowth.harvestCrops(item);
+            AbstractCrops crops = null;
+            if (item.getSeedStatus()!=null&&item.getSeedStatus() == 6) {
+                item.setSeed(null);
+                String name = item.getSeed().getName();
+                CropsFactory cropsFactory = CropsFactory.newInstance();
+                try {
+                    crops = cropsFactory.create(name.replace("Seed", ""));
+                } catch (MyException e) {
+                    e.printStackTrace();
+                }
+            }
             if (crops != null) {
                 cropsList.add(crops);
+            }
+        }
+        if (cropsList == null) System.out.println("抱歉，暂无成熟作物可收获");
+        else {
+            Map<AbstractCrops, Integer> map = new HashMap<>();
+            for (AbstractCrops crop : cropsList) {
+                int num = map.get(crop) == null ? 0 : map.get(crop);
+                map.put(crop, num + 1);
+            }
+            Iterator it = map.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry entry = (Map.Entry) it.next();
+                AbstractCrops key = (AbstractCrops) entry.getKey();
+                Integer value = (Integer) entry.getValue();
+                System.out.println("共收获" + key.getName() + "数量：" + value);
             }
         }
         return cropsList;

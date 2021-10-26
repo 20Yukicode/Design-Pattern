@@ -52,8 +52,22 @@ public class FarmProcess {
                 while(!str2.equals("0")){
                     //批量操作
                     if(str2.equals("b")){
-                        //建造者模式
-                        System.out.println("批量操作");
+                        System.out.println("\n批量操作");
+                        System.out.println("请输入1选择一键播种，2选择一键收获，0返回上级：");
+                        String str3=input.next();
+                        if(str3.equals("1")){
+                            System.out.println("请输入想要种植的作物种子");
+                            String name=input.next();
+                            try{
+                                farm.plantBatchSeeds(name);
+                            }catch (Exception e){}
+                        }
+                        else if(str3.equals("2")){
+                            //一键收获作物并放入仓库
+                            if(warehouse.storeToRepository(farm.harvestCrops())==true)
+                            System.out.println("已为您一键收获作物并放入仓库");
+                        }
+                        else break;;
                     }
                     //单个农田块操作
                     else{
@@ -64,11 +78,48 @@ public class FarmProcess {
                         MoleFarmBlock block = iterator.getByIndex(index);
                         //控制台输出农田块信息
                         block.getInfo();
-                        System.out.println("请选择：0——返回上级，1——种植作物，2——铲除作物，3——收获作物，4——浇水，5——除草，6——除虫，7——施肥");
+                        System.out.println("请选择：0——返回上级，1——种植作物，2——收获作物，3——浇水，4——除草，5——除虫，6——施肥，7——铲除作物");
                         String str3=input.next();
                         if(str3.equals("0"))break;
                         //对作物进行具体操作
-                        System.out.println("对作物进行操作");
+                        switch (str3){
+                            case "1":
+                                //播种
+                                System.out.println("请输入想要种植的作物种子");
+                                String name=input.next();
+                                try{
+                                    FarmGrowth.PlantSeed(name,block);
+                                }catch (Exception e){}
+                                break;
+                            case "2":
+                                //收获
+                                FarmGrowth.harvestCrops(block);
+                                break;
+                            case "3":
+                                //浇水
+                                FarmGrowth.Watering(block);
+                                break;
+                            case "4":
+                                //除草
+                                FarmGrowth.Weed(block);
+                                break;
+                            case "5":
+                                //除虫
+                                FarmGrowth.Disinsection(block);
+                                break;
+                            case "6":
+                                //施肥
+                                System.out.println("请选择肥料：高级/中级/低级肥料");
+                                String fertilizerName=input.next();
+                                try{
+                                    FarmGrowth.ApplyFertilizer(fertilizerName,block);
+                                }catch (Exception e){}
+                                break;
+                            case "7":
+                                //铲除作物
+                                FarmGrowth.eradicateCrops(block);
+                                break;
+                        }
                     }
                 }
             }

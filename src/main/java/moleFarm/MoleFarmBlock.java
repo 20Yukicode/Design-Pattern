@@ -3,8 +3,10 @@ package moleFarm;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.FarmBlockStatus;
+import moleFarm.common.status.SeedStatus;
 import moleFarm.common.status.Shape;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MoleFarmBlock implements IFarmBlock {
@@ -29,7 +31,7 @@ public class MoleFarmBlock implements IFarmBlock {
     /**
      * 农田块状态列表
      */
-    private List<FarmBlockStatus> statusList;
+    private List<FarmBlockStatus> statusList=new ArrayList<>();
 
     public Shape getShape() {
         return shape;
@@ -79,14 +81,16 @@ public class MoleFarmBlock implements IFarmBlock {
     public void getInfo(){
         String seedInfo = seed==null?"抱歉，该农田块上暂未种植作物" : ("作物"+seed.getName());
         String statusInfo = "状态：";
+        String growthInfo = "生长周期：";
         if(statusList==null||statusList.size()==0)statusInfo="状态：正常";
         else{
             for(FarmBlockStatus i : statusList){
                 statusInfo+=i.getText()+"\t";
             }
         }
+        if(seed!=null&&seedStatus!=null)growthInfo+= SeedStatus.getSeedStatusByNum(seedStatus).getText()+"期" ;
         System.out.println(seedInfo);
         System.out.println(statusInfo);
-        //生长周期待定
+        System.out.println(growthInfo);
     }
 }

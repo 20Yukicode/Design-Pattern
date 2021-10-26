@@ -7,7 +7,10 @@ import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.common.status.SeedStatus;
 import moleFarm.common.utils.MyException;
 import moleFarm.pattern.factory.conc.CropsFactory;
+import moleFarm.pattern.factory.conc.FertilizerFactory;
+import moleFarm.pattern.factory.conc.SeedFactory;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -15,6 +18,8 @@ public class FarmGrowth {
     /**
      * 此处农场是单例模式
      */
+    private static final SeedFactory seedFactory = SeedFactory.newInstance();
+    private static final FertilizerFactory fertilizerFactory = FertilizerFactory.newInstance();
     private static MoleFarmWarehouse moleFarmWarehouse = MoleFarmWarehouse.newInstance();
 
     public FarmGrowth() {
@@ -33,12 +38,50 @@ public class FarmGrowth {
         } else {
             System.out.println("正在播种" + seed.getName() + "...");
             farmBlock.setSeed(seed);
+            //设置生长周期
+            farmBlock.setSeedStatus(0);
+//            //设置农田状态
+//            List<FarmBlockStatus> statusList = farmBlock.getStatusList();
+//            statusList=new ArrayList<>();
             List<AbstractSeed> Seeds = Collections.singletonList(seed);
             //这个是调用仓库的代码，可能还要重写
             moleFarmWarehouse.provideItemToMole(Seeds);
         }
     }
 
+    /**
+     * 播种
+     * 重载
+     * @param name
+     */
+    public static void PlantSeed(String name, MoleFarmBlock farmBlock) throws MyException {
+        AbstractSeed seed;
+        switch (name){
+            case "白菜":
+                seed = seedFactory.create("CabbageSeed");
+                break;
+            case "茄子":
+                seed = seedFactory.create("EggplantSeed");
+                break;
+            case "水稻":
+                seed = seedFactory.create("RiceSeed");
+                break;
+            case "草莓":
+                seed = seedFactory.create("StrawberrySeed");
+                break;
+            case "西瓜":
+                seed = seedFactory.create("WatermelonSeed");
+                break;
+            case "小麦":
+                seed = seedFactory.create("WheatSeed");
+                break;
+            default:
+                System.out.println("请输入正确的种子名称!");
+                seed=null;
+                return;
+        }
+        PlantSeed(seed,farmBlock);
+    }
     /**
      * 铲除作物
      */
@@ -95,6 +138,29 @@ public class FarmGrowth {
         } else {
             System.out.println("此处没有种子种植,播种后再施肥效果更佳噢");
         }
+    }
+    /**
+     * 施肥(重载)
+     *
+     * @param name
+     */
+    public static void ApplyFertilizer(String name, MoleFarmBlock farmBlock) throws MyException {
+        AbstractFertilizer fertilizer;
+        switch (name){
+            case "高级肥料":
+                fertilizer=fertilizerFactory.create("AdvancedFertilizer");
+                break;
+            case "中级肥料":
+                fertilizer=fertilizerFactory.create("MiddleFertilizer");
+                break;
+            case "低级肥料":
+                fertilizer=fertilizerFactory.create("PrimaryFertilizer");
+                break;
+            default:
+                System.out.println("请输入正确的肥料名!");
+                fertilizer=null;
+        }
+        ApplyFertilizer(fertilizer,farmBlock);
     }
 
     /**

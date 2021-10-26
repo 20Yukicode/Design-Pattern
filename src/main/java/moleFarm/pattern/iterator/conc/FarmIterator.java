@@ -40,7 +40,7 @@ public class FarmIterator implements Iterator {
             throw new IndexOutOfBoundsException("索引超出范围！");
         } else {
             this.index = index_;
-            System.out.println("农田块" + index + "：\n");
+            System.out.println("农田块" + index + "：");
             return farmBlockList.get(index);
         }
     }
