@@ -1,5 +1,6 @@
 package moleFarm;
 
+import moleFarm.common.utils.JsonOp;
 import moleFarm.pattern.adapter.Mole;
 import moleFarm.pattern.adapter.conc.WeatherAdapter;
 import moleFarm.pattern.factory.conc.CropsFactory;
@@ -7,6 +8,7 @@ import moleFarm.pattern.factory.conc.FertilizerFactory;
 import moleFarm.pattern.factory.conc.SeedFactory;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -22,6 +24,7 @@ public class FarmProcess {
     private static final SeedFactory seedFactory = SeedFactory.newInstance();
     private static final CropsFactory cropFactory = CropsFactory.newInstance();
     private static final FertilizerFactory fertilizerFactory = FertilizerFactory.newInstance();
+    private static final Map<String, String> map = JsonOp.searchMapper();
 
     private FarmProcess() {
     }
@@ -31,6 +34,7 @@ public class FarmProcess {
     public static synchronized FarmProcess newInstance() {
         return farmProcess;
     }
+
 
     /**
      * 农场主函数
@@ -155,31 +159,37 @@ public class FarmProcess {
                             //挑选种类，输入数目，买入种子
                             System.out.println("请输入想要购买的种子类型：");
                             String seedName = input.next();
-                            String seedClassName = (String)FarmGrowth.getMap().get(seedName);
+                            String seedClassName = map.get(seedName);
                             System.out.println("请输入想要购买的种子数目：");
                             Integer seedNum = input.nextInt();
-                            try{shop.buySeeds(seedFactory.create(seedClassName),seedNum);}
-                            catch (Exception e){}
+                            try {
+                                shop.buySeeds(seedFactory.create(seedClassName), seedNum);
+                            } catch (Exception e) {
+                            }
                             break;
                         case "2":
                             //挑选种类，输入数目，买入肥料
                             System.out.println("请输入想要购买的肥料类型：");
                             String fertilizerName = input.next();
-                            String fertilizerClassName = (String)FarmGrowth.getMap().get(fertilizerName);
+                            String fertilizerClassName = map.get(fertilizerName);
                             System.out.println("请输入想要购买的肥料数目：");
                             Integer fertilizerNum = input.nextInt();
-                            try{shop.buyFertilizer(fertilizerFactory.create(fertilizerClassName),fertilizerNum);}
-                            catch (Exception e){}
+                            try {
+                                shop.buyFertilizer(fertilizerFactory.create(fertilizerClassName), fertilizerNum);
+                            } catch (Exception e) {
+                            }
                             break;
                         case "3":
                             //挑选种类，输入数目，卖出作物
                             System.out.println("请输入想要购买的作物类型：");
                             String cropName = input.next();
-                            String cropClassName = (String)FarmGrowth.getMap().get(cropName);
+                            String cropClassName = map.get(cropName);
                             System.out.println("请输入想要卖出的作物数目：");
                             Integer cropNum = input.nextInt();
-                            try{shop.sellCrops(cropFactory.create(cropClassName),cropNum);}
-                            catch (Exception e){}
+                            try {
+                                shop.sellCrops(cropFactory.create(cropClassName), cropNum);
+                            } catch (Exception e) {
+                            }
                             break;
                     }
                 }

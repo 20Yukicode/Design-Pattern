@@ -1,6 +1,5 @@
 package moleFarm;
 
-import com.alibaba.fastjson.JSONObject;
 import moleFarm.common.exception.product.conc.CropsNotFoundException;
 import moleFarm.common.exception.product.conc.FertilizerNotFoundException;
 import moleFarm.common.exception.product.conc.SeedNotFoundException;
@@ -16,6 +15,7 @@ import moleFarm.pattern.factory.conc.SeedFactory;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class FarmGrowth {
     /**
@@ -25,15 +25,11 @@ public class FarmGrowth {
     private static final FertilizerFactory fertilizerFactory = FertilizerFactory.newInstance();
     private static final CropsFactory cropsFactory = CropsFactory.newInstance();
     private static MoleFarmWarehouse moleFarmWarehouse = MoleFarmWarehouse.newInstance();
-    private static JSONObject map = JsonOp.searchMapper();
+    private static final Map<String, String> map = JsonOp.searchMapper();
 
     public FarmGrowth() {
     }
-
-    public static JSONObject getMap() {
-        return map;
-    }
-
+    
     /**
      * 播种
      *
