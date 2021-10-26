@@ -1,5 +1,6 @@
 package moleFarm;
 
+import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.product.IProduct;
@@ -18,9 +19,13 @@ import java.util.Map;
  * 仓库卖出作物到商店
  */
 public class Shop {
+
     private MoleFarmWarehouse moleFarmWarehouse=MoleFarmWarehouse.newInstance();
     //关联商店与仓库
-
+    private Shop(){}
+    public static Shop newInstance(){
+        return new Shop();
+    }
     public<T extends IProduct> boolean buyObject(T object, int num, String methodName) throws MyException {
         Double price = object.getPrice() * num;
         //需要有一个摩尔角色类，判断剩余摩尔豆是否大于等于交换金额，是则返回true，并扣除相应大小的摩尔豆
@@ -52,4 +57,17 @@ public class Shop {
         return buyObject(fertilizer, num, "getFertilizerMap");
     }
 
+    public boolean sellCrops(AbstractCrops crops,int num){
+        //计算仓库存量
+        int left = moleFarmWarehouse.getCropsMap().get(crops);
+        boolean result = left>=num;
+        if(result==false){
+            System.out.println("仓库存量不足，卖出失败");
+            return false;
+        }
+        moleFarmWarehouse.getCropsMap().put(crops,left-num);
+        Mole.setMoney(Mole.getMoney()+crops.getPrice()*num);
+        System.out.println("卖出成功，共进账￥"+crops.getPrice()*num+"元！");
+        return true;
+    }
 }

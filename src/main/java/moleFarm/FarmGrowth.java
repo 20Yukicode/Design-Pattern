@@ -30,6 +30,10 @@ public class FarmGrowth {
     public FarmGrowth() {
     }
 
+    public static JSONObject getMap() {
+        return map;
+    }
+
     /**
      * 播种
      *
