@@ -1,5 +1,6 @@
 package moleFarm;
 
+import moleFarm.common.exception.MyException;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
@@ -10,9 +11,14 @@ import moleFarm.common.product.fertilizer.MiddleFertilizer;
 import moleFarm.common.product.fertilizer.PrimaryFertilizer;
 import moleFarm.common.product.seed.*;
 import moleFarm.common.product.tool.*;
+import moleFarm.pattern.adapter.Mole;
+import moleFarm.pattern.adapter.Target;
+import moleFarm.pattern.adapter.conc.MoleAdapter;
 import moleFarm.pattern.chainOfResponsibility.conc.ShopHandler;
 import moleFarm.pattern.chainOfResponsibility.conc.WareHouseHandler;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -151,6 +157,53 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
         System.out.println("高级肥料\t中级肥料\t低级肥料");
         System.out.println(fertilizerMap.get(new AdvancedFertilizer()) + "\t\t" + fertilizerMap.get(new MiddleFertilizer()) + "\t\t" +
                 fertilizerMap.get(new PrimaryFertilizer()));
+    }
+
+    public <T extends IProduct> boolean buyObject(T object, int num, String methodName) throws MyException {
+        Double price = object.getPrice() * num;
+        //需要有一个摩尔角色类，判断剩余摩尔豆是否大于等于交换金额，是则返回true，并扣除相应大小的摩尔豆
+        //调用适配器
+        Target mole = MoleAdapter.getInstance();
+        Double money = mole.getMoleDou();
+        if (money < price) {
+            return false;
+        }
+        mole.setMoleDou(money - price);
+        try {
+            Method method = MoleFarmWarehouse.class.getDeclaredMethod(methodName);
+            Map<T, Integer> objectMap = (Map<T, Integer>) method.invoke(this);
+            Integer orinum = objectMap.putIfAbsent(object, num);
+            //若仓库中原本有库存，则将其与新增进货量累加
+            if (orinum != null) {
+                objectMap.put(object, num + orinum);
+            }
+            return true;
+            //返回仓库中该种子的原有数量，若map中无该类种子，则插入并返回null
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+            throw new MyException("购买出错......");
+        }
+    }
+
+    public boolean buySeeds(AbstractSeed seed, int num) throws MyException {
+        return buyObject(seed, num, "getSeedMap");
+    }
+
+    public boolean buyFertilizer(AbstractFertilizer fertilizer, int num) throws MyException {
+        return buyObject(fertilizer, num, "getFertilizerMap");
+    }
+
+    public boolean sellCrops(AbstractCrops crops, int num) {
+        //计算仓库存量
+        int left = this.getCropsMap().get(crops);
+        boolean result = left >= num;
+        if (result == false) {
+            System.out.println("仓库存量不足，卖出失败");
+            return false;
+        }
+        this.getCropsMap().put(crops, left - num);
+        Mole.setMoney(Mole.getMoney() + crops.getPrice() * num);
+        System.out.println("卖出成功，共进账￥" + crops.getPrice() * num + "元！");
+        return true;
     }
 
 }

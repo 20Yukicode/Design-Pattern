@@ -147,16 +147,16 @@ public class MoleFarm implements IFarm {
      * 展示农场
      */
     public void showFarm() {
-        System.out.println("农田状态如下：");
+        System.out.println("\n农田状态如下：");
         for (int i = 0; i < farmBlockList.size(); i += 3) {
             System.out.print(farmBlockList.get(i).getSeed() == null ? "┏━┓" : "┎┰┒");
             System.out.print(farmBlockList.get(i + 1).getSeed() == null ? "┏━┓" : "┎┰┒");
             System.out.print(farmBlockList.get(i + 2).getSeed() == null ? "┏━┓" : "┎┰┒");
             System.out.println("");
             System.out.print(farmBlockList.get(i).getSeed() == null ? "┗━┛" : "┖┸┚");
-            System.out.print(farmBlockList.get(i).getSeed() == null ? "┗━┛" : "┖┸┚");
-            System.out.print(farmBlockList.get(i).getSeed() == null ? "┗━┛" : "┖┸┚");
-            System.out.println(i == 0 ? "①~③" : i == 4 ? "④~⑥" : "⑦~⑨");
+            System.out.print(farmBlockList.get(i+1).getSeed() == null ? "┗━┛" : "┖┸┚");
+            System.out.print(farmBlockList.get(i+2).getSeed() == null ? "┗━┛" : "┖┸┚");
+            System.out.println(i == 0 ? "①~③" : i == 3 ? "④~⑥" : "⑦~⑨");
         }
     }
 }

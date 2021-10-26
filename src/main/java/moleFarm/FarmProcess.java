@@ -47,7 +47,7 @@ public class FarmProcess {
         String str = input.next();
         while (!"0".equals(str)) {
             //欢迎辞
-            System.out.print("欢迎来到欢乐农场！\n" +
+            System.out.print("\n欢迎来到欢乐农场！\n" +
                     "今日天气：");
             //获取今日天气并输出
             WeatherAdapter weatherAdapter = WeatherAdapter.getInstance();
@@ -89,7 +89,7 @@ public class FarmProcess {
                     //单个农田块操作
                     else {
                         //获取农田块编号
-                        int index = Integer.parseInt(str2);
+                        int index = Integer.parseInt(str2)-1;
                         //获取具体农田块对象
                         FarmIterator iterator = farm.getIterator();
                         MoleFarmBlock block = iterator.getByIndex(index);
@@ -146,7 +146,6 @@ public class FarmProcess {
             }
             //仓库模块
             while ("2".equals(str1)) {
-                System.out.println("仓库库存状态如下：");
                 warehouse.showRepertory();
                 System.out.println("请选择操作：0——返回农场首页，1——买入种子，2——买入肥料，3——卖出作物");
                 String str4 = input.next();
