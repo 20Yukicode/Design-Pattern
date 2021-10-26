@@ -43,7 +43,7 @@ public class FarmGrowth {
             List<AbstractSeed> seeds = Collections.singletonList(seed);
             //仓库提供种子，调用职责链模式
             if (moleFarmWarehouse.provideItemToMole(seeds)) {
-                System.out.println("正在播种" + seed.getName() + "...");
+                System.out.println("正在用" + moleFarmWarehouse.getHoe() + "播种" + seed.getName() + "...");
                 farmBlock.setSeed(seed);
                 //设置生长周期
                 farmBlock.setSeedStatus(0);
@@ -80,7 +80,7 @@ public class FarmGrowth {
      * 松土
      */
     public static void loosenSoil() {
-        moleFarmWarehouse.getHoe().ToolBehavior();
+        moleFarmWarehouse.getSickle().ToolBehavior();
     }
 
     /**
