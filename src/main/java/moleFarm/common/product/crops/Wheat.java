@@ -1,19 +1,19 @@
 package moleFarm.common.product.crops;
 
 import moleFarm.common.product.AbstractCrops;
-import moleFarm.common.status.Color;
-import moleFarm.common.status.Size;
+import moleFarm.common.status.product.Color;
+import moleFarm.common.status.product.Size;
 
 /**
  * 小麦🌿
  */
-public class Wheat extends AbstractCrops implements Cloneable{
+public class Wheat extends AbstractCrops implements Cloneable {
     /**
      * 名字
      */
-    private  final String name = "小麦\uD83C\uDF3F";
+    private final String name = "小麦\uD83C\uDF3F";
     /**
-     颜色
+     * 颜色
      */
     private final Color color = Color.BROWN;
     /**
@@ -45,9 +45,11 @@ public class Wheat extends AbstractCrops implements Cloneable{
         Wheat wheat = new Wheat(this.name, this.color, this.size, this.price);
         return wheat;
     }
+
     public String getName() {
         return name;
     }
+
     public Color getColor() {
         return color;
     }

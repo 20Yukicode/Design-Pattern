@@ -1,19 +1,19 @@
 package moleFarm.common.product.crops;
 
 import moleFarm.common.product.AbstractCrops;
-import moleFarm.common.status.Color;
-import moleFarm.common.status.Size;
+import moleFarm.common.status.product.Color;
+import moleFarm.common.status.product.Size;
 
 /**
  * 茄子🍆
  */
-public class Eggplant extends AbstractCrops implements Cloneable{
+public class Eggplant extends AbstractCrops implements Cloneable {
     /**
      * 名字
      */
     private final String name = "茄子\uD83C\uDF46";
     /**
-     颜色
+     * 颜色
      */
     private final Color color = Color.PURPLE;
     /**
@@ -36,7 +36,10 @@ public class Eggplant extends AbstractCrops implements Cloneable{
     private Eggplant(String name, Color color, Size size, Double price) {
         super(name, color, size, price);
     }
-    public Eggplant(){}
+
+    public Eggplant() {
+    }
+
     @Override
     public Object clone() throws CloneNotSupportedException {
 

@@ -5,7 +5,7 @@ import moleFarm.common.exception.product.ProductNotFoundException;
 import moleFarm.common.exception.product.conc.CropsNotFoundException;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
-import moleFarm.common.status.Shape;
+import moleFarm.common.status.product.Shape;
 import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 

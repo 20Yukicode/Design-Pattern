@@ -1,19 +1,19 @@
 package moleFarm.common.product.crops;
 
 import moleFarm.common.product.AbstractCrops;
-import moleFarm.common.status.Color;
-import moleFarm.common.status.Size;
+import moleFarm.common.status.product.Color;
+import moleFarm.common.status.product.Size;
 
 /**
  * 草莓🍓
  */
-public class Strawberry extends AbstractCrops implements Cloneable{
+public class Strawberry extends AbstractCrops implements Cloneable {
     /**
      * 名字
      */
-    private  final String name = "草莓\uD83C\uDF53";
+    private final String name = "草莓\uD83C\uDF53";
     /**
-     颜色
+     * 颜色
      */
     private final Color color = Color.RED;
     /**
@@ -36,16 +36,20 @@ public class Strawberry extends AbstractCrops implements Cloneable{
     private Strawberry(String name, Color color, Size size, Double price) {
         super(name, color, size, price);
     }
-    public Strawberry(){}
+
+    public Strawberry() {
+    }
 
     @Override
     protected Object clone() throws CloneNotSupportedException {
         Strawberry strawberry = new Strawberry(this.name, this.color, this.size, this.price);
         return strawberry;
     }
+
     public String getName() {
         return name;
     }
+
     public Color getColor() {
         return color;
     }

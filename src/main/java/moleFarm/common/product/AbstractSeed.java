@@ -1,8 +1,7 @@
 package moleFarm.common.product;
 
-import moleFarm.common.status.Color;
-import moleFarm.common.status.Size;
-import moleFarm.pattern.adapter.Target;
+import moleFarm.common.status.product.Color;
+import moleFarm.common.status.product.Size;
 
 import java.util.Objects;
 
@@ -13,9 +12,9 @@ public abstract class AbstractSeed implements IProduct {
     /**
      * 名字
      */
-    protected  String name;
+    protected String name;
     /**
-    颜色
+     * 颜色
      */
     protected Color color;
     /**
@@ -32,9 +31,12 @@ public abstract class AbstractSeed implements IProduct {
     protected Double price;
 
 
-    protected AbstractSeed(){}
+    protected AbstractSeed() {
+    }
+
     /**
      * 构造方法
+     *
      * @param name
      * @param color
      * @param size
@@ -48,9 +50,10 @@ public abstract class AbstractSeed implements IProduct {
         this.growthCycle = growthCycle;
         this.price = price;
     }
+
     @Override
     public boolean equals(Object obj) {
-        return obj.getClass()==this.getClass();
+        return obj.getClass() == this.getClass();
     }
 
     @Override

@@ -1,19 +1,19 @@
 package moleFarm.common.product.crops;
 
 import moleFarm.common.product.AbstractCrops;
-import moleFarm.common.status.Color;
-import moleFarm.common.status.Size;
+import moleFarm.common.status.product.Color;
+import moleFarm.common.status.product.Size;
 
 /**
  * 白菜🥦
  */
-public class Cabbage extends AbstractCrops implements Cloneable{
+public class Cabbage extends AbstractCrops implements Cloneable {
     /**
      * 名字
      */
     private final String name = "白菜\uD83E\uDD66";
     /**
-     颜色
+     * 颜色
      */
     private final Color color = Color.GREEN;
     /**
@@ -23,7 +23,7 @@ public class Cabbage extends AbstractCrops implements Cloneable{
     /**
      * 价格
      */
-   private final Double price = 10.0;
+    private final Double price = 10.0;
 
     /**
      * 构造方法
@@ -36,12 +36,16 @@ public class Cabbage extends AbstractCrops implements Cloneable{
     private Cabbage(String name, Color color, Size size, Double price) {
         super(name, color, size, price);
     }
-    public Cabbage(){}
+
+    public Cabbage() {
+    }
+
     @Override
     public Object clone() throws CloneNotSupportedException {
         Cabbage cabbage = new Cabbage(this.name, this.color, this.size, this.price);
         return cabbage;
     }
+
     public Color getColor() {
         return color;
     }

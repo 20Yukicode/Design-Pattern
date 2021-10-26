@@ -1,19 +1,19 @@
 package moleFarm.common.product.crops;
 
 import moleFarm.common.product.AbstractCrops;
-import moleFarm.common.status.Color;
-import moleFarm.common.status.Size;
+import moleFarm.common.status.product.Color;
+import moleFarm.common.status.product.Size;
 
 /**
  * 西瓜🍉
  */
-public class Watermelon extends AbstractCrops implements Cloneable{
+public class Watermelon extends AbstractCrops implements Cloneable {
     /**
      * 名字
      */
-    private final   String name = "西瓜\uD83C\uDF49";
+    private final String name = "西瓜\uD83C\uDF49";
     /**
-     颜色
+     * 颜色
      */
     private final Color color = Color.GREEN;
     /**
@@ -45,9 +45,11 @@ public class Watermelon extends AbstractCrops implements Cloneable{
         Watermelon watermelon = new Watermelon(this.name, this.color, this.size, this.price);
         return watermelon;
     }
+
     public String getName() {
         return name;
     }
+
     public Color getColor() {
         return color;
     }

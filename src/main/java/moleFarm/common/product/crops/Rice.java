@@ -1,19 +1,19 @@
 package moleFarm.common.product.crops;
 
 import moleFarm.common.product.AbstractCrops;
-import moleFarm.common.status.Color;
-import moleFarm.common.status.Size;
+import moleFarm.common.status.product.Color;
+import moleFarm.common.status.product.Size;
 
 /**
  * 水稻🌾
  */
-public class Rice extends AbstractCrops implements Cloneable{
+public class Rice extends AbstractCrops implements Cloneable {
     /**
      * 名字
      */
     private final String name = "水稻\uD83C\uDF3E";
     /**
-     颜色
+     * 颜色
      */
     private final Color color = Color.BROWN;
     /**
@@ -43,12 +43,14 @@ public class Rice extends AbstractCrops implements Cloneable{
     @Override
     protected Object clone() throws CloneNotSupportedException {
 //        Rice rice = new Rice(this.name, this.color, this.size, this.price);
-        Rice rice=new Rice();
+        Rice rice = new Rice();
         return rice;
     }
+
     public String getName() {
         return name;
     }
+
     public Color getColor() {
         return color;
     }

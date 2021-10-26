@@ -1,4 +1,4 @@
-package moleFarm.common.status;
+package moleFarm.common.status.product;
 
 /**
  * 大小

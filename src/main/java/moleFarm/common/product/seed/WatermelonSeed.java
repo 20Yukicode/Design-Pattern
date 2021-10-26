@@ -1,19 +1,19 @@
 package moleFarm.common.product.seed;
 
 import moleFarm.common.product.AbstractSeed;
-import moleFarm.common.status.Color;
-import moleFarm.common.status.Size;
+import moleFarm.common.status.product.Color;
+import moleFarm.common.status.product.Size;
 
 /**
  * 西瓜种子
  */
-public class WatermelonSeed extends AbstractSeed implements Cloneable{
+public class WatermelonSeed extends AbstractSeed implements Cloneable {
     /**
      * 名字
      */
-    private   final String name = "西瓜种子";
+    private final String name = "西瓜种子";
     /**
-     颜色
+     * 颜色
      */
     private final Color color = Color.BLACK;
     /**
@@ -28,7 +28,10 @@ public class WatermelonSeed extends AbstractSeed implements Cloneable{
      * 价格
      */
     private final Double price = 5.0;
-    public WatermelonSeed(){}
+
+    public WatermelonSeed() {
+    }
+
     /**
      * 构造方法
      *
@@ -48,6 +51,7 @@ public class WatermelonSeed extends AbstractSeed implements Cloneable{
         WatermelonSeed watermelonSeed = new WatermelonSeed(this.name, this.color, this.size, this.growthCycle, this.price);
         return watermelonSeed;
     }
+
     public String getName() {
         return name;
     }
