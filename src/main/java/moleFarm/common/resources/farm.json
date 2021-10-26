@@ -17,16 +17,16 @@
       "WheatSeed"
     ],
     "farmTool": [
-      "铲子",
-      "锄头",
-      "浇水壶",
-      "镰刀",
-      "农药"
+      "Shovel",
+      "Hoe",
+      "Pesticide",
+      "Sickle",
+      "WateringCan"
     ],
     "fertilizer": [
-      "初级肥料",
-      "中级肥料",
-      "高级肥料"
+      "AdvancedFertilizer",
+      "MiddleFertilizer",
+      "PrimaryFertilizer"
     ]
   }
 }
