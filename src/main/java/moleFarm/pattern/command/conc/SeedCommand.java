@@ -11,17 +11,14 @@ import moleFarm.common.utils.MyException;
  */
 public class SeedCommand {
     //命令接收方，商店
-    private Shop shop;
+    private Shop shop = Shop.newInstance();
     //命令发送方，仓库
     private MoleFarmWarehouse moleFarmWarehouse;
 
-    public SeedCommand(){
-        shop = new Shop();
-    }
     //商店接收命令，为仓库买入种子
-    public void execute(AbstractSeed seed,int num){
+    public void execute(AbstractSeed seed, int num) {
         try {
-            shop.buySeeds(seed,num);
+            shop.buySeeds(seed, num);
         } catch (MyException e) {
             e.printStackTrace();
         }

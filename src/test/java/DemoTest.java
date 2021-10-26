@@ -1,7 +1,9 @@
 import com.alibaba.fastjson.JSONObject;
 import moleFarm.MoleFarmWarehouse;
+import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.utils.JsonOp;
+import moleFarm.pattern.factory.conc.CropsFactory;
 
 import java.util.*;
 
@@ -16,8 +18,11 @@ public class DemoTest {
     }
 
     public static void main(String[] args) throws Exception {
+        String text = "草莓";
         JSONObject jsonObject = JsonOp.searchMapper();
-        System.out.println(jsonObject.get("高级肥料"));
+        AbstractCrops crops = CropsFactory.newInstance().create((String) jsonObject.get(text));
+        System.out.println(crops.getName());
+
 
         Set<String> he = new HashSet<>();
         List<String> arr = new ArrayList<>(Arrays.asList("123", "456", "123"));
