@@ -1,6 +1,5 @@
 package moleFarm.pattern.command.conc;
 
-import moleFarm.MoleFarmWarehouse;
 import moleFarm.Shop;
 import moleFarm.common.product.AbstractSeed;
 
@@ -12,11 +11,7 @@ public class SeedCommand {
     /**
      * 命令接收方，商店
      */
-    private Shop shop = Shop.newInstance();
-    /**
-     * 命令发送方，仓库
-     */
-    private MoleFarmWarehouse moleFarmWarehouse;
+    private Shop shop = Shop.getInstance();
 
     /**
      * 商店接收命令，为仓库买入种子

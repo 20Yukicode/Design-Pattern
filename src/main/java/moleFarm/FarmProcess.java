@@ -7,11 +7,9 @@ import moleFarm.common.exception.product.conc.SeedNotFoundException;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.product.IProduct;
-import moleFarm.common.product.seed.CabbageSeed;
 import moleFarm.common.utils.JsonOp;
 import moleFarm.pattern.adapter.Mole;
 import moleFarm.pattern.adapter.conc.WeatherAdapter;
-import moleFarm.pattern.builder.Builder;
 import moleFarm.pattern.builder.Director;
 import moleFarm.pattern.builder.conc.ConcreteBuilder1;
 import moleFarm.pattern.builder.conc.ConcreteBuilder2;
@@ -31,17 +29,17 @@ public class FarmProcess {
     /*
     农田
      */
-    private static MoleFarm farm = MoleFarm.newInstance();
+    private static MoleFarm farm = Home.farm;
     //仓库
-    private static MoleFarmWarehouse warehouse = MoleFarmWarehouse.newInstance();
+    private static MoleFarmWarehouse warehouse = Home.farmWarehouse;
     /*
     摩尔角色
      */
-    private static Mole mole = Mole.getMoleInstance();
+    private static Mole mole = Home.mole;
     /*
         商店
          */
-    private static Shop shop = Shop.newInstance();
+    private static Shop shop = Home.shop;
     /*
     具体工厂，负责生产种子/作物/肥料
      */
@@ -72,7 +70,7 @@ public class FarmProcess {
                     System.out.println("请输入1选择普通种植，输入2选择一键种植(种植+低级肥料)，输入3选择超级一键种植(种植+高级肥料+松土)");
                     String way = input.next();
                     try {
-                        switch (way){
+                        switch (way) {
                             case "1":
                                 FarmGrowth.plantSeed(seedName, block);
                                 break;

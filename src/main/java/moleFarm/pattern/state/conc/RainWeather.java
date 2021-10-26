@@ -19,4 +19,9 @@ public class RainWeather implements Weather {
             statusList.removeIf(s -> s.equals(FarmBlockStatus.DROUGHT));
         }
     }
+
+    @Override
+    public void disinsection(MoleFarm moleFarm) {
+
+    }
 }

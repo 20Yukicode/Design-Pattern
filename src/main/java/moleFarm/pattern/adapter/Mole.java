@@ -1,5 +1,7 @@
 package moleFarm.pattern.adapter;
 
+import moleFarm.Home;
+
 /**
  * 摩尔角色类
  */
@@ -9,9 +11,9 @@ public class Mole {
      */
     private Double money;
 
-    private static Mole mole = new Mole();
+    private static Mole mole = Home.mole;
 
-    public static Mole getMoleInstance() {
+    public static Mole getInstance() {
         return mole;
     }
 

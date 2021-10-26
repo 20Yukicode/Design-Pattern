@@ -11,13 +11,13 @@ import moleFarm.common.product.AbstractSeed;
  */
 public class Shop {
 
-    private MoleFarmWarehouse moleFarmWarehouse = MoleFarmWarehouse.newInstance();
+    private MoleFarmWarehouse moleFarmWarehouse = Home.farmWarehouse;
 
     //关联商店与仓库
     private Shop() {
     }
 
-    public static Shop newInstance() {
+    public static Shop getInstance() {
         return new Shop();
     }
 

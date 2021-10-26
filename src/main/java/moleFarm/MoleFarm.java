@@ -35,7 +35,7 @@ public class MoleFarm implements IFarm {
 
     private static volatile MoleFarm moleFarm = new MoleFarm();
 
-    public static synchronized MoleFarm newInstance() {
+    public static synchronized MoleFarm getInstance() {
         return moleFarm;
     }
 
@@ -86,7 +86,7 @@ public class MoleFarm implements IFarm {
         //寻找空地，一键播种
         for (MoleFarmBlock item : farmBlockList) {
             if (item.getSeed() == null) {
-                if(!FarmGrowth.plantSeed(name, item))break;
+                if (!FarmGrowth.plantSeed(name, item)) break;
             }
         }
         System.out.println("批量播种结束");

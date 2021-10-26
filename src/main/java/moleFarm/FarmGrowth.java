@@ -24,7 +24,7 @@ public class FarmGrowth {
     private static final SeedFactory seedFactory = SeedFactory.newInstance();
     private static final FertilizerFactory fertilizerFactory = FertilizerFactory.newInstance();
     private static final CropsFactory cropsFactory = CropsFactory.newInstance();
-    private static MoleFarmWarehouse moleFarmWarehouse = MoleFarmWarehouse.newInstance();
+    private static MoleFarmWarehouse moleFarmWarehouse = Home.farmWarehouse;
     private static final Map<String, String> map = JsonOp.searchMapper();
 
     public FarmGrowth() {
@@ -42,7 +42,7 @@ public class FarmGrowth {
         } else {
             List<AbstractSeed> seeds = Collections.singletonList(seed);
             //仓库提供种子，调用职责链模式
-            if(moleFarmWarehouse.provideItemToMole(seeds)){
+            if (moleFarmWarehouse.provideItemToMole(seeds)) {
                 System.out.println("正在播种" + seed.getName() + "...");
                 farmBlock.setSeed(seed);
                 //设置生长周期

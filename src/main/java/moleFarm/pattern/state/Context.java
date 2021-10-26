@@ -5,7 +5,8 @@ import moleFarm.MoleFarm;
 public class Context {
     private Weather weather;
 
-    private MoleFarm moleFarm = MoleFarm.newInstance();
+    private MoleFarm moleFarm = MoleFarm.getInstance();
+
 
     public Context(Weather weather) {
         this.weather = weather;
@@ -22,5 +23,9 @@ public class Context {
 
     public void watering() {
         weather.watering(moleFarm);
+    }
+
+    public void disinsection() {
+        weather.disinsection(moleFarm);
     }
 }

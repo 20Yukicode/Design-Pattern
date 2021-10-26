@@ -27,7 +27,7 @@ import java.util.Map;
  * implements IFarmWareHouse
  */
 public class MoleFarmWarehouse implements IFarmWareHouse {
-    private Mole mole = Mole.getMoleInstance();
+    private Mole mole = Mole.getInstance();
     /**
      * 种子存储
      */
@@ -48,6 +48,7 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
     protected WateringCan wateringCan = WateringCan.newInstance();
 
     protected Pesticide pesticide = Pesticide.newInstance();
+
     protected Shovel shovel = Shovel.newInstance();
 
     private MoleFarmWarehouse() {
@@ -70,7 +71,7 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
 
     private static volatile MoleFarmWarehouse moleFarmWarehouse = new MoleFarmWarehouse();
 
-    public static synchronized MoleFarmWarehouse newInstance() {
+    public static synchronized MoleFarmWarehouse getInstance() {
         return moleFarmWarehouse;
     }
 

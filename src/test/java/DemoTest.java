@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DemoTest {
-    static MoleFarmWarehouse moleFarmWarehouse = MoleFarmWarehouse.newInstance();
+    static MoleFarmWarehouse moleFarmWarehouse = MoleFarmWarehouse.getInstance();
     static Map<AbstractFertilizer, Integer> map = new HashMap<>();
 
     public static void contains(String... name) {

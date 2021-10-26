@@ -1,6 +1,6 @@
 package moleFarm.pattern.command.conc;
 
-import moleFarm.MoleFarmWarehouse;
+import moleFarm.Home;
 import moleFarm.Shop;
 import moleFarm.common.product.AbstractFertilizer;
 
@@ -12,12 +12,8 @@ public class FertilizerCommand {
     /**
      * 命令接收方，商店
      */
-    private Shop shop = Shop.newInstance();
-    /**
-     * 命令发送方，仓库
-     */
+    private Shop shop = Home.shop;
 
-    private MoleFarmWarehouse moleFarmWarehouse;
 
     /**
      * 商店接收命令，为仓库买入肥料
