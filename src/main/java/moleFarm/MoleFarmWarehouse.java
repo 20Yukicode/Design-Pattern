@@ -177,16 +177,28 @@ public class MoleFarmWarehouse implements IFarmWareHouse {
 
     @Override
     public boolean buySeeds(AbstractSeed seed, int num) {
+        if(num<=0){
+            System.out.println("请输入正确的数量！");
+            return false;
+        }
         return buyObject(seed, num, "getSeedMap");
     }
 
     @Override
     public boolean buyFertilizer(AbstractFertilizer fertilizer, int num) {
+        if(num<=0){
+            System.out.println("请输入正确的数量！");
+            return false;
+        }
         return buyObject(fertilizer, num, "getFertilizerMap");
     }
 
     @Override
     public boolean sellCrops(AbstractCrops crops, int num) {
+        if(num<=0){
+            System.out.println("请输入正确的数量！");
+            return false;
+        }
         //计算仓库存量
         int left = this.getCropsMap().get(crops);
         boolean result = left >= num;
