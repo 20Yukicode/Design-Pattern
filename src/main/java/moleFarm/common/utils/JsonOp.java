@@ -12,6 +12,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public class JsonOp {
+    private static String commonPath = "src/main/java/";
+
     /**
      * 通过路径读取json文件，返回jsonobject对象
      *
@@ -26,7 +28,7 @@ public class JsonOp {
 
     public static Map<String, String> searchMapper() {
         try {
-            String jsonPath = "src/main/java/moleFarm/common/resources/mapper.json";
+            String jsonPath = commonPath + "moleFarm/common/resources/mapper.json";
             JSONObject json = getJson(jsonPath);
             String s = json.toJSONString();
             return (Map<String, String>) JSON.parseObject(s, Map.class);
@@ -44,7 +46,7 @@ public class JsonOp {
      */
     public static List<String> SearchJson(ProductType productType) {
         String text = productType.getText();
-        String jsonPath = "src/main/java/moleFarm/common/resources/farm.json";
+        String jsonPath = commonPath + "moleFarm/common/resources/farm.json";
         List<String> list = null;
         try {
             JSONObject json = getJson(jsonPath);
@@ -65,7 +67,7 @@ public class JsonOp {
      * @return
      */
     public static String utilSearchJson(String name, String fileName, String... difference) {
-        String jsonPath = "src/main/java/moleFarm/common/resources/" + fileName + ".json";
+        String jsonPath = commonPath + "moleFarm/common/resources/" + fileName + ".json";
         int size = difference.length;
         try {
             JSONObject json = getJson(jsonPath);
