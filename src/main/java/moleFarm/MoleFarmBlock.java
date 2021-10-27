@@ -108,7 +108,7 @@ public class MoleFarmBlock implements IFarmBlock {
      * 获取农田块信息
      */
     public void getInfo() {
-        String seedInfo = seed == null ? "抱歉，该农田块上暂未种植作物" : ("作物" + seed.getName());
+        String seedInfo = seed == null ? "抱歉，该农田块上暂未种植作物" : ("作物：" + seed.getName());
         StringBuilder statusInfo = new StringBuilder("状态：");
         StringBuilder growthInfo = new StringBuilder("生长周期：");
         if (statusList == null || statusList.size() == 0) {

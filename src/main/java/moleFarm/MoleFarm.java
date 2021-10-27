@@ -6,6 +6,7 @@ import moleFarm.common.exception.product.conc.SeedNotFoundException;
 import moleFarm.common.product.AbstractCrops;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.status.product.Shape;
+import moleFarm.common.utils.JsonOp;
 import moleFarm.pattern.factory.conc.CropsFactory;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 
@@ -16,6 +17,7 @@ import java.util.*;
  * implements IFarm
  */
 public class MoleFarm implements IFarm {
+    private static final Map<String, String> mapJson = JsonOp.searchMapper();
     /**
      * 农田块数量
      */
@@ -107,15 +109,15 @@ public class MoleFarm implements IFarm {
      */
     @Override
     public List<AbstractCrops> harvestCrops() {
-        List<AbstractCrops> cropsList = null;
+        List<AbstractCrops> cropsList = new ArrayList<>();
         for (MoleFarmBlock item : farmBlockList) {
             AbstractCrops crops = null;
-            if (item.getSeedStatus() != null && item.getSeedStatus() == 6) {
+            if (item.getSeedStatus() != null && item.getSeedStatus() >= 6) {
+                String name = item.getSeed().getName().replace("种子","");
                 item.setSeed(null);
-                String name = item.getSeed().getName();
                 CropsFactory cropsFactory = CropsFactory.newInstance();
                 try {
-                    crops = cropsFactory.create(name.replace("Seed", ""));
+                    crops = cropsFactory.create(mapJson.get(name));
                 } catch (CropsNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -124,8 +126,9 @@ public class MoleFarm implements IFarm {
                 cropsList.add(crops);
             }
         }
-        if (cropsList == null) {
+        if (cropsList.size()==0) {
             System.out.println("抱歉，暂无成熟作物可收获");
+            return null;
         } else {
             Map<AbstractCrops, Integer> map = new HashMap<>();
             for (AbstractCrops crop : cropsList) {
