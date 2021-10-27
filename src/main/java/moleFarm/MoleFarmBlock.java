@@ -53,7 +53,7 @@ public class MoleFarmBlock implements IFarmBlock {
         Double random = (Double)Math.floor(Math.random() * 4);
         for (FarmBlockStatus value : FarmBlockStatus.values()) {
             if (random.intValue()  == value.ordinal()) {
-                statusList.add(value);
+                if(!statusList.contains(value))statusList.add(value);
             }
         }
     }
@@ -112,7 +112,7 @@ public class MoleFarmBlock implements IFarmBlock {
         if (statusList == null || statusList.size() == 0) statusInfo = "状态：正常";
         else {
             for (FarmBlockStatus i : statusList) {
-                statusInfo += i.getText() + "\t";
+                statusInfo += i.getText() + "  ";
             }
         }
         if (seed != null && seedStatus != null){
