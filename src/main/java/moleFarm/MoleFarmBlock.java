@@ -6,8 +6,8 @@ import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.common.status.SeedStatus;
 import moleFarm.common.status.product.Shape;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class MoleFarmBlock implements IFarmBlock {
     /**
@@ -31,32 +31,8 @@ public class MoleFarmBlock implements IFarmBlock {
     /**
      * 农田块状态列表
      */
-    private List<FarmBlockStatus> statusList = new ArrayList<>();
+    private Set<FarmBlockStatus> statusList = new LinkedHashSet<>();
 
-    /**
-     * 作物生长方法
-     * 采用随机方法
-     */
-    private void growth(){
-        //随机增加生长周期(0~2)
-        Double growth = (Double)Math.floor(Math.random() * 3);
-        Integer seedStatus = getSeedStatus()+growth.intValue();
-        setSeedStatus(seedStatus>7?7:seedStatus);
-    }
-
-    /**
-     * 增加农田状态
-     * 随机
-     */
-    private void addStatus(){
-        //0~2随机增加状态，3不增加异常状态
-        Double random = (Double)Math.floor(Math.random() * 4);
-        for (FarmBlockStatus value : FarmBlockStatus.values()) {
-            if (random.intValue()  == value.ordinal()) {
-                if(!statusList.contains(value))statusList.add(value);
-            }
-        }
-    }
 
     public Shape getShape() {
         return shape;
@@ -82,11 +58,11 @@ public class MoleFarmBlock implements IFarmBlock {
         this.seedStatus = seedStatus;
     }
 
-    public List<FarmBlockStatus> getStatusList() {
+    public Set<FarmBlockStatus> getStatusList() {
         return statusList;
     }
 
-    public void setStatusList(List<FarmBlockStatus> statusList) {
+    public void setStatusList(Set<FarmBlockStatus> statusList) {
         this.statusList = statusList;
     }
 
@@ -102,23 +78,48 @@ public class MoleFarmBlock implements IFarmBlock {
     }
 
     /**
+     * 作物生长方法
+     * 采用随机方法
+     */
+    public void growth() {
+        //随机增加生长周期(0~2)
+        Double growth = Math.floor(Math.random() * 3);
+        Integer seedStatus = getSeedStatus() + growth.intValue();
+        setSeedStatus(seedStatus > 7 ? 7 : seedStatus);
+    }
+
+    /**
+     * 增加农田状态
+     * 随机
+     */
+    public void addStatus() {
+        //0~2随机增加状态，3不增加异常状态
+        Double random = Math.floor(Math.random() * 3);
+        FarmBlockStatus value = FarmBlockStatus.values()[random.intValue()];
+        statusList.add(value);
+//        for (FarmBlockStatus value : FarmBlockStatus.values()) {
+//            if (random.intValue() == value.ordinal()) {
+//                if (!statusList.contains(value)) statusList.add(value);
+//            }
+//        }
+    }
+
+    /**
      * 获取农田块信息
      */
     public void getInfo() {
         String seedInfo = seed == null ? "抱歉，该农田块上暂未种植作物" : ("作物" + seed.getName());
-        String statusInfo = "状态：";
-        String growthInfo = "生长周期：";
-        addStatus();
-        if (statusList == null || statusList.size() == 0) statusInfo = "状态：正常";
-        else {
+        StringBuilder statusInfo = new StringBuilder("状态：");
+        StringBuilder growthInfo = new StringBuilder("生长周期：");
+        if (statusList == null || statusList.size() == 0) {
+            statusInfo.append("正常");
+        } else {
             for (FarmBlockStatus i : statusList) {
-                statusInfo += i.getText() + "  ";
+                statusInfo.append(i.getText()).append("  ");
             }
         }
-        if (seed != null && seedStatus != null){
-            //作物随机生长
-            growth();
-            growthInfo += SeedStatus.getSeedStatusByNum(seedStatus).getText() + "期";
+        if (seed != null && seedStatus != null) {
+            growthInfo.append(SeedStatus.getSeedStatusByNum(seedStatus).getText()).append("期");
         }
         System.out.println(seedInfo);
         System.out.println(statusInfo);

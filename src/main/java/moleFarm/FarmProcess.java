@@ -143,6 +143,7 @@ public class FarmProcess {
      */
     public void farmProcess(String str2) {
         Scanner input = new Scanner(System.in);
+        boolean sign = true;
         while (true) {
             //批量操作
             if ("b".equals(str2)) {
@@ -173,6 +174,14 @@ public class FarmProcess {
                 //获取具体农田块对象
                 FarmIterator iterator = farm.getIterator();
                 MoleFarmBlock block = iterator.getByIndex(index);
+                if (sign) {
+                    block.addStatus();
+                    sign = false;
+                    if (block.getSeed() != null && block.getSeedStatus() != null) {
+                        //作物随机生长
+                        block.growth();
+                    }
+                }
                 //控制台输出农田块信息
                 block.getInfo();
                 System.out.println("请选择：0——返回上级，1——种植作物，2——收获作物，3——浇水，4——除草，5——除虫，6——施肥，7——铲除作物");

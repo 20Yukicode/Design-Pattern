@@ -6,7 +6,7 @@ import moleFarm.common.status.FarmBlockStatus;
 import moleFarm.pattern.iterator.conc.FarmIterator;
 import moleFarm.pattern.state.Weather;
 
-import java.util.List;
+import java.util.Set;
 
 public class RainWeather implements Weather {
     @Override
@@ -14,7 +14,7 @@ public class RainWeather implements Weather {
         FarmIterator iterator = moleFarm.getIterator();
         while (iterator.hasNext()) {
             MoleFarmBlock next = iterator.next();
-            List<FarmBlockStatus> statusList = next.getStatusList();
+            Set<FarmBlockStatus> statusList = next.getStatusList();
             //如果存在干旱状态，就把它去掉
             statusList.removeIf(s -> s.equals(FarmBlockStatus.DROUGHT));
         }
