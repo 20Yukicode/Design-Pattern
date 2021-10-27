@@ -103,12 +103,17 @@ public class FarmGrowth {
         if (fertilizer == null) {
             System.out.println("请输入正确的肥料名称噢");
         } else if (farmBlock.getSeed() != null && farmBlock.getSeedStatus() != null && farmBlock.getSeedStatus() < 6) {
+            Map<AbstractFertilizer, Integer> fertilizerMap = moleFarmWarehouse.getFertilizerMap();
+            int oriNum = fertilizerMap.get(fertilizer);
+            if(oriNum<=0){
+                System.out.println("抱歉，该肥料暂无库存");
+                return;
+            }
             System.out.println("正在用" + fertilizer.getName() + "施肥...");
             Integer remainNum = moleFarmWarehouse.getFertilizerMap().get(fertilizer);
             remainNum -= 1;
             //设置新的数量
             moleFarmWarehouse.getFertilizerMap().put(fertilizer, remainNum);
-
             int status = farmBlock.getSeedStatus();
             Integer integer = fertilizer.fertilizerBehavior(status);
             //设置新的状态
@@ -161,10 +166,16 @@ public class FarmGrowth {
                     SeedStatus.getSeedStatusByNum(farmBlock.getSeedStatus()).getText() + "期，请过一段时间后再来收获"
             );
         } else {
+            String name = farmBlock.getSeed().getName().replace("种子", "");
             farmBlock.setSeed(null);
-            String name = farmBlock.getSeed().getName();
             try {
-                return cropsFactory.create(name.replace("Seed", ""));
+                AbstractCrops crops = cropsFactory.create(map.get(name));
+                if(crops==null)return crops;
+                System.out.println("成功收获一株"+name+"，正在将其运往仓库...");
+                Map<AbstractCrops, Integer> cropsMap = moleFarmWarehouse.getCropsMap();
+                int oriNum = cropsMap.get(crops);
+                cropsMap.put(crops,oriNum+1);
+                return crops;
             } catch (CropsNotFoundException e) {
                 e.printStackTrace();
             }

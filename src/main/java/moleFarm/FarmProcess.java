@@ -7,6 +7,7 @@ import moleFarm.common.exception.product.conc.SeedNotFoundException;
 import moleFarm.common.product.AbstractFertilizer;
 import moleFarm.common.product.AbstractSeed;
 import moleFarm.common.product.IProduct;
+import moleFarm.common.product.fertilizer.AdvancedFertilizer;
 import moleFarm.common.utils.JsonOp;
 import moleFarm.pattern.adapter.Mole;
 import moleFarm.pattern.adapter.conc.WeatherAdapter;
@@ -118,9 +119,12 @@ public class FarmProcess {
                 } else if (block.getSeedStatus() == 6 || block.getSeedStatus() == 7) {
                     System.out.println("作物已经成熟，请立即收获");
                 } else {
-                    System.out.println("请选择肥料:(高级/中级/低级肥料)");
-                    String fertilizerName = input.next();
                     try {
+                        System.out.println("请选择肥料：高级肥料(库存："+warehouse.getFertilizerMap().get(fertilizerFactory.create(
+                                "AdvancedFertilizer"))+")，中级肥料(库存："+warehouse.getFertilizerMap().get(fertilizerFactory.create(
+                                "MiddleFertilizer"))+")，初级肥料(库存："+warehouse.getFertilizerMap().get(fertilizerFactory.create(
+                                "PrimaryFertilizer"))+")");
+                        String fertilizerName = input.next();
                         FarmGrowth.applyFertilizer(fertilizerName, block);
                     } catch (FertilizerNotFoundException e) {
                         System.out.println(e.getMessage());
